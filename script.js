@@ -156,3 +156,26 @@ document.addEventListener('keydown', event => {
     event.preventDefault();
   }
 });
+
+// --- DINAMIK PARÇALI YAPI (COMPONENT) YÜKLEME FONKSİYONLARI ---
+async function loadComponent(elementId, filePath) {
+  try {
+    const response = await fetch(filePath);
+    if (response.ok) {
+      const text = await response.text();
+      const element = document.getElementById(elementId);
+      if (element) element.innerHTML = text;
+    }
+  } catch (error) {
+    console.error(filePath + " yüklenirken hata oluştu.");
+  }
+}
+
+function loadAllComponents() {
+  loadComponent("header-placeholder", "header.html");
+  loadComponent("footer-placeholder", "footer.html");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadAllComponents();
+});
