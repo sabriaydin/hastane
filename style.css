@@ -1,42 +1,52 @@
-/* SIFIRLAMA VE TEMEL AYARLAR */
+/* GLOBAL AYARLAR VE SIFIRLAMA */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  border-radius: 4px !important; /* Daha yumuşak, profesyonel köşeler */
-  box-shadow: none !important;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
 }
 
 body {
-  background-color: #f8fafc;
-  color: #334155;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: #f1f5f9; /* Mat açık gri/kül arka plan */
+  color: #1e293b;
   min-height: 100vh;
 }
 
-.hidden { display: none !important; }
+.hidden {
+  display: none !important;
+}
 
-/* GİRİŞ EKRANI TASARIMI */
+/* 1. GİRİŞ EKRANI (INDEX.HTML) - YÜKSEK KONTRASTLI HİBRİT TEMA */
+body:not(.dashboard-body) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 45%, #f1f5f9 45%, #e2e8f0 100%);
+}
+
 .login-wrapper {
   width: 100%;
-  max-width: 450px;
+  max-width: 440px;
   background: #ffffff;
   border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.08);
 }
 
 .login-header {
-  background: #0f172a;
+  background: #0f172a; /* Koyu antrasit */
   color: #f8fafc;
-  padding: 20px 20px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  padding: 24px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: center;
+  border-bottom: 1px solid #334155;
 }
 
 .login-body {
-  padding: 30px;
+  padding: 32px;
 }
 
 .input-row {
@@ -45,338 +55,261 @@ body {
 
 .input-row label {
   display: block;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
   margin-bottom: 8px;
-  color: #475569;
+  color: #64748b;
   letter-spacing: 0.5px;
 }
 
 input[type="text"], 
 input[type="password"] {
   width: 100%;
-  padding: 12px;
+  padding: 12px 16px;
   border: 1px solid #cbd5e1;
-  background: #f1f5f9;
-  font-size: 15px;
-  transition: border-color 0.2s;
+  background: #f8fafc;
+  color: #0f172a;
+  font-size: 14px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
 }
 
 input[type="text"]:focus, 
 input[type="password"]:focus {
-  border-color: #64748b;
-  outline: none;
+  border-color: #475569;
   background: #ffffff;
+  outline: none;
 }
 
-/* BUTONLAR */
+/* BUTONLAR VE AKSİYONLAR */
 button {
-  background-color: #334155;
+  background-color: #0f172a;
   color: #ffffff;
-  border: 2px solid #334155;
-  padding: 12px 20px;
+  border: none;
+  padding: 12px 24px;
+  font-size: 13px;
   font-weight: 600;
+  border-radius: 6px;
   cursor: pointer;
-  text-transform: uppercase;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 
 button:hover:not(:disabled) {
-  background-color: #0f172a;
-  border-color: #0f172a;
+  background-color: #1e293b;
 }
 
-button:disabled, input:disabled {
-  background-color: #e2e8f0;
-  border-color: #cbd5e1;
+button:disabled {
+  background-color: #cbd5e1;
   color: #94a3b8;
   cursor: not-allowed;
 }
 
-.btn-outline {
-  background: transparent;
-  color: #334155;
-  border: 1px solid #334155;
-}
-
-.btn-outline:hover {
-  background: #334155;
-  color: #ffffff;
-}
-
-/* ONAY KUTUSU */
 .action-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 28px;
 }
 
 .checkbox-label {
   font-size: 12px;
   font-weight: 600;
+  color: #475569;
   display: flex;
   align-items: center;
   cursor: pointer;
-  color: #475569;
 }
 
 .checkbox-label input {
   margin-right: 8px;
   width: 16px;
   height: 16px;
-  accent-color: #334155;
+  accent-color: #0f172a;
 }
 
-/* MESAJ KUTULARI */
+/* HATA/UYARI MESAJLARI */
 .message {
-  padding: 12px;
+  padding: 12px 16px;
   margin-bottom: 20px;
   font-size: 13px;
   font-weight: 600;
-  border: 1px solid;
+  border-radius: 6px;
 }
-.message.error { background: #fef2f2; color: #991b1b; border-color: #fca5a5; }
-.message.warning { background: #fffbeb; color: #92400e; border-color: #fcd34d; }
+.message.error { background: #fef2f2; color: #991b1b; border: 1px solid #fee2e2; }
+.message.warning { background: #fffbeb; color: #92400e; border: 1px solid #fef3c7; }
 
-/* ANA SAYFA TASARIMI */
-.dashboard-body {
-  display: block;
-}
 
-.topbar {
-  background: #0f172a;
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.brand {
-  color: #ffffff;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  font-size: 18px;
-}
-
-.dashboard-container {
-  padding: 40px 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.panel {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-}
-
-.panel-header {
-  background: #f8fafc;
-  padding: 15px 20px;
-  font-weight: 600;
-  border-bottom: 1px solid #e2e8f0;
-  color: #0f172a;
-}
-
-.panel-body {
-  padding: 20px;
-  line-height: 1.6;
-}
-
-/* --------------------------------------------------------
-   SİL BAŞTAN: YATAY MENÜLÜ BLOG TEMASI
---------------------------------------------------------- */
-* {
-  border-radius: 4px !important;
-}
-
-/* GİRİŞ EKRANI */
-.login-wrapper {
-  border: 1px solid #e2e8f0 !important;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.03) !important;
-  background: #ffffff !important; 
-}
-
-.login-header {
-  background: #0f172a !important; 
-  color: #f8fafc !important; 
-  text-align: center;
-  font-family: 'Segoe UI', sans-serif !important;
-}
-
-/* BLOG ARKA PLANI VE GENEL YAPI */
+/* 2. BLOG PANEL EKRANI (DASHBOARD LAYOUT) */
 body.dashboard-body {
-  background-color: #f8fafc !important; 
-  font-family: 'Segoe UI', sans-serif !important; 
+  background-color: #f1f5f9; /* Tüm sayfa mat açık gri */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
+  min-height: 100vh;
 }
 
-/* BLOG HEADER VE MENÜ ALANI */
+/* KOYU ÜST BANT (HEADER) */
 .main-header {
-  background: #ffffff !important; 
-  padding: 40px 20px 0 20px;
-  text-align: center;
-  border-bottom: 1px solid #e2e8f0 !important; 
-  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02) !important;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: #0f172a; /* Derin antrasit koyu tema */
+  color: #ffffff;
+  padding: 24px 0 16px 0;
+  border-bottom: 4px solid #334155;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
 }
 
 .main-header .brand {
-  color: #0f172a !important; 
+  max-width: 1200px;
+  margin: 0 auto 20px auto;
+  padding: 0 20px;
+  color: #f8fafc;
+  font-size: 26px;
   font-weight: 800;
-  letter-spacing: 1px;
-  font-size: 32px; 
-  margin-bottom: 25px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
 }
 
+/* YATAY AÇILIR MENÜ (NAVBAR) */
 .nav-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 40px;
-  padding: 0;
-  margin: 0;
+  align-items: center;
+  gap: 10px;
 }
 
 .nav-menu li {
   position: relative;
-  display: inline-block;
 }
 
-.nav-menu li a, .dropbtn {
-  color: #64748b !important; 
-  font-family: 'Segoe UI', sans-serif !important; 
+.nav-menu li a, 
+.nav-menu li .dropbtn {
+  display: block;
+  color: #cbd5e1;
   text-decoration: none;
-  font-weight: 600;
   font-size: 14px;
-  text-transform: uppercase;
-  padding: 15px 10px;
-  display: inline-block;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 6px;
   transition: all 0.2s ease;
-  border-bottom: 2px solid transparent !important;
-  margin-bottom: -1px; 
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
-.nav-menu li a:hover, .dropdown:hover .dropbtn {
-  color: #0f172a !important; 
-  border-bottom: 2px solid #334155 !important; 
+.nav-menu li a:hover, 
+.nav-menu li:hover .dropbtn {
+  color: #ffffff;
+  background-color: #1e293b; /* Hafif açılan koyu ton */
 }
 
-/* AÇILIR MENÜ */
+/* AÇILIR DROPDOWN MİMARİSİ */
 .dropdown-content {
   display: none;
   position: absolute;
-  min-width: 220px;
-  z-index: 10;
   top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #ffffff !important; 
-  border: 1px solid #e2e8f0 !important; 
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05) !important;
+  left: 0;
+  background-color: #1e293b; /* Koyu açılır kutu */
+  min-width: 220px;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  padding: 8px 0;
+  margin-top: 6px;
+  z-index: 999;
 }
 
 .dropdown-content a {
-  color: #475569 !important; 
-  font-family: 'Segoe UI', sans-serif !important;
-  display: block;
-  padding: 14px 20px;
-  text-align: left;
-  border-bottom: 1px solid #f1f5f9;
-  text-transform: none;
-  font-size: 14px;
-}
-
-.dropdown-content a:last-child {
-  border-bottom: none;
+  color: #94a3b8 !important;
+  padding: 10px 18px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  border-radius: 0 !important;
+  transition: all 0.15s ease !important;
 }
 
 .dropdown-content a:hover {
-  background-color: #f8fafc !important; 
-  color: #0f172a !important; 
-  padding-left: 25px; /* Minimalist profesyonel vurgu efekti */
-  transition: padding 0.2s ease, color 0.2s ease;
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+  padding-left: 24px !important; /* Premium kayma efekti */
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-/* BLOG İÇERİK ALANI (1200PX) */
+/* İÇERİK ALANI - SİDEBARSIZ TAM 1200PX GENİŞLİK */
 .dashboard-container {
-  flex: 1;
   width: 100%;
-  max-width: 1200px; /* Sabit 1200px genişlik */
+  max-width: 1200px;
   margin: 50px auto;
   padding: 0 20px;
+  flex: 1;
 }
 
-/* İÇERİK PANELLERİ (MAKALELER GİBİ) */
+/* BLOG YAZI KARTLARI (PANEL - AÇIK/KOYU KARIŞIM) */
 .panel {
-  background: #ffffff !important; 
-  border: 1px solid #e2e8f0 !important; 
-  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02) !important;
+  background: #ffffff; /* Yazı alanı net okunurluk için beyaz */
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+  overflow: hidden;
 }
 
+/* Makale Başlığı Arka Planı Koyu Gri/Mavi Tonlama */
 .panel-header {
-  background: transparent !important; 
-  color: #0f172a !important; 
-  border-bottom: 1px solid #f1f5f9 !important; 
-  text-align: left !important; 
+  background-color: #1e293b; 
+  color: #f8fafc;
+  padding: 24px 32px;
+  font-size: 18px;
   font-weight: 700;
-  font-size: 26px !important;
-  padding: 40px 50px 20px 50px !important;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #334155;
 }
 
 .panel-body {
-  padding: 20px 50px 50px 50px !important;
-  color: #475569 !important; 
-  font-size: 16px;
+  padding: 40px 32px;
+  color: #334155;
+  font-size: 15px;
   line-height: 1.8;
-  font-family: 'Segoe UI', sans-serif !important;
 }
 
-/* ALT BİLGİ (FOOTER) */
+/* KOYU TEMA ALT BİLGİ (FOOTER) */
 .footer-panel {
-  background-color: #0f172a !important; 
-  color: #94a3b8 !important; 
+  background-color: #0f172a;
+  color: #64748b;
+  padding: 30px 20px;
   text-align: center;
-  padding: 40px 20px;
-  font-size: 14px;
-  border-top: 1px solid #1e293b !important; 
-  font-family: 'Segoe UI', sans-serif !important;
+  font-size: 13px;
+  font-weight: 500;
+  border-top: 1px solid #1e293b;
   margin-top: auto;
 }
 
+.footer-panel p {
+  margin-bottom: 10px;
+}
+
+/* SİSTEMDEN ÇIK BUTONU */
 .btn-logout-subtle {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #1e293b !important;
-  border: 1px solid #334155 !important;
-  color: #cbd5e1 !important; 
-  font-size: 12px !important;
-  font-weight: 600 !important;
-  text-transform: none !important;
+  background-color: #1e293b;
+  color: #94a3b8;
+  border: 1px solid #334155;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 4px;
   cursor: pointer;
-  padding: 8px 16px !important;
-  z-index: 9999;
   transition: all 0.2s ease;
 }
 
 .btn-logout-subtle:hover {
-  background: #0f172a !important;
-  color: #ffffff !important; 
-  border-color: #64748b !important;
+  background-color: #451a03; /* Soft koyu kızıl uyarı tonu */
+  color: #fca5a5;
+  border-color: #7f1d1d;
 }
