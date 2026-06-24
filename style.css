@@ -170,7 +170,7 @@ body.dashboard-body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-  background-color: #2d3748; /* Menü arkaplan rengi eklendi */
+  background-color: transparent;
 }
 
 .nav-menu {
