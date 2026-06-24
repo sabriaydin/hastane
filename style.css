@@ -183,47 +183,48 @@ button:disabled, input:disabled {
 }
 
 /* --------------------------------------------------------
-   SİMETRİK VE PROFESYONEL TASARIM İÇİN YENİ KURALLAR 
+   SİMETRİK VE PROFESYONEL TASARIM (RENKLENDİRİLMİŞ)
 --------------------------------------------------------- */
 * {
-  border-radius: 6px !important; /* Yumuşatılmış köşe simetrisi */
+  border-radius: 6px !important;
 }
 
-/* GİRİŞ EKRANI SİMETRİSİ */
+/* GİRİŞ EKRANI SİMETRİSİ VE RENKLERİ */
 .login-wrapper {
   border: none !important;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08) !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
 }
 
 .login-header {
-  background: #1e293b;
+  background: #0f172a; /* Çok koyu lacivert */
   text-align: center;
   font-size: 14px;
+  color: #ffffff;
 }
 
-/* PANO SAYFASI HİZALAMALARI (BODY) */
+/* PANO SAYFASI HİZALAMALARI VE ARKA PLAN (BODY) */
 body.dashboard-body {
-  background-color: #f8fafc;
+  background-color: #cbd5e1; /* Daha belirgin ve koyu bir gri arka plan */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
 }
 
-/* YENİ HEADER: MERKEZİ VE SİMETRİK */
+/* YENİ HEADER: MERKEZİ, SİMETRİK VE RENKLİ */
 .main-header {
-  background: #ffffff;
+  background: #1e293b; /* Koyu lacivert header */
   padding: 30px 20px 25px 20px;
   text-align: center;
-  border-bottom: 1px solid #e2e8f0;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.02) !important;
+  border-bottom: 4px solid #3b82f6; /* Mavi vurgu çizgisi */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .main-header .brand {
-  color: #0f172a;
+  color: #ffffff;
   font-weight: 800;
   letter-spacing: 2px;
   font-size: 22px;
@@ -239,13 +240,13 @@ body.dashboard-body {
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 40px; /* Menü elemanları arası eşit ve geniş boşluk */
+  gap: 40px; 
   padding: 0;
   margin: 0;
 }
 
 .nav-menu li a {
-  color: #64748b;
+  color: #94a3b8; /* Pasif menü elemanları için gri/mavi */
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
@@ -256,8 +257,9 @@ body.dashboard-body {
 }
 
 .nav-menu li a:hover {
-  color: #0f172a;
-  background-color: #f1f5f9;
+  color: #ffffff;
+  background-color: #334155; /* Üzerine gelindiğinde koyu kutucuk efekti */
+  border-radius: 4px;
 }
 
 /* ANA İÇERİK: MERKEZİ VE SİMETRİK PANEL */
@@ -265,37 +267,38 @@ body.dashboard-body {
   flex: 1;
   width: 100%;
   max-width: 900px;
-  margin: 50px auto; /* Sayfa ortalaması */
+  margin: 50px auto; 
   padding: 0 20px;
 }
 
 .panel {
-  background: #ffffff;
-  border: 1px solid #e2e8f0 !important;
-  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05) !important;
+  background: #ffffff; /* Sadece okunacak alan beyaz bırakıldı */
+  border: none !important;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1) !important;
+  overflow: hidden; 
 }
 
 .panel-header {
-  background: #ffffff;
-  color: #1e293b;
-  border-bottom: 1px solid #f1f5f9 !important;
+  background: #334155; /* Antrasit / Koyu gri panel başlığı */
+  color: #ffffff;
+  border-bottom: none !important;
   text-align: center;
   font-size: 16px;
   padding: 20px;
 }
 
 .panel-body {
-  padding: 40px; /* İçerikte dengeli, geniş boşluk */
+  padding: 40px; 
 }
 
 /* ALT BİLGİ (FOOTER) */
 .footer-panel {
-  background-color: #ffffff;
+  background-color: #0f172a; /* Çok koyu arka plan */
   color: #94a3b8;
   text-align: center;
   padding: 25px;
   font-size: 13px;
-  border-top: 1px solid #e2e8f0;
+  border-top: 4px solid #1e293b;
   margin-top: auto;
   position: relative;
 }
@@ -307,7 +310,7 @@ body.dashboard-body {
   right: 20px;
   background: transparent !important;
   border: none !important;
-  color: #cbd5e1 !important;
+  color: #64748b !important;
   font-size: 12px !important;
   font-weight: 500 !important;
   text-transform: none !important;
