@@ -140,7 +140,7 @@ button:disabled, input:disabled {
 
 /* ANA SAYFA TASARIMI */
 .dashboard-body {
-  display: block; /* Merkezi hizalamayı bozar, yukarıdan başlatır */
+  display: block;
 }
 
 .topbar {
@@ -188,7 +188,7 @@ body {
 }
 
 * {
-  border-radius: 4px !important; /* Katı köşeleri yumuşatır */
+  border-radius: 4px !important;
 }
 
 .login-wrapper {
@@ -196,7 +196,7 @@ body {
   box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
 }
 
-.login-header, .topbar {
+.login-header {
   background: #2c3e50;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
 }
@@ -212,37 +212,7 @@ body {
   border-bottom: none;
 }
 
-button {
-  border-radius: 4px !important;
-}
-
-/* --- YATAY MENÜ VE ALT BİLGİ (FOOTER) EK CSS KURALLARI --- */
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-menu {
-  display: flex;
-  list-style: none;
-  gap: 25px;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-menu li a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 14px;
-  transition: color 0.2s ease;
-}
-
-.nav-menu li a:hover {
-  color: #3498db;
-}
-
+/* --- YENİ DÜZELTMELER VE BAĞIMSIZ MENÜ TASARIMI --- */
 .dashboard-body {
   display: flex;
   flex-direction: column;
@@ -255,12 +225,78 @@ button {
   flex: 1;
 }
 
+.main-header {
+  background: #2c3e50;
+  padding: 20px 0 15px 0;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+}
+
+.main-header .brand {
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 22px;
+  margin-bottom: 15px; /* Başlık ile menüyü ayıran boşluk */
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu li a {
+  color: #bdc3c7;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease;
+}
+
+.nav-menu li a:hover {
+  color: #ffffff;
+}
+
 .footer-panel {
   background-color: #2c3e50;
-  color: #b0bec5;
+  color: #95a5a6;
   text-align: center;
-  padding: 15px;
+  padding: 20px;
   font-size: 13px;
   margin-top: auto;
   border-top: 1px solid #1a252f;
+  position: relative;
+}
+
+/* Göze Batmayan Sabit Çıkış Butonu */
+.btn-logout-subtle {
+  position: fixed;
+  bottom: 12px;
+  right: 15px;
+  background: transparent !important;
+  border: none !important;
+  color: #7f8c8d !important;
+  font-size: 11px !important;
+  font-weight: normal !important;
+  text-transform: none !important;
+  cursor: pointer;
+  padding: 5px 8px !important;
+  z-index: 9999;
+  opacity: 0.6;
+  transition: all 0.2s ease;
+}
+
+.btn-logout-subtle:hover {
+  color: #e74c3c !important;
+  opacity: 1;
 }
