@@ -1,163 +1,183 @@
-/* Genel Ayarlar */
+/* SIFIRLAMA VE TEMEL AYARLAR */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 0 !important; /* Tüm yuvarlak hatları iptal eder */
+  box-shadow: none !important; /* Tüm gölgeleri iptal eder */
 }
 
 body {
-  background-color: #f0f2f5;
-  color: #333;
+  background-color: #e5e7eb;
+  color: #111827;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
 
-.wrapper {
+.hidden { display: none !important; }
+
+/* GİRİŞ EKRANI TASARIMI */
+.login-wrapper {
   width: 100%;
-  max-width: 400px;
-  padding: 20px;
-}
-
-.hidden {
-  display: none !important;
-}
-
-/* Giriş Kutusu Tasarımı */
-.login-box {
+  max-width: 450px;
   background: #ffffff;
-  padding: 40px 30px;
-  border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-  text-align: center;
+  border: 2px solid #111827;
 }
 
-.login-box h2 {
-  margin-bottom: 24px;
-  color: #1a1a1a;
-  font-weight: 600;
+.login-header {
+  background: #111827;
+  color: #ffffff;
+  padding: 15px 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
-.input-group {
-  margin-bottom: 16px;
+.login-body {
+  padding: 30px;
+}
+
+.input-row {
+  margin-bottom: 20px;
+}
+
+.input-row label {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #374151;
+  letter-spacing: 0.5px;
 }
 
 input[type="text"], 
 input[type="password"] {
   width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  font-size: 15px;
-  transition: border-color 0.2s;
+  padding: 12px;
+  border: 1px solid #9ca3af;
+  background: #f9fafb;
+  font-size: 16px;
+  transition: border-color 0.1s;
 }
 
 input[type="text"]:focus, 
 input[type="password"]:focus {
-  border-color: #0056b3;
+  border-color: #111827;
   outline: none;
+  background: #ffffff;
 }
 
-/* Devre Dışı Durumları (Zaman Aşımı) */
-input:disabled, 
-button:disabled {
-  background-color: #e9ecef;
-  cursor: not-allowed;
-  opacity: 0.7;
-}
-
-.checkbox-group {
-  display: flex;
-  align-items: center;
-  margin-bottom: 24px;
-  font-size: 14px;
-  color: #555;
-}
-
-.checkbox-group input {
-  margin-right: 8px;
-}
-
+/* BUTONLAR */
 button {
-  background-color: #0d6efd;
-  color: #fff;
-  border: none;
-  padding: 12px;
-  width: 100%;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: 500;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: 2px solid #2563eb;
+  padding: 12px 20px;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.2s;
+  text-transform: uppercase;
+  transition: all 0.1s;
 }
 
 button:hover:not(:disabled) {
-  background-color: #0b5ed7;
+  background-color: #1d4ed8;
+  border-color: #1d4ed8;
 }
 
-/* Uyarı Mesajları */
-.message {
-  padding: 10px;
-  border-radius: 6px;
-  margin-bottom: 20px;
-  font-size: 14px;
+button:disabled, input:disabled {
+  background-color: #d1d5db;
+  border-color: #9ca3af;
+  color: #6b7280;
+  cursor: not-allowed;
 }
 
-.message.error {
-  background-color: #f8d7da;
-  color: #842029;
-  border: 1px solid #f5c2c7;
+.btn-outline {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
 }
 
-.message.warning {
-  background-color: #fff3cd;
-  color: #664d03;
-  border: 1px solid #ffecb5;
+.btn-outline:hover {
+  background: #ffffff;
+  color: #111827;
 }
 
-/* Yönetim Paneli Ana Sayfa Tasarımı */
-#dashboard-container {
-  max-width: 800px;
-}
-
-.dashboard-header {
+/* ONAY KUTUSU */
+.action-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #ffffff;
-  padding: 20px 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin-top: 30px;
+}
+
+.checkbox-label {
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkbox-label input {
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  accent-color: #111827;
+}
+
+/* MESAJ KUTULARI */
+.message {
+  padding: 12px;
   margin-bottom: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  border: 1px solid;
+}
+.message.error { background: #fee2e2; color: #b91c1c; border-color: #f87171; }
+.message.warning { background: #fef3c7; color: #b45309; border-color: #fbbf24; }
+
+/* ANA SAYFA TASARIMI */
+.dashboard-body {
+  display: block; /* Merkezi hizalamayı bozar, yukarıdan başlatır */
 }
 
-.dashboard-header h2 {
-  font-size: 20px;
-  color: #1a1a1a;
+.topbar {
+  background: #111827;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.logout-btn {
-  background-color: #dc3545;
-  width: auto;
-  padding: 8px 16px;
-  font-size: 14px;
+.brand {
+  color: #ffffff;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  font-size: 18px;
 }
 
-.logout-btn:hover {
-  background-color: #c82333;
+.dashboard-container {
+  padding: 40px 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.welcome-card {
+.panel {
   background: #ffffff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  line-height: 1.6;
+  border: 1px solid #d1d5db;
 }
 
-.welcome-card h3 {
-  margin-bottom: 15px;
-  color: #0d6efd;
+.panel-header {
+  background: #f3f4f6;
+  padding: 15px 20px;
+  font-weight: bold;
+  border-bottom: 1px solid #d1d5db;
+  color: #111827;
+}
+
+.panel-body {
+  padding: 20px;
+  line-height: 1.6;
 }
