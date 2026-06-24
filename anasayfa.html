@@ -16,20 +16,37 @@
 </head>
 <body class="dashboard-body">
 
-  <nav class="topbar">
-    <div class="brand">AĞ KONTROL PANELİ</div>
-    <button class="btn-outline" onclick="logout()">SİSTEMDEN ÇIK</button>
-  </nav>
+  <div id="header-placeholder"></div>
 
-  <main class="dashboard-container">
+  <main class="dashboard-container" style="width: 100%;">
+    
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-title">AKTİF CİHAZ SAYISI</div>
+        <div class="stat-value">24</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-title">AĞ TRAFİĞİ</div>
+        <div class="stat-value">1.2 GB/s</div>
+      </div>
+      <div class="stat-card alert">
+        <div class="stat-title">GÜVENLİK UYARILARI</div>
+        <div class="stat-value">0</div>
+      </div>
+    </div>
+
     <section class="panel">
       <div class="panel-header">CİHAZ KEŞİF MODÜLÜ</div>
       <div class="panel-body">
         <p>Sistem aktif. Yetkilendirme başarılı.</p>
         <p>Ağ cihazlarını ve kameraları tarayan batch betiklerinizin tetikleyici butonlarını, log çıktılarını veya aktif IP tablolarınızı bu alana yerleştirebilirsiniz.</p>
+        
+        <button class="btn-download" onclick="secureDownload('raporlar.pdf')">GİZLİ RAPORU İNDİR</button>
       </div>
     </section>
   </main>
+
+  <div id="footer-placeholder"></div>
 
   <script src="script.js"></script>
 </body>
