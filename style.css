@@ -4,13 +4,13 @@
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  border-radius: 0 !important;
+  border-radius: 4px !important; /* Daha yumuşak, profesyonel köşeler */
   box-shadow: none !important;
 }
 
 body {
-  background-color: #e5e7eb;
-  color: #111827;
+  background-color: #f8fafc;
+  color: #334155;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,15 +24,15 @@ body {
   width: 100%;
   max-width: 450px;
   background: #ffffff;
-  border: 2px solid #111827;
+  border: 1px solid #cbd5e1;
 }
 
 .login-header {
-  background: #111827;
-  color: #ffffff;
-  padding: 15px 20px;
-  font-weight: bold;
-  letter-spacing: 1px;
+  background: #0f172a;
+  color: #f8fafc;
+  padding: 20px 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .login-body {
@@ -46,9 +46,9 @@ body {
 .input-row label {
   display: block;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: 8px;
-  color: #374151;
+  color: #475569;
   letter-spacing: 0.5px;
 }
 
@@ -56,52 +56,52 @@ input[type="text"],
 input[type="password"] {
   width: 100%;
   padding: 12px;
-  border: 1px solid #9ca3af;
-  background: #f9fafb;
-  font-size: 16px;
-  transition: border-color 0.1s;
+  border: 1px solid #cbd5e1;
+  background: #f1f5f9;
+  font-size: 15px;
+  transition: border-color 0.2s;
 }
 
 input[type="text"]:focus, 
 input[type="password"]:focus {
-  border-color: #111827;
+  border-color: #64748b;
   outline: none;
   background: #ffffff;
 }
 
 /* BUTONLAR */
 button {
-  background-color: #2563eb;
+  background-color: #334155;
   color: #ffffff;
-  border: 2px solid #2563eb;
+  border: 2px solid #334155;
   padding: 12px 20px;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
   text-transform: uppercase;
-  transition: all 0.1s;
+  transition: all 0.2s;
 }
 
 button:hover:not(:disabled) {
-  background-color: #1d4ed8;
-  border-color: #1d4ed8;
+  background-color: #0f172a;
+  border-color: #0f172a;
 }
 
 button:disabled, input:disabled {
-  background-color: #d1d5db;
-  border-color: #9ca3af;
-  color: #6b7280;
+  background-color: #e2e8f0;
+  border-color: #cbd5e1;
+  color: #94a3b8;
   cursor: not-allowed;
 }
 
 .btn-outline {
   background: transparent;
-  color: #ffffff;
-  border: 1px solid #ffffff;
+  color: #334155;
+  border: 1px solid #334155;
 }
 
 .btn-outline:hover {
-  background: #ffffff;
-  color: #111827;
+  background: #334155;
+  color: #ffffff;
 }
 
 /* ONAY KUTUSU */
@@ -114,17 +114,18 @@ button:disabled, input:disabled {
 
 .checkbox-label {
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 600;
   display: flex;
   align-items: center;
   cursor: pointer;
+  color: #475569;
 }
 
 .checkbox-label input {
   margin-right: 8px;
   width: 16px;
   height: 16px;
-  accent-color: #111827;
+  accent-color: #334155;
 }
 
 /* MESAJ KUTULARI */
@@ -132,11 +133,11 @@ button:disabled, input:disabled {
   padding: 12px;
   margin-bottom: 20px;
   font-size: 13px;
-  font-weight: bold;
+  font-weight: 600;
   border: 1px solid;
 }
-.message.error { background: #fee2e2; color: #b91c1c; border-color: #f87171; }
-.message.warning { background: #fef3c7; color: #b45309; border-color: #fbbf24; }
+.message.error { background: #fef2f2; color: #991b1b; border-color: #fca5a5; }
+.message.warning { background: #fffbeb; color: #92400e; border-color: #fcd34d; }
 
 /* ANA SAYFA TASARIMI */
 .dashboard-body {
@@ -144,7 +145,7 @@ button:disabled, input:disabled {
 }
 
 .topbar {
-  background: #111827;
+  background: #0f172a;
   padding: 15px 30px;
   display: flex;
   justify-content: space-between;
@@ -153,7 +154,7 @@ button:disabled, input:disabled {
 
 .brand {
   color: #ffffff;
-  font-weight: bold;
+  font-weight: 700;
   letter-spacing: 1.5px;
   font-size: 18px;
 }
@@ -166,15 +167,15 @@ button:disabled, input:disabled {
 
 .panel {
   background: #ffffff;
-  border: 1px solid #d1d5db;
+  border: 1px solid #e2e8f0;
 }
 
 .panel-header {
-  background: #f3f4f6;
+  background: #f8fafc;
   padding: 15px 20px;
-  font-weight: bold;
-  border-bottom: 1px solid #d1d5db;
-  color: #111827;
+  font-weight: 600;
+  border-bottom: 1px solid #e2e8f0;
+  color: #0f172a;
 }
 
 .panel-body {
@@ -191,22 +192,22 @@ button:disabled, input:disabled {
 
 /* GİRİŞ EKRANI */
 .login-wrapper {
-  border: none !important;
-  box-shadow: 0 5px 25px rgba(0,0,0,0.06) !important;
-  background: #fcfcfc !important; 
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.03) !important;
+  background: #ffffff !important; 
 }
 
 .login-header {
-  background: #334155 !important; 
-  color: #f1f5f9 !important; 
+  background: #0f172a !important; 
+  color: #f8fafc !important; 
   text-align: center;
   font-family: 'Segoe UI', sans-serif !important;
 }
 
 /* BLOG ARKA PLANI VE GENEL YAPI */
 body.dashboard-body {
-  background-color: #f3f4f6 !important; 
-  font-family: 'Georgia', serif !important; /* Blog hissiyatı için tırnaklı font */
+  background-color: #f8fafc !important; 
+  font-family: 'Segoe UI', sans-serif !important; 
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -216,21 +217,22 @@ body.dashboard-body {
 /* BLOG HEADER VE MENÜ ALANI */
 .main-header {
   background: #ffffff !important; 
-  padding: 30px 20px 0 20px;
+  padding: 40px 20px 0 20px;
   text-align: center;
-  border-bottom: 2px solid #e5e7eb !important; 
-  box-shadow: 0 4px 10px rgba(0,0,0,0.02) !important;
+  border-bottom: 1px solid #e2e8f0 !important; 
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02) !important;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .main-header .brand {
-  color: #1f2937 !important; 
-  font-weight: 900;
+  color: #0f172a !important; 
+  font-weight: 800;
   letter-spacing: 1px;
-  font-size: 34px; /* Blog başlığı formunda */
-  margin-bottom: 20px;
+  font-size: 32px; 
+  margin-bottom: 25px;
+  text-transform: uppercase;
 }
 
 .nav-container {
@@ -242,7 +244,7 @@ body.dashboard-body {
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 35px;
+  gap: 40px;
   padding: 0;
   margin: 0;
 }
@@ -253,48 +255,58 @@ body.dashboard-body {
 }
 
 .nav-menu li a, .dropbtn {
-  color: #4b5563 !important; 
-  font-family: 'Segoe UI', sans-serif !important; /* Menüde modern font */
+  color: #64748b !important; 
+  font-family: 'Segoe UI', sans-serif !important; 
   text-decoration: none;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 14px;
   text-transform: uppercase;
-  padding: 10px 15px;
+  padding: 15px 10px;
   display: inline-block;
   transition: all 0.2s ease;
-  border-bottom: 3px solid transparent !important;
-  margin-bottom: -2px; 
+  border-bottom: 2px solid transparent !important;
+  margin-bottom: -1px; 
 }
 
 .nav-menu li a:hover, .dropdown:hover .dropbtn {
-  color: #2563eb !important; 
-  border-bottom: 3px solid #3b82f6 !important; 
+  color: #0f172a !important; 
+  border-bottom: 2px solid #334155 !important; 
 }
 
 /* AÇILIR MENÜ */
 .dropdown-content {
   display: none;
   position: absolute;
-  min-width: 180px;
-  z-index: 1;
+  min-width: 220px;
+  z-index: 10;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #f8fafc !important; 
-  border: 1px solid #d1d5db !important; 
+  background-color: #ffffff !important; 
+  border: 1px solid #e2e8f0 !important; 
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05) !important;
 }
 
 .dropdown-content a {
-  color: #374151 !important; 
+  color: #475569 !important; 
   font-family: 'Segoe UI', sans-serif !important;
   display: block;
-  padding: 12px 16px;
-  text-align: center;
+  padding: 14px 20px;
+  text-align: left;
+  border-bottom: 1px solid #f1f5f9;
+  text-transform: none;
+  font-size: 14px;
+}
+
+.dropdown-content a:last-child {
+  border-bottom: none;
 }
 
 .dropdown-content a:hover {
-  background-color: #e0e7ff !important; 
-  color: #1d4ed8 !important; 
+  background-color: #f8fafc !important; 
+  color: #0f172a !important; 
+  padding-left: 25px; /* Minimalist profesyonel vurgu efekti */
+  transition: padding 0.2s ease, color 0.2s ease;
 }
 
 .dropdown:hover .dropdown-content {
@@ -305,30 +317,30 @@ body.dashboard-body {
 .dashboard-container {
   flex: 1;
   width: 100%;
-  max-width: 1200px;
-  margin: 40px auto;
+  max-width: 1200px; /* Sabit 1200px genişlik */
+  margin: 50px auto;
   padding: 0 20px;
 }
 
 /* İÇERİK PANELLERİ (MAKALELER GİBİ) */
 .panel {
-  background: #fdfdfd !important; 
+  background: #ffffff !important; 
   border: 1px solid #e2e8f0 !important; 
-  box-shadow: 0 4px 20px rgba(0,0,0,0.03) !important;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02) !important;
 }
 
 .panel-header {
   background: transparent !important; 
-  color: #111827 !important; 
-  border-bottom: 1px solid #cbd5e1 !important; 
-  text-align: left !important; /* Blog yazısı başlığı hizası */
-  font-weight: bold;
-  font-size: 28px !important;
-  padding: 30px 40px 15px 40px !important;
+  color: #0f172a !important; 
+  border-bottom: 1px solid #f1f5f9 !important; 
+  text-align: left !important; 
+  font-weight: 700;
+  font-size: 26px !important;
+  padding: 40px 50px 20px 50px !important;
 }
 
 .panel-body {
-  padding: 20px 40px 40px 40px !important;
+  padding: 20px 50px 50px 50px !important;
   color: #475569 !important; 
   font-size: 16px;
   line-height: 1.8;
@@ -338,31 +350,33 @@ body.dashboard-body {
 /* ALT BİLGİ (FOOTER) */
 .footer-panel {
   background-color: #0f172a !important; 
-  color: #9ca3af !important; 
+  color: #94a3b8 !important; 
   text-align: center;
-  padding: 30px;
+  padding: 40px 20px;
   font-size: 14px;
-  border-top: 5px solid #1e293b !important; 
+  border-top: 1px solid #1e293b !important; 
   font-family: 'Segoe UI', sans-serif !important;
   margin-top: auto;
 }
 
 .btn-logout-subtle {
   position: fixed;
-  bottom: 15px;
+  bottom: 20px;
   right: 20px;
-  background: transparent !important;
-  border: none !important;
-  color: #6b7280 !important; 
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
+  color: #cbd5e1 !important; 
   font-size: 12px !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
   text-transform: none !important;
   cursor: pointer;
-  padding: 5px 10px !important;
+  padding: 8px 16px !important;
   z-index: 9999;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .btn-logout-subtle:hover {
-  color: #ef4444 !important; 
+  background: #0f172a !important;
+  color: #ffffff !important; 
+  border-color: #64748b !important;
 }
