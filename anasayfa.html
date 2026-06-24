@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistem Yönetim Merkezi</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <script>
+    const isLocal = localStorage.getItem("isLoggedIn") === "true";
+    const isSession = sessionStorage.getItem("isLoggedIn") === "true";
+    if (!isLocal && !isSession) {
+      window.location.replace("index.html");
+    }
+  </script>
+</head>
+<body class="dashboard-body">
+
+  <nav class="topbar">
+    <div class="brand">AĞ KONTROL PANELİ</div>
+    <button class="btn-outline" onclick="logout()">SİSTEMDEN ÇIK</button>
+  </nav>
+
+  <main class="dashboard-container">
+    <section class="panel">
+      <div class="panel-header">CİHAZ KEŞİF MODÜLÜ</div>
+      <div class="panel-body">
+        <p>Sistem aktif. Yetkilendirme başarılı.</p>
+        <p>Ağ cihazlarını ve kameraları tarayan batch betiklerinizin tetikleyici butonlarını, log çıktılarını veya aktif IP tablolarınızı bu alana yerleştirebilirsiniz.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
