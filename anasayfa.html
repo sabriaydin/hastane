@@ -5,14 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sistem Yönetim Merkezi</title>
   <link rel="stylesheet" href="style.css">
-  
-  <script>
-    const isLocal = localStorage.getItem("isLoggedIn") === "true";
-    const isSession = sessionStorage.getItem("isLoggedIn") === "true";
-    if (!isLocal && !isSession) {
-      window.location.replace("index.html");
-    }
-  </script>
+  <script src="auth-check.js"></script>
 </head>
 <body class="dashboard-body">
 
