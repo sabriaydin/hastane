@@ -4,8 +4,8 @@
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  border-radius: 0 !important; /* Tüm yuvarlak hatları iptal eder */
-  box-shadow: none !important; /* Tüm gölgeleri iptal eder */
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
 body {
@@ -182,121 +182,141 @@ button:disabled, input:disabled {
   line-height: 1.6;
 }
 
-/* TASARIM DÜZELTMELERİ (Modern ve Sade Görünüm) */
-body {
-  background-color: #f4f7f6;
-}
-
+/* --------------------------------------------------------
+   SİMETRİK VE PROFESYONEL TASARIM İÇİN YENİ KURALLAR 
+--------------------------------------------------------- */
 * {
-  border-radius: 4px !important;
+  border-radius: 6px !important; /* Yumuşatılmış köşe simetrisi */
 }
 
+/* GİRİŞ EKRANI SİMETRİSİ */
 .login-wrapper {
-  border: none;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+  border: none !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08) !important;
 }
 
 .login-header {
-  background: #2c3e50;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+  background: #1e293b;
+  text-align: center;
+  font-size: 14px;
 }
 
-.panel {
-  border: none;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05) !important;
-}
-
-.panel-header {
-  background: #ecf0f1;
-  color: #2c3e50;
-  border-bottom: none;
-}
-
-/* --- YENİ DÜZELTMELER VE BAĞIMSIZ MENÜ TASARIMI --- */
-.dashboard-body {
+/* PANO SAYFASI HİZALAMALARI (BODY) */
+body.dashboard-body {
+  background-color: #f8fafc;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   justify-content: flex-start;
   align-items: stretch;
 }
 
-.dashboard-container {
-  flex: 1;
-}
-
+/* YENİ HEADER: MERKEZİ VE SİMETRİK */
 .main-header {
-  background: #2c3e50;
-  padding: 20px 0 15px 0;
+  background: #ffffff;
+  padding: 30px 20px 25px 20px;
   text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02) !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .main-header .brand {
-  color: #ffffff;
-  font-weight: 700;
+  color: #0f172a;
+  font-weight: 800;
   letter-spacing: 2px;
   font-size: 22px;
-  margin-bottom: 15px; /* Başlık ile menüyü ayıran boşluk */
+  margin-bottom: 20px;
 }
 
 .nav-container {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 30px;
+  gap: 40px; /* Menü elemanları arası eşit ve geniş boşluk */
   padding: 0;
   margin: 0;
 }
 
 .nav-menu li a {
-  color: #bdc3c7;
+  color: #64748b;
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  transition: color 0.2s ease;
-}
-
-.nav-menu li a:hover {
-  color: #ffffff;
-}
-
-.footer-panel {
-  background-color: #2c3e50;
-  color: #95a5a6;
-  text-align: center;
-  padding: 20px;
-  font-size: 13px;
-  margin-top: auto;
-  border-top: 1px solid #1a252f;
-  position: relative;
-}
-
-/* Göze Batmayan Sabit Çıkış Butonu */
-.btn-logout-subtle {
-  position: fixed;
-  bottom: 12px;
-  right: 15px;
-  background: transparent !important;
-  border: none !important;
-  color: #7f8c8d !important;
-  font-size: 11px !important;
-  font-weight: normal !important;
-  text-transform: none !important;
-  cursor: pointer;
-  padding: 5px 8px !important;
-  z-index: 9999;
-  opacity: 0.6;
+  padding: 8px 16px;
   transition: all 0.2s ease;
 }
 
+.nav-menu li a:hover {
+  color: #0f172a;
+  background-color: #f1f5f9;
+}
+
+/* ANA İÇERİK: MERKEZİ VE SİMETRİK PANEL */
+.dashboard-container {
+  flex: 1;
+  width: 100%;
+  max-width: 900px;
+  margin: 50px auto; /* Sayfa ortalaması */
+  padding: 0 20px;
+}
+
+.panel {
+  background: #ffffff;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05) !important;
+}
+
+.panel-header {
+  background: #ffffff;
+  color: #1e293b;
+  border-bottom: 1px solid #f1f5f9 !important;
+  text-align: center;
+  font-size: 16px;
+  padding: 20px;
+}
+
+.panel-body {
+  padding: 40px; /* İçerikte dengeli, geniş boşluk */
+}
+
+/* ALT BİLGİ (FOOTER) */
+.footer-panel {
+  background-color: #ffffff;
+  color: #94a3b8;
+  text-align: center;
+  padding: 25px;
+  font-size: 13px;
+  border-top: 1px solid #e2e8f0;
+  margin-top: auto;
+  position: relative;
+}
+
+/* GİZLİ VE ZARİF ÇIKIŞ BUTONU */
+.btn-logout-subtle {
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
+  background: transparent !important;
+  border: none !important;
+  color: #cbd5e1 !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  cursor: pointer;
+  padding: 5px 10px !important;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
 .btn-logout-subtle:hover {
-  color: #e74c3c !important;
-  opacity: 1;
+  color: #ef4444 !important;
 }
