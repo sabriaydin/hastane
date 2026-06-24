@@ -177,3 +177,16 @@ function secureDownload(fileUrl) {
 
 // Sayfa yüklendiğinde componentleri getir
 document.addEventListener("DOMContentLoaded", loadAllComponents);
+// KAYNAK KODU ERİŞİMİNİ ZORLAŞTIRICI ÖNLEMLER
+document.addEventListener('contextmenu', event => event.preventDefault()); // Sağ tık engeli
+
+document.addEventListener('keydown', event => {
+  // F12, Ctrl+Shift+I (Geliştirici araçları), Ctrl+U (Kaynak kodu) engeli
+  if (
+    event.keyCode === 123 || 
+    (event.ctrlKey && event.shiftKey && event.keyCode === 73) || 
+    (event.ctrlKey && event.keyCode === 85)
+  ) {
+    event.preventDefault();
+  }
+});
