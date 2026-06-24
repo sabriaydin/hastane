@@ -1,1 +1,165 @@
-deneme
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Güvenli Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    .logout-btn {
+      background-color: #dc3545;
+      margin-top: 20px;
+    }
+    .logout-btn:hover {
+      background-color: #c82333;
+    }
+    .error-msg {
+      color: red;
+      font-size: 14px;
+      display: none;
+      margin-bottom: 10px;
+    }
+    /* İçerik başlangıçta gizli olacak */
+    #dashboard-view {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="login-view" class="container">
+    <h2>Sisteme Giriş</h2>
+    <div id="error-message" class="error-msg">Kullanıcı adı veya parola hatalı!</div>
+    <input type="text" id="username" placeholder="Kullanıcı Adı" required>
+    <input type="password" id="password" placeholder="Parola" required>
+    <div class="checkbox-container">
+      <input type="checkbox" id="remember-me">
+      <label for="remember-me" style="margin-left: 5px;">Oturumu açık tut</label>
+    </div>
+    <button onclick="login()">Giriş Yap</button>
+  </div>
+
+  <div id="dashboard-view" class="container" style="max-width: 600px;">
+    <h2>Hoş Geldiniz!</h2>
+    <p>Bu sayfa sadece başarılı giriş yapıldığında görünür.</p>
+    <p>İçeriklerinizi, menülerinizi veya diğer araçlarınızı buraya ekleyebilirsiniz.</p>
+    <button class="logout-btn" onclick="logout()">Çıkış Yap</button>
+  </div>
+
+  <script>
+    // Gerçek bir senaryoda bu bilgiler asla burada düz metin olarak bırakılmaz!
+    const validUsername = "admin";
+    const validPassword = "password123";
+
+    // Sayfa yüklendiğinde oturum durumunu kontrol et
+    window.onload = function() {
+      checkSession();
+    };
+
+    function checkSession() {
+      // Bilgisayar yeniden başlasa bile kalan kalıcı hafızayı kontrol et (localStorage)
+      const isLoggedIn = localStorage.getItem("isLoggedIn");
+      
+      // Sadece bu sekme açıkken geçerli olan geçici hafızayı kontrol et (sessionStorage)
+      const isSessionActive = sessionStorage.getItem("isLoggedIn");
+
+      if (isLoggedIn === "true" || isSessionActive === "true") {
+        showDashboard();
+      } else {
+        showLogin();
+      }
+    }
+
+    function login() {
+      const userVal = document.getElementById("username").value;
+      const passVal = document.getElementById("password").value;
+      const rememberMe = document.getElementById("remember-me").checked;
+      const errorMsg = document.getElementById("error-message");
+
+      if (userVal === validUsername && passVal === validPassword) {
+        errorMsg.style.display = "none";
+        
+        if (rememberMe) {
+          // "Oturumu açık tut" seçiliyse, tarayıcı/bilgisayar kapansa bile veriyi sakla
+          localStorage.setItem("isLoggedIn", "true");
+        } else {
+          // Seçili değilse, sadece bu sekme kapatılana kadar açık tut
+          sessionStorage.setItem("isLoggedIn", "true");
+        }
+        
+        showDashboard();
+      } else {
+        errorMsg.style.display = "block";
+      }
+    }
+
+    function logout() {
+      // Hem kalıcı hem geçici oturum verilerini temizle
+      localStorage.removeItem("isLoggedIn");
+      sessionStorage.removeItem("isLoggedIn");
+      
+      // Formu temizle
+      document.getElementById("username").value = "";
+      document.getElementById("password").value = "";
+      document.getElementById("remember-me").checked = false;
+      
+      showLogin();
+    }
+
+    function showDashboard() {
+      document.getElementById("login-view").style.display = "none";
+      document.getElementById("dashboard-view").style.display = "block";
+    }
+
+    function showLogin() {
+      document.getElementById("dashboard-view").style.display = "none";
+      document.getElementById("login-view").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
