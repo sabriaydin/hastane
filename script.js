@@ -139,7 +139,6 @@ function showMessage(text, type) {
   msgBox.className = `message ${type}`;
 }
 
-// --- DINAMIK PARÇALI YAPI (COMPONENT) YÜKLEME FONKSİYONLARI ---
 async function loadComponent(elementId, filePath) {
   try {
     const response = await fetch(filePath);
@@ -162,11 +161,10 @@ document.addEventListener("DOMContentLoaded", () => {
   loadAllComponents();
 });
 
-// --- GELİŞMİŞ KAYNAK KODU KORUMA FİLTRELERİ (TÜM SAYFALARA ETKİ EDER) ---
-document.addEventListener('contextmenu', event => event.preventDefault()); // Sağ tık kapatma
+// KAYNAK KODU KORUMALARI
+document.addEventListener('contextmenu', event => event.preventDefault());
 
 document.addEventListener('keydown', event => {
-  // F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U kombinasyonlarını engeller
   if (
     event.keyCode === 123 || 
     (event.ctrlKey && event.shiftKey && (event.keyCode === 73 || event.keyCode === 74)) || 
