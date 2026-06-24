@@ -183,51 +183,51 @@ button:disabled, input:disabled {
 }
 
 /* --------------------------------------------------------
-   SİMETRİK VE PROFESYONEL TASARIM (RENKLENDİRİLMİŞ)
+   SİMETRİK, ORTA TONLU VE AÇILIR MENÜLÜ YENİ TASARIM
 --------------------------------------------------------- */
 * {
   border-radius: 6px !important;
 }
 
-/* GİRİŞ EKRANI SİMETRİSİ VE RENKLERİ */
+/* GİRİŞ EKRANI SİMETRİSİ */
 .login-wrapper {
   border: none !important;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1) !important;
 }
 
 .login-header {
-  background: #0f172a; /* Çok koyu lacivert */
+  background: #3b82f6; /* Orta ton mavi */
   text-align: center;
   font-size: 14px;
   color: #ffffff;
 }
 
-/* PANO SAYFASI HİZALAMALARI VE ARKA PLAN (BODY) */
+/* PANO ARKA PLAN */
 body.dashboard-body {
-  background-color: #cbd5e1; /* Daha belirgin ve koyu bir gri arka plan */
+  background-color: #cbd5e1; /* Dengeli gri, ne parlak ne koyu */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
 }
 
-/* YENİ HEADER: MERKEZİ, SİMETRİK VE RENKLİ */
+/* YENİ HEADER: BELİRGİN ÇİZGİLİ VE MERKEZİ */
 .main-header {
-  background: #1e293b; /* Koyu lacivert header */
-  padding: 30px 20px 25px 20px;
+  background: #ffffff;
+  padding: 25px 20px 0 20px; /* Alt menü sınırına tam oturması için alt boşluk sıfırlandı */
   text-align: center;
-  border-bottom: 4px solid #3b82f6; /* Mavi vurgu çizgisi */
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+  border-bottom: 5px solid #3b82f6; /* Yatay menüyü belirginleştiren kalın mavi çizgi */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .main-header .brand {
-  color: #ffffff;
+  color: #1e293b;
   font-weight: 800;
   letter-spacing: 2px;
-  font-size: 22px;
+  font-size: 24px;
   margin-bottom: 20px;
 }
 
@@ -245,60 +245,106 @@ body.dashboard-body {
   margin: 0;
 }
 
-.nav-menu li a {
-  color: #94a3b8; /* Pasif menü elemanları için gri/mavi */
+.nav-menu li {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-menu li a, .dropbtn {
+  color: #475569; /* Koyu Gri */
   text-decoration: none;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  padding: 8px 16px;
+  padding: 12px 20px;
+  display: inline-block;
   transition: all 0.2s ease;
+  border-bottom: 5px solid transparent; 
+  margin-bottom: -5px; /* Ana çizgi ile bütünleşmesi için */
 }
 
-.nav-menu li a:hover {
-  color: #ffffff;
-  background-color: #334155; /* Üzerine gelindiğinde koyu kutucuk efekti */
-  border-radius: 4px;
+.nav-menu li a:hover, .dropdown:hover .dropbtn {
+  color: #1d4ed8; /* Koyu Mavi Hover */
+  border-bottom: 5px solid #1d4ed8; 
 }
 
-/* ANA İÇERİK: MERKEZİ VE SİMETRİK PANEL */
+/* AÇILIR MENÜ (DROPDOWN) KONTROLLERİ */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 180px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid #cbd5e1 !important;
+  border-top: none !important;
+  border-radius: 0 0 6px 6px !important;
+}
+
+.dropdown-content a {
+  color: #475569;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  border-bottom: none !important; 
+  margin: 0;
+  font-size: 13px;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f5f9;
+  color: #1d4ed8;
+  border-bottom: none !important;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ANA İÇERİK: SİMETRİK PANEL VE 1200PX GENİŞLİK */
 .dashboard-container {
   flex: 1;
   width: 100%;
-  max-width: 900px;
-  margin: 50px auto; 
+  max-width: 1200px; /* İçerik alanı tam olarak 1200px yapıldı */
+  margin: 40px auto; 
   padding: 0 20px;
 }
 
 .panel {
-  background: #ffffff; /* Sadece okunacak alan beyaz bırakıldı */
-  border: none !important;
-  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1) !important;
+  background: #ffffff;
+  border: 1px solid #cbd5e1 !important; /* Birbirine karışmayan net panel sınırı */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05) !important;
   overflow: hidden; 
 }
 
 .panel-header {
-  background: #334155; /* Antrasit / Koyu gri panel başlığı */
-  color: #ffffff;
-  border-bottom: none !important;
+  background: #f8fafc; /* Açık gri panel başlığı */
+  color: #334155;
+  border-bottom: 1px solid #cbd5e1 !important; /* Net ayırıcı çizgi */
   text-align: center;
+  font-weight: 700;
   font-size: 16px;
   padding: 20px;
 }
 
 .panel-body {
   padding: 40px; 
+  color: #475569;
 }
 
 /* ALT BİLGİ (FOOTER) */
 .footer-panel {
-  background-color: #0f172a; /* Çok koyu arka plan */
-  color: #94a3b8;
+  background-color: #ffffff; 
+  color: #64748b;
   text-align: center;
   padding: 25px;
   font-size: 13px;
-  border-top: 4px solid #1e293b;
+  border-top: 2px solid #cbd5e1; /* Karışıklığı önleyen net ayırıcı */
   margin-top: auto;
   position: relative;
 }
@@ -310,7 +356,7 @@ body.dashboard-body {
   right: 20px;
   background: transparent !important;
   border: none !important;
-  color: #64748b !important;
+  color: #94a3b8 !important;
   font-size: 12px !important;
   font-weight: 500 !important;
   text-transform: none !important;
