@@ -183,52 +183,53 @@ button:disabled, input:disabled {
 }
 
 /* --------------------------------------------------------
-   DENGELİ RENK TONLARI VE SİMETRİK TASARIM (YENİ)
+   SİL BAŞTAN: YATAY MENÜLÜ BLOG TEMASI
 --------------------------------------------------------- */
 * {
-  border-radius: 6px !important;
+  border-radius: 4px !important;
 }
 
-/* GİRİŞ EKRANI SİMETRİSİ */
+/* GİRİŞ EKRANI */
 .login-wrapper {
   border: none !important;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2) !important;
-  background: #ffffff !important; /* İçerik sadece burada beyaz */
+  box-shadow: 0 5px 25px rgba(0,0,0,0.06) !important;
+  background: #fcfcfc !important; 
 }
 
 .login-header {
-  background: #1e293b !important; /* Koyu profesyonel ton */
+  background: #334155 !important; 
+  color: #f1f5f9 !important; 
   text-align: center;
-  font-size: 14px;
-  color: #ffffff !important;
+  font-family: 'Segoe UI', sans-serif !important;
 }
 
-/* PANO ARKA PLAN - BEYAZLIK GİDERİLDİ */
+/* BLOG ARKA PLANI VE GENEL YAPI */
 body.dashboard-body {
-  background-color: #64748b !important; /* Dinlendirici, net bir orta gri/mavi tonu */
+  background-color: #f3f4f6 !important; 
+  font-family: 'Georgia', serif !important; /* Blog hissiyatı için tırnaklı font */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
 }
 
-/* YENİ HEADER: KOYU RENK VE CANLI VURGU ÇİZGİSİ */
+/* BLOG HEADER VE MENÜ ALANI */
 .main-header {
-  background: #1e293b !important; /* Arkaplan ile karışmayan koyu ton */
-  padding: 25px 20px 0 20px;
+  background: #ffffff !important; 
+  padding: 30px 20px 0 20px;
   text-align: center;
-  border-bottom: 5px solid #0ea5e9 !important; /* Menüyü ayıran belirgin mavi çizgi */
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+  border-bottom: 2px solid #e5e7eb !important; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.02) !important;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .main-header .brand {
-  color: #f8fafc !important;
-  font-weight: 800;
-  letter-spacing: 2px;
-  font-size: 24px;
+  color: #1f2937 !important; 
+  font-weight: 900;
+  letter-spacing: 1px;
+  font-size: 34px; /* Blog başlığı formunda */
   margin-bottom: 20px;
 }
 
@@ -241,7 +242,7 @@ body.dashboard-body {
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 40px; 
+  gap: 35px;
   padding: 0;
   margin: 0;
 }
@@ -252,111 +253,107 @@ body.dashboard-body {
 }
 
 .nav-menu li a, .dropbtn {
-  color: #cbd5e1 !important; /* Koyu header üzerinde açık gri okunabilir metin */
+  color: #4b5563 !important; 
+  font-family: 'Segoe UI', sans-serif !important; /* Menüde modern font */
   text-decoration: none;
   font-weight: 600;
   font-size: 15px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  padding: 12px 20px;
+  padding: 10px 15px;
   display: inline-block;
   transition: all 0.2s ease;
-  border-bottom: 5px solid transparent !important; 
-  margin-bottom: -5px; 
+  border-bottom: 3px solid transparent !important;
+  margin-bottom: -2px; 
 }
 
 .nav-menu li a:hover, .dropdown:hover .dropbtn {
-  color: #ffffff !important; 
-  border-bottom: 5px solid #0ea5e9 !important; 
+  color: #2563eb !important; 
+  border-bottom: 3px solid #3b82f6 !important; 
 }
 
-/* AÇILIR MENÜ (DROPDOWN) */
+/* AÇILIR MENÜ */
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #ffffff !important; /* Menü içi okuma kolaylığı için beyaz */
   min-width: 180px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  border: 1px solid #94a3b8 !important;
-  border-top: none !important;
-  border-radius: 0 0 6px 6px !important;
+  background-color: #f8fafc !important; 
+  border: 1px solid #d1d5db !important; 
 }
 
 .dropdown-content a {
-  color: #334155 !important;
-  padding: 12px 16px;
-  text-decoration: none;
+  color: #374151 !important; 
+  font-family: 'Segoe UI', sans-serif !important;
   display: block;
+  padding: 12px 16px;
   text-align: center;
-  border-bottom: none !important; 
-  margin: 0;
-  font-size: 13px;
 }
 
 .dropdown-content a:hover {
-  background-color: #f1f5f9 !important;
-  color: #0ea5e9 !important;
+  background-color: #e0e7ff !important; 
+  color: #1d4ed8 !important; 
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-/* ANA İÇERİK: SİMETRİK PANEL VE 1200PX GENİŞLİK */
+/* BLOG İÇERİK ALANI (1200PX) */
 .dashboard-container {
   flex: 1;
   width: 100%;
-  max-width: 1200px; /* Sabit içerik genişliği */
-  margin: 40px auto; 
+  max-width: 1200px;
+  margin: 40px auto;
   padding: 0 20px;
 }
 
+/* İÇERİK PANELLERİ (MAKALELER GİBİ) */
 .panel {
-  background: #ffffff !important; /* İstediğiniz gibi sadece içerik alanı beyaz */
-  border: none !important; 
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
-  overflow: hidden; 
+  background: #fdfdfd !important; 
+  border: 1px solid #e2e8f0 !important; 
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03) !important;
 }
 
 .panel-header {
-  background: #e2e8f0 !important; /* Panele uygun açık gri başlık */
-  color: #1e293b !important;
-  border-bottom: 2px solid #cbd5e1 !important; /* Net ayırıcı */
-  text-align: center;
-  font-weight: 700;
-  font-size: 16px;
-  padding: 20px;
+  background: transparent !important; 
+  color: #111827 !important; 
+  border-bottom: 1px solid #cbd5e1 !important; 
+  text-align: left !important; /* Blog yazısı başlığı hizası */
+  font-weight: bold;
+  font-size: 28px !important;
+  padding: 30px 40px 15px 40px !important;
 }
 
 .panel-body {
-  padding: 40px; 
-  color: #334155 !important;
+  padding: 20px 40px 40px 40px !important;
+  color: #475569 !important; 
+  font-size: 16px;
+  line-height: 1.8;
+  font-family: 'Segoe UI', sans-serif !important;
 }
 
 /* ALT BİLGİ (FOOTER) */
 .footer-panel {
-  background-color: #1e293b !important; /* Header ile aynı koyu ton */
-  color: #94a3b8 !important;
+  background-color: #0f172a !important; 
+  color: #9ca3af !important; 
   text-align: center;
-  padding: 25px;
-  font-size: 13px;
-  border-top: 4px solid #0ea5e9 !important; /* Header vurgusuna uygun üst çizgi */
+  padding: 30px;
+  font-size: 14px;
+  border-top: 5px solid #1e293b !important; 
+  font-family: 'Segoe UI', sans-serif !important;
   margin-top: auto;
-  position: relative;
 }
 
-/* GİZLİ VE ZARİF ÇIKIŞ BUTONU */
 .btn-logout-subtle {
   position: fixed;
   bottom: 15px;
   right: 20px;
   background: transparent !important;
   border: none !important;
-  color: #64748b !important;
+  color: #6b7280 !important; 
   font-size: 12px !important;
   font-weight: 500 !important;
   text-transform: none !important;
@@ -367,5 +364,5 @@ body.dashboard-body {
 }
 
 .btn-logout-subtle:hover {
-  color: #ef4444 !important;
+  color: #ef4444 !important; 
 }
