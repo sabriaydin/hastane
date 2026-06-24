@@ -142,3 +142,38 @@ function showMessage(text, type) {
   msgBox.innerText = text;
   msgBox.className = `message ${type}`;
 }
+// --- PARÇALI YAPI (COMPONENT) YÜKLEME KODLARI ---
+async function loadComponent(elementId, filePath) {
+  try {
+    const response = await fetch(filePath);
+    if (response.ok) {
+      const text = await response.text();
+      const element = document.getElementById(elementId);
+      if(element) element.innerHTML = text;
+    }
+  } catch (error) {
+    console.error(filePath + " yüklenirken hata oluştu.");
+  }
+}
+
+function loadAllComponents() {
+  loadComponent("header-placeholder", "header.html");
+  loadComponent("footer-placeholder", "footer.html");
+}
+
+// GÜVENLİ İNDİRME SİMÜLASYONU (GitHub Pages için en iyi alternatif)
+function secureDownload(fileUrl) {
+  const isLocal = localStorage.getItem("isLoggedIn") === "true";
+  const isSession = sessionStorage.getItem("isLoggedIn") === "true";
+  
+  if (isLocal || isSession) {
+    // Yeni sekmede indirmeyi başlat
+    window.open(fileUrl, '_blank');
+  } else {
+    showMessage("İndirme reddedildi: Yetkisiz erişim.", "error");
+    setTimeout(() => { window.location.href = "index.html"; }, 2000);
+  }
+}
+
+// Sayfa yüklendiğinde componentleri getir
+document.addEventListener("DOMContentLoaded", loadAllComponents);
