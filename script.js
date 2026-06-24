@@ -4,7 +4,6 @@ const LOCKOUT_TIME_MS = 120000;
 
 let timerInterval;
 
-// Bulunduğumuz sayfanın hangisi olduğunu kontrol et
 const isLoginPage = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
 
 window.onload = () => {
@@ -21,7 +20,6 @@ function checkIfAlreadyLoggedIn() {
   const isSession = sessionStorage.getItem("isLoggedIn") === "true";
   
   if (isLocal || isSession) {
-    // Zaten giriş yapılmışsa direkt anasayfaya at
     window.location.href = "anasayfa.html";
   }
 }
@@ -115,7 +113,6 @@ async function attemptLogin() {
       } else {
         sessionStorage.setItem("isLoggedIn", "true");
       }
-      // BAŞARILI GİRİŞ: Ana sayfaya yönlendir!
       window.location.href = "anasayfa.html";
     } else {
       recordFailedAttempt();
@@ -128,7 +125,6 @@ async function attemptLogin() {
 function logout() {
   localStorage.removeItem("isLoggedIn");
   sessionStorage.removeItem("isLoggedIn");
-  // ÇIKIŞ YAPILINCA: Login sayfasına geri fırlat!
   window.location.href = "index.html";
 }
 
@@ -142,20 +138,6 @@ function showMessage(text, type) {
   msgBox.innerText = text;
   msgBox.className = `message ${type}`;
 }
-
-// KAYNAK KODU ERİŞİMİNİ ZORLAŞTIRICI ÖNLEMLER
-document.addEventListener('contextmenu', event => event.preventDefault()); // Sağ tık engeli
-
-document.addEventListener('keydown', event => {
-  // F12, Ctrl+Shift+I, Ctrl+U engeli
-  if (
-    event.keyCode === 123 || 
-    (event.ctrlKey && event.shiftKey && event.keyCode === 73) || 
-    (event.ctrlKey && event.keyCode === 85)
-  ) {
-    event.preventDefault();
-  }
-});
 
 // --- DINAMIK PARÇALI YAPI (COMPONENT) YÜKLEME FONKSİYONLARI ---
 async function loadComponent(elementId, filePath) {
@@ -178,4 +160,18 @@ function loadAllComponents() {
 
 document.addEventListener("DOMContentLoaded", () => {
   loadAllComponents();
+});
+
+// --- GELİŞMİŞ KAYNAK KODU KORUMA FİLTRELERİ (TÜM SAYFALARA ETKİ EDER) ---
+document.addEventListener('contextmenu', event => event.preventDefault()); // Sağ tık kapatma
+
+document.addEventListener('keydown', event => {
+  // F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U kombinasyonlarını engeller
+  if (
+    event.keyCode === 123 || 
+    (event.ctrlKey && event.shiftKey && (event.keyCode === 73 || event.keyCode === 74)) || 
+    (event.ctrlKey && event.keyCode === 85)
+  ) {
+    event.preventDefault();
+  }
 });
