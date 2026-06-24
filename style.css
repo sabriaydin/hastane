@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  border-radius: 0 !important; /* Tüm kenarları keskin yap */
 }
 
 body {
@@ -29,7 +30,6 @@ body:not(.dashboard-body) {
   max-width: 440px;
   background: #ffffff;
   border: 1px solid #cbd5e1;
-  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.08);
 }
@@ -71,7 +71,6 @@ input[type="password"] {
   background: #f8fafc;
   color: #0f172a;
   font-size: 14px;
-  border-radius: 6px;
   transition: all 0.2s ease;
 }
 
@@ -90,7 +89,6 @@ button {
   padding: 12px 24px;
   font-size: 13px;
   font-weight: 600;
-  border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -134,7 +132,6 @@ button:disabled {
   margin-bottom: 20px;
   font-size: 13px;
   font-weight: 600;
-  border-radius: 6px;
 }
 .message.error { background: #fef2f2; color: #991b1b; border: 1px solid #fee2e2; }
 .message.warning { background: #fffbeb; color: #92400e; border: 1px solid #fef3c7; }
@@ -173,13 +170,14 @@ body.dashboard-body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  background-color: #2d3748; /* Menü arkaplan rengi eklendi */
 }
 
 .nav-menu {
   display: flex;
   list-style: none;
   align-items: center;
-  gap: 10px;
+  gap: 0;
 }
 
 .nav-menu li {
@@ -189,12 +187,11 @@ body.dashboard-body {
 .nav-menu li a, 
 .nav-menu li .dropbtn {
   display: block;
-  color: #ffffff; /* Güncellendi: Yatay menü yazı rengi beyaz yapıldı */
+  color: #ffffff;
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
-  padding: 10px 20px;
-  border-radius: 6px;
+  padding: 12px 24px;
   transition: all 0.2s ease;
   background: transparent;
   border: none;
@@ -204,7 +201,7 @@ body.dashboard-body {
 .nav-menu li a:hover, 
 .nav-menu li:hover .dropbtn {
   color: #ffffff;
-  background-color: #1e293b;
+  background-color: #4a5568;
 }
 
 /* AÇILIR DROPDOWN MİMARİSİ */
@@ -216,11 +213,16 @@ body.dashboard-body {
   background-color: #1e293b;
   min-width: 220px;
   border: 1px solid #334155;
-  border-radius: 8px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   padding: 8px 0;
-  margin-top: 6px;
   z-index: 999;
+}
+
+/* Menü boşluk köprüsü (Fix) */
+.dropdown:hover .dropdown-content {
+  display: block;
+  padding-top: 10px; /* Boşluk için alan */
+  margin-top: 0;
 }
 
 .dropdown-content a {
@@ -229,7 +231,6 @@ body.dashboard-body {
   font-size: 13px !important;
   font-weight: 500 !important;
   text-transform: none !important;
-  border-radius: 0 !important;
   transition: all 0.15s ease !important;
 }
 
@@ -239,11 +240,7 @@ body.dashboard-body {
   padding-left: 24px !important;
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* İÇERİK ALANI - SİDEBARSIZ TAM 1200PX GENİŞLİK */
+/* İÇERİK ALANI */
 .dashboard-container {
   width: 100%;
   max-width: 1200px;
@@ -252,12 +249,11 @@ body.dashboard-body {
   flex: 1;
 }
 
-/* BLOG YAZI KARTLARI (PANEL - AÇIK/KOYU KARIŞIM) */
+/* BLOG YAZI KARTLARI */
 .panel {
   background: #ffffff;
-  border-radius: 12px;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
   overflow: hidden;
 }
 
@@ -278,7 +274,7 @@ body.dashboard-body {
   line-height: 1.8;
 }
 
-/* KOYU TEMA ALT BİLGİ (FOOTER) */
+/* KOYU TEMA ALT BİLGİ */
 .footer-panel {
   background-color: #0f172a;
   color: #64748b;
@@ -287,7 +283,7 @@ body.dashboard-body {
   font-weight: 500;
   border-top: 1px solid #1e293b;
   margin-top: auto;
-  display: flex; /* Güncellendi: Sağa yaslama desteği için eklendi */
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
@@ -304,7 +300,6 @@ body.dashboard-body {
   padding: 6px 16px;
   font-size: 12px;
   font-weight: 600;
-  border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -313,14 +308,4 @@ body.dashboard-body {
   background-color: #451a03;
   color: #fca5a5;
   border-color: #7f1d1d;
-}
-/* Açılır menü boşluk köprüsü */
-.dropdown-content::before {
-  content: "";
-  position: absolute;
-  top: -6px;
-  left: 0;
-  width: 100%;
-  height: 6px;
-  background: transparent;
 }
