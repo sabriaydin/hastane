@@ -7,6 +7,10 @@
   border-radius: 0 !important; /* Tüm kenarları keskin yap */
 }
 
+a {
+  text-decoration: none !important;
+}
+
 body {
   background-color: #f0f4f8; /* Yumuşak mat açık gri-mavi arka plan */
   color: #2c3e50;
