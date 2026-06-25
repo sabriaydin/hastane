@@ -16,53 +16,59 @@
 
   <main class="dashboard-container">
     <section class="panel">
+      <div class="panel-header">Günlük Nöbet Listesi Oluştur</div>
       <div class="panel-body">
         <center><style>
-    body { font-family: sans-serif; max-width: 450px; margin: 20px auto; color: #222; line-height: 1.2; padding: 0 10px; }
-    .section { margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #eee; }
-    .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
-    label { font-size: 13px; font-weight: bold; color: #555; }
-    .row { display: flex; gap: 5px; margin-bottom: 5px; align-items: flex-end; }
-    .col { display: flex; flex-direction: column; gap: 2px; flex-grow: 1; }
-    .col-sm { flex-grow: 0; width: 85px; }
-    .col-label { font-size: 10px; color: #888; font-weight: bold; text-transform: uppercase; }
-    select, input { padding: 6px; border: 1px solid #ccc; border-radius: 3px; font-size: 14px; width: 100%; box-sizing: border-box; }
-    select:disabled { background-color: #f5f5f5; cursor: not-allowed; }
-    button { cursor: pointer; border: 1px solid #ccc; background: #fff; border-radius: 3px; padding: 6px 10px; font-size: 12px; height: 31px; }
-    .btn-add { color: #28a745; border-color: #28a745; padding: 2px 8px; height: auto; }
-    .btn-add:disabled { opacity: 0.3; cursor: not-allowed; }
-    .btn-del { color: #dc3545; border-color: #dc3545; }
-    #cikti-alani { margin-top: 25px; }
-    #cikti { padding: 15px; border: 1px solid #ddd; background: #fdfdfd; white-space: pre-wrap; font-size: 14px; min-height: 50px; }
-    #btn-kopya { width: 100%; margin-top: 10px; padding: 10px; background: #222; color: #fff; border: none; font-weight: bold; cursor: pointer; }
-    #btn-kopya:disabled { background: #ccc; cursor: not-allowed; opacity: 0.6; }
-    #btn-reset { width: 100%; margin-top: 8px; padding: 8px; background: transparent; color: #dc3545; border: 1px solid #dc3545; font-size: 12px; cursor: pointer; border-radius: 3px; }
-    #btn-reset:hover { background: #fff5f5; }
+    /* Tasarım kodlarının siteye taşmasını engellemek için tüm özelliklerin başına #nobet-cizelgesi-kapsayici eklendi */
+    #nobet-cizelgesi-kapsayici { font-family: sans-serif; max-width: 450px; margin: 20px auto; color: #222; line-height: 1.2; padding: 0 10px; box-sizing: border-box; text-align: left; }
+    #nobet-cizelgesi-kapsayici .section { margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #eee; }
+    #nobet-cizelgesi-kapsayici .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+    #nobet-cizelgesi-kapsayici label { font-size: 13px; font-weight: bold; color: #555; display: inline-block; margin: 0; padding: 0; }
+    #nobet-cizelgesi-kapsayici .row { display: flex; gap: 5px; margin-bottom: 5px; align-items: flex-end; }
+    #nobet-cizelgesi-kapsayici .col { display: flex; flex-direction: column; gap: 2px; flex-grow: 1; }
+    #nobet-cizelgesi-kapsayici .col-sm { flex-grow: 0; width: 85px; }
+    #nobet-cizelgesi-kapsayici .col-label { font-size: 10px; color: #888; font-weight: bold; text-transform: uppercase; }
+    #nobet-cizelgesi-kapsayici select, #nobet-cizelgesi-kapsayici input { padding: 6px; border: 1px solid #ccc; border-radius: 3px; font-size: 14px; width: 100%; box-sizing: border-box; background-color: #fff; color: #222; height: 31px; margin: 0; }
+    #nobet-cizelgesi-kapsayici select:disabled { background-color: #f5f5f5; cursor: not-allowed; }
+    #nobet-cizelgesi-kapsayici button { cursor: pointer; border: 1px solid #ccc; background: #fff; border-radius: 3px; padding: 6px 10px; font-size: 12px; height: 31px; margin: 0; box-sizing: border-box; display: inline-block; }
+    #nobet-cizelgesi-kapsayici .btn-add { color: #28a745; border-color: #28a745; padding: 2px 8px; height: auto; }
+    #nobet-cizelgesi-kapsayici .btn-add:disabled { opacity: 0.3; cursor: not-allowed; }
+    #nobet-cizelgesi-kapsayici .btn-del { color: #dc3545; border-color: #dc3545; }
+    #nobet-cizelgesi-kapsayici #cikti-alani { margin-top: 25px; }
+    #nobet-cizelgesi-kapsayici #cikti { padding: 15px; border: 1px solid #ddd; background: #fdfdfd; white-space: pre-wrap; font-size: 14px; min-height: 50px; margin: 0; }
+    #nobet-cizelgesi-kapsayici #btn-kopya { width: 100%; margin-top: 10px; padding: 10px; background: #222; color: #fff; border: none; font-weight: bold; cursor: pointer; height: auto; }
+    #nobet-cizelgesi-kapsayici #btn-kopya:disabled { background: #ccc; cursor: not-allowed; opacity: 0.6; }
+    #nobet-cizelgesi-kapsayici #btn-reset { width: 100%; margin-top: 8px; padding: 8px; background: transparent; color: #dc3545; border: 1px solid #dc3545; font-size: 12px; cursor: pointer; border-radius: 3px; height: auto; }
+    #nobet-cizelgesi-kapsayici #btn-reset:hover { background: #fff5f5; }
     
-    #toast {
+    #nobet-cizelgesi-kapsayici #toast {
         visibility: hidden; min-width: 200px; background-color: #333; color: #fff;
         text-align: center; border-radius: 25px; padding: 12px;
-        position: fixed; z-index: 1; left: 50%; bottom: 30px;
+        position: fixed; z-index: 9999; left: 50%; bottom: 30px;
         transform: translateX(-50%); font-size: 14px; opacity: 0;
-        transition: opacity 0.4s, visibility 0.4s;
+        transition: opacity 0.4s, visibility 0.4s; margin: 0;
     }
-    #toast.show { visibility: visible; opacity: 1; }
+    #nobet-cizelgesi-kapsayici #toast.show { visibility: visible; opacity: 1; }
 </style>
 
-<div class="section">
-    <label>Tarih</label>
-    <input type="date" id="tarih" oninput="listeGuncelle()">
+<div id="nobet-cizelgesi-kapsayici">
+
+    <div class="section">
+        <label>Tarih</label>
+        <input type="date" id="tarih" oninput="listeGuncelle()">
+    </div>
+
+    <div id="alanlar"></div>
+
+    <div id="cikti-alani">
+        <div id="cikti">Lütfen tarih ve kişi seçiniz.</div>
+        <button id="btn-kopya" onclick="kopyala()" disabled>Metni Kopyala</button>
+        <button id="btn-reset" onclick="temizle()">Tüm Listeyi Temizle</button>
+    </div>
+
+    <div id="toast">Liste panoya kopyalandı</div>
+
 </div>
-
-<div id="alanlar"></div>
-
-<div id="cikti-alani">
-    <div id="cikti">Lütfen tarih ve kişi seçiniz.</div>
-    <button id="btn-kopya" onclick="kopyala()" disabled>Metni Kopyala</button>
-    <button id="btn-reset" onclick="temizle()">Tüm Listeyi Temizle</button>
-</div>
-
-<div id="toast">Liste panoya kopyalandı</div>
 
 <script>
 const PERSONEL = {
@@ -123,7 +129,6 @@ function listeGuncelle() {
             const manualInput = row.querySelector('.manual-name');
             let name = nameSelect.value;
             
-            // Eğer manuel giriş seçildiyse metin kutusundaki değeri al
             if (name === "MANUAL_ENTRY") {
                 name = manualInput.value.trim();
             }
@@ -197,14 +202,13 @@ function temizle() {
     
     Object.keys(PERSONEL).forEach(kat => {
         const liste = document.getElementById(`liste-${kat}`);
-        liste.innerHTML = ""; // Hepsini sil
-        satirEkle(kat); // Tek bir boş satır ekle
+        liste.innerHTML = ""; 
+        satirEkle(kat); 
     });
     bugunuAyarla();
     listeGuncelle();
 }
 
-// İlk kurulum
 bugunuAyarla();
 Object.keys(PERSONEL).forEach(kat => {
     const div = document.createElement('div');
