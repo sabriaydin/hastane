@@ -81,7 +81,7 @@ function recordFailedAttempt() {
     localStorage.setItem("lockoutUntil", unlockTime);
     applyLockoutUI(unlockTime);
   } else {
-    showMessage(`HATALI GİRİŞ! KALAN DENEME HAKKI: ${MAX_ATTEMPTS - attempts}`, "error");
+    showMessage(`Hatalı giriş! Kalan Deneme Hakkı: ${MAX_ATTEMPTS - attempts}`, "error");
   }
 }
 
@@ -97,7 +97,7 @@ function applyLockoutUI(unlockTime) {
     } else {
       const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-      showMessage(`AĞ BAĞLANTISI KESİLDİ. ${minutes} DK ${seconds} SN BEKLEYİNİZ.`, "warning");
+      showMessage(`Çok fazla hatalı deneme! ${minutes} Dk. ${seconds} Sn. bekleyiniz.`, "warning");
     }
   }, 1000);
 }
@@ -124,7 +124,7 @@ async function attemptLogin() {
   const rememberMe = document.getElementById("remember-me").checked;
 
   if (!inputUser || !inputPass) {
-    showMessage("KULLANICI ADI VE PAROLA GİRİLMELİDİR.", "error");
+    showMessage("Lütfen kullanıcı adı ve parolayı giriniz.", "error");
     return;
   }
 
@@ -150,7 +150,7 @@ async function attemptLogin() {
       recordFailedAttempt();
     }
   } catch (error) {
-    showMessage("SİSTEM VERİTABANI BAĞLANTISI BAŞARISIZ.", "error");
+    showMessage("Bağlantı başarısız!", "error");
   }
 }
 
