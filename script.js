@@ -1,10 +1,8 @@
 const DATA_FILE = "data.json";
 const MAX_ATTEMPTS = 5;
 const LOCKOUT_TIME_MS = 120000; 
-const SESSION_TIME_MS = 600000; // 10 dakika (10 * 60 * 1000 milisaniye)
 
 let timerInterval;
-let sessionInterval; // Oturum süresini kontrol etmek için yeni zamanlayıcı
 
 const isLoginPage = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
 
@@ -14,41 +12,13 @@ window.onload = () => {
     if (!isLockedOut()) {
       checkIfAlreadyLoggedIn();
     }
-  } else {
-    // Giriş sayfasında değilsek (örn: anasayfa), oturum süresini kontrol et
-    checkSessionActive();
-    sessionInterval = setInterval(checkSessionActive, 1000); // Her saniye sürenin dolup dolmadığına bakar
   }
 };
-
-function checkSessionActive() {
-  const isLocal = localStorage.getItem("isLoggedIn") === "true";
-  if (isLocal) return; // "Beni Hatırla" seçildiyse süre sınırı yok, kontrolden çık
-
-  const isSession = sessionStorage.getItem("isLoggedIn") === "true";
-  const expireTime = sessionStorage.getItem("sessionExpireTime");
-
-  if (isSession && expireTime) {
-    if (Date.now() > parseInt(expireTime)) {
-      logout(); // 10 dakika dolduysa otomatik çıkış yap
-    }
-  } else if (!isLocal && !isSession) {
-    logout(); // Hiç giriş yapılmamışsa güvenlik için çıkışa yönlendir
-  }
-}
 
 function checkIfAlreadyLoggedIn() {
   const isLocal = localStorage.getItem("isLoggedIn") === "true";
   const isSession = sessionStorage.getItem("isLoggedIn") === "true";
-  const expireTime = sessionStorage.getItem("sessionExpireTime");
   
-  // Eğer giriş sayfasındayken 10 dakikalık süre çoktan dolmuşsa eski kayıtları temizle
-  if (isSession && expireTime && Date.now() > parseInt(expireTime)) {
-    sessionStorage.removeItem("isLoggedIn");
-    sessionStorage.removeItem("sessionExpireTime");
-    return; // Giriş sayfasında kalmaya devam et
-  }
-
   if (isLocal || isSession) {
     window.location.href = "anasayfa.html";
   }
@@ -81,7 +51,7 @@ function recordFailedAttempt() {
     localStorage.setItem("lockoutUntil", unlockTime);
     applyLockoutUI(unlockTime);
   } else {
-    showMessage(`Hatalı giriş! Kalan Deneme Hakkı: ${MAX_ATTEMPTS - attempts}`, "error");
+    showMessage(`HATALI GİRİŞ! KALAN DENEME HAKKI: ${MAX_ATTEMPTS - attempts}`, "error");
   }
 }
 
@@ -97,7 +67,7 @@ function applyLockoutUI(unlockTime) {
     } else {
       const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-      showMessage(`Çok fazla hatalı deneme! ${minutes} Dk. ${seconds} Sn. bekleyiniz.`, "warning");
+      showMessage(`AĞ BAĞLANTISI KESİLDİ. ${minutes} DK ${seconds} SN BEKLEYİNİZ.`, "warning");
     }
   }, 1000);
 }
@@ -124,7 +94,7 @@ async function attemptLogin() {
   const rememberMe = document.getElementById("remember-me").checked;
 
   if (!inputUser || !inputPass) {
-    showMessage("Lütfen kullanıcı adı ve parolayı giriniz.", "error");
+    showMessage("KULLANICI ADI VE PAROLA GİRİLMELİDİR.", "error");
     return;
   }
 
@@ -140,24 +110,21 @@ async function attemptLogin() {
       clearLockout(); 
       if (rememberMe) {
         localStorage.setItem("isLoggedIn", "true");
-        sessionStorage.removeItem("sessionExpireTime"); // Eğer önceden kalma süre varsa temizle
       } else {
         sessionStorage.setItem("isLoggedIn", "true");
-        sessionStorage.setItem("sessionExpireTime", Date.now() + SESSION_TIME_MS); // 10 dakikalık süreyi başlat
       }
       window.location.href = "anasayfa.html";
     } else {
       recordFailedAttempt();
     }
   } catch (error) {
-    showMessage("Bağlantı başarısız!", "error");
+    showMessage("SİSTEM VERİTABANI BAĞLANTISI BAŞARISIZ.", "error");
   }
 }
 
 function logout() {
   localStorage.removeItem("isLoggedIn");
   sessionStorage.removeItem("isLoggedIn");
-  sessionStorage.removeItem("sessionExpireTime"); // Çıkışta süre kaydını da tamamen temizle
   window.location.href = "index.html";
 }
 
