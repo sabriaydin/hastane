@@ -13,8 +13,70 @@
 
   <main class="dashboard-container">
     <section class="panel">
-      <div class="panel-header">Ana Sayfa</div>
       <div class="panel-body">
+        <div class="ozel-arama-kapsayici">
+    <style>
+        /* Kapsülleme: Sadece bu sınıf altındaki öğeleri etkiler */
+        .ozel-arama-kapsayici {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .ozel-arama-form {
+            display: flex;
+            align-items: stretch;
+            width: 75%; /* Bulunduğu alanın %75'i */
+            background: #ffffff;
+            border: 1px solid #999999; /* Belirgin kenarlık */
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .ozel-arama-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 12px 16px;
+            font-size: 16px;
+            background: transparent;
+            color: #333333;
+        }
+
+        .ozel-arama-buton {
+            background-color: #2c3e50;
+            border: none;
+            width: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .ozel-arama-buton:hover {
+            background-color: #1a252f;
+        }
+
+        .ozel-arama-buton svg {
+            fill: #ffffff;
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+
+    <form class="ozel-arama-form" action="https://www.google.com/search" method="GET" target="_blank">
+        <input type="text" class="ozel-arama-input" name="q" placeholder="Google'da ara..." required>
+        <button type="submit" class="ozel-arama-buton">
+            <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+            </svg>
+        </button>
+    </form>
+</div>
         <p style="margin-top: 15px; color: #000000;">
           <style>
     /* Bağımsız kapsayıcı stil */
@@ -209,7 +271,7 @@
 <a href="https://yazilimdestek.saglik.gov.tr/" target="_blank" class="kutu">
     <img src="gorseller/logo/yazilimdestek-logo.png" class="kutu-gorsel">
     <div class="kutu-icerik">
-        <h3 class="kutu-baslik">Yazılım Destek Sistemi</h3>
+        <h3 class="kutu-baslik">Yazılım Destek</h3>
         <p class="kutu-aciklama">Sağlık Bakanlığı Yardım Masası</p>
     </div>
 </a>
@@ -218,6 +280,13 @@
     <div class="kutu-icerik">
         <h3 class="kutu-baslik">e-Nabız Yönetim</h3>
         <p class="kutu-aciklama">e-Nabız Yönetim</p>
+    </div>
+</a>
+      <a href="https://turkiye.gov.tr/" target="_blank" class="kutu">
+    <img src="gorseller/logo/edevlet-logo.png" class="kutu-gorsel">
+    <div class="kutu-icerik">
+        <h3 class="kutu-baslik">E-Devlet</h3>
+        <p class="kutu-aciklama">e-Devlet Kapısı Devletin Kısayolu</p>
     </div>
 </a>
 <a href="https://uzem.giresunsaglik.gov.tr/" target="_blank" class="kutu">
