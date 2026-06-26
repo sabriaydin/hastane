@@ -16,7 +16,127 @@
       <div class="panel-header">Ana Sayfa</div>
       <div class="panel-body">
         <p style="margin-top: 15px; color: #000000;">
-          İçerik metni.
+          <style>
+    /* Bağımsız kapsayıcı stil */
+    .hizli-baglanti-alani {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .baglanti-izgarasi {
+        display: grid;
+        grid-template-columns: repeat(5, 180px); /* 5 kutu, her biri 180px sabit */
+        gap: 15px;
+        max-width: 1000px; /* Toplam genişliği sınırla */
+    }
+
+    .kutu {
+        width: 180px; /* Sabit genişlik */
+        height: 180px; /* Sabit yükseklik */
+        background-color: #ffffff;
+        border: 1px solid #dcdde1;
+        border-radius: 4px;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        transition: 0.3s;
+    }
+
+    .kutu:hover {
+        border-color: #2c3e50;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .kutu-gorsel {
+        width: 100%;
+        height: 100px; /* Görsel alanı küçültüldü */
+        object-fit: cover;
+        background-color: #e9ecef;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .kutu-icerik {
+        padding: 12px;
+        text-align: left;
+    }
+
+    .kutu-baslik {
+        font-size: 15px;
+        font-weight: bold;
+        color: #2c3e50;
+        margin: 0 0 5px 0;
+    }
+
+    .kutu-aciklama {
+        font-size: 12px;
+        color: #5b6574;
+        margin: 0;
+        line-height: 1.4;
+    }
+
+    /* Responsive (ekran küçüldüğünde) ayarlar */
+    @media (max-width: 1000px) { .baglanti-izgarasi { grid-template-columns: repeat(4, 180px); } }
+    @media (max-width: 800px) { .baglanti-izgarasi { grid-template-columns: repeat(3, 180px); } }
+    @media (max-width: 600px) { .baglanti-izgarasi { grid-template-columns: repeat(2, 180px); } }
+    @media (max-width: 400px) { .baglanti-izgarasi { grid-template-columns: 180px; } }
+</style>
+
+<div class="hizli-baglanti-alani">
+    <div class="baglanti-izgarasi">
+        
+        <a href="#" class="kutu">
+            <img src="https://via.placeholder.com/200x100?text=Gorsel+1" class="kutu-gorsel">
+            <div class="kutu-icerik">
+                <h3 class="kutu-baslik">Sistem</h3>
+                <p class="kutu-aciklama">Tüm altyapı ayarları.</p>
+            </div>
+        </a>
+
+        <a href="#" class="kutu">
+            <img src="https://via.placeholder.com/200x100?text=Gorsel+2" class="kutu-gorsel">
+            <div class="kutu-icerik">
+                <h3 class="kutu-baslik">Kullanıcı</h3>
+                <p class="kutu-aciklama">Yetkileri düzenleyin.</p>
+            </div>
+        </a>
+
+        <a href="#" class="kutu">
+            <img src="https://via.placeholder.com/200x100?text=Gorsel+3" class="kutu-gorsel">
+            <div class="kutu-icerik">
+                <h3 class="kutu-baslik">Raporlar</h3>
+                <p class="kutu-aciklama">Performans analizleri.</p>
+            </div>
+        </a>
+
+        <a href="#" class="kutu">
+            <img src="https://via.placeholder.com/200x100?text=Gorsel+4" class="kutu-gorsel">
+            <div class="kutu-icerik">
+                <h3 class="kutu-baslik">Doküman</h3>
+                <p class="kutu-aciklama">Kılavuz ve sözleşmeler.</p>
+            </div>
+        </a>
+
+        <a href="#" class="kutu">
+            <img src="https://via.placeholder.com/200x100?text=Gorsel+5" class="kutu-gorsel">
+            <div class="kutu-icerik">
+                <h3 class="kutu-baslik">Destek</h3>
+                <p class="kutu-aciklama">Talep yönetimi.</p>
+            </div>
+        </a>
+
+        <a href="#" class="kutu">
+            <img src="https://via.placeholder.com/200x100?text=Gorsel+6" class="kutu-gorsel">
+            <div class="kutu-icerik">
+                <h3 class="kutu-baslik">Arşiv</h3>
+                <p class="kutu-aciklama">Geçmiş kayıtlar.</p>
+            </div>
+        </a>
+
+    </div>
+</div>
         </p>
       </div>
     </section>
