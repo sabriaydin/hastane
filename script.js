@@ -1,3 +1,8 @@
+// Eğer kullanıcı daha önceden giriş yapmışsa, giriş sayfasını gösterme, doğrudan anasayfaya yönlendir
+if (localStorage.getItem("isLoggedIn") === "true" || sessionStorage.getItem("isLoggedIn") === "true") {
+  window.location.replace("anasayfa.html");
+}
+
 const DATA_FILE = "data.json";
 const MAX_ATTEMPTS = 5;
 const LOCKOUT_TIME_MS = 120000; 
