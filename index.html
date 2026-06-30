@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hastane Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="login-wrapper">
+    <div class="login-header">HASTANE PORTAL</div>
+    <div class="login-body">
+      <div id="message-box" class="message hidden"></div>
+      
+      <div class="input-row">
+        <label>Kullanıcı Adı</label>
+        <input type="text" id="username" autocomplete="off" value="Hastane Personel" disabled>
+      </div>
+      
+      <div class="input-row">
+        <label>Parola</label>
+        <input type="password" id="password">
+      </div>
+      
+      <div class="action-row">
+        <label class="checkbox-label">
+          <input type="checkbox" id="remember-me">
+          <span class="checkmark"></span>
+          Oturumu Açık Tut
+        </label>
+        <button id="login-btn" onclick="attemptLogin()">Giriş Yap</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
