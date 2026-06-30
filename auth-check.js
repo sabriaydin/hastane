@@ -7,15 +7,6 @@ if (!isLocal && !isSession) {
   // 10 Dakikalık süre ve yenileme kontrolü SADECE "Beni Hatırla" SEÇİLMEDİYSE çalışsın
   if (isSession && !isLocal) {
     
-    // Sayfa yenilendiğinde otomatik çıkış kontrolü
-    const navs = performance.getEntriesByType("navigation");
-    if (navs.length > 0 && navs[0].type === "reload") {
-      localStorage.removeItem("isLoggedIn");
-      sessionStorage.removeItem("isLoggedIn");
-      sessionStorage.removeItem("sessionExpires");
-      window.location.replace("index.html");
-    }
-
     // 10 Dakikalık maksimum oturum süresi kontrolü
     let expires = sessionStorage.getItem("sessionExpires");
     if (!expires) {
