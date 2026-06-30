@@ -4,12 +4,9 @@ const LOCKOUT_TIME_MS = 120000;
 
 let timerInterval;
 
-const isLoginPage = window.location.pathname.endsWith("index.html") || window.location.pathname === "/" || window.location.href.includes("index.html");
-
-// EKLENEN KISIM: Sayfa yüklenmesini beklemeden, oturum açıksa anında yönlendirme yapar.
-if (isLoginPage && (localStorage.getItem("isLoggedIn") === "true" || sessionStorage.getItem("isLoggedIn") === "true")) {
-  window.location.replace("anasayfa.html");
-}
+// URL yapısına bağlı kalmamak için login sayfası tespitini 
+// doğrudan sayfa içindeki ".login-wrapper" yapısının varlığıyla yapıyoruz.
+const isLoginPage = document.querySelector(".login-wrapper") !== null;
 
 window.onload = () => {
   if (isLoginPage) {
@@ -24,7 +21,8 @@ function checkIfAlreadyLoggedIn() {
   const isLocal = localStorage.getItem("isLoggedIn") === "true";
   const isSession = sessionStorage.getItem("isLoggedIn") === "true";
   
-  if (isLocal || isSession) {
+  // DÜZELTME: Zaten anasayfa.html'de ise kendini tekrar yönlendirmesin
+  if ((isLocal || isSession) && !window.location.pathname.includes("anasayfa.html")) {
     window.location.replace("anasayfa.html");
   }
 }
@@ -113,6 +111,9 @@ async function attemptLogin() {
 
     if (encodedUser === data.user && encodedPass === data.pass) {
       clearLockout(); 
+      // DÜZELTME: Eski oturumdan kalan süreyi temizle
+      sessionStorage.removeItem("sessionExpires");
+
       if (rememberMe) {
         localStorage.setItem("isLoggedIn", "true");
       } else {
