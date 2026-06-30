@@ -4,7 +4,9 @@ const LOCKOUT_TIME_MS = 120000;
 
 let timerInterval;
 
-const isLoginPage = window.location.pathname.endsWith("index.html") || window.location.pathname === "/";
+// URL yapısına bağlı kalmamak için login sayfası tespitini 
+// doğrudan sayfa içindeki ".login-wrapper" yapısının varlığıyla yapıyoruz.
+const isLoginPage = document.querySelector(".login-wrapper") !== null;
 
 window.onload = () => {
   if (isLoginPage) {
@@ -20,7 +22,7 @@ function checkIfAlreadyLoggedIn() {
   const isSession = sessionStorage.getItem("isLoggedIn") === "true";
   
   if (isLocal || isSession) {
-    window.location.href = "anasayfa.html";
+    window.location.replace("anasayfa.html");
   }
 }
 
@@ -113,7 +115,7 @@ async function attemptLogin() {
       } else {
         sessionStorage.setItem("isLoggedIn", "true");
       }
-      window.location.href = "anasayfa.html";
+      window.location.replace("anasayfa.html");
     } else {
       recordFailedAttempt();
     }
@@ -125,7 +127,7 @@ async function attemptLogin() {
 function logout() {
   localStorage.removeItem("isLoggedIn");
   sessionStorage.removeItem("isLoggedIn");
-  window.location.href = "index.html";
+  window.location.replace("index.html");
 }
 
 function showMessage(text, type) {
