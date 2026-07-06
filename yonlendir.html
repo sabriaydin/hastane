@@ -19,7 +19,14 @@
       <div class="panel-header">HARİCİ SİTE YÖNLENDİRMESİ</div>
       <div class="panel-body" style="text-align: center; padding: 50px 20px;">
         <h3 style="margin-bottom: 15px; color: #2c3e50;">Güvenli Alandan Çıkıyorsunuz</h3>
-        <p style="margin-bottom: 25px; color: #64748b;">Talep ettiğiniz bağlantı sizi harici bir web sitesine yönlendirecektir. Hedef sayfadan kaynaklanabilecek teknik, içeriksel veya güvenlik sorunlarından tarafımız sorumlu değildir.</p>
+        
+        <p style="margin-bottom: 15px; color: #64748b;">
+          Talep ettiğiniz bağlantı sizi harici bir web sitesine yönlendirecektir. Hedef sayfadan kaynaklanabilecek teknik, içeriksel veya güvenlik sorunlarından portalımız sorumlu değildir.
+        </p>
+        
+        <div style="background-color: #f8fafc; border: 1px solid #cbd5e1; padding: 12px; margin-bottom: 25px; word-break: break-all; color: #344756; font-size: 14px; max-width: 600px; margin-left: auto; margin-right: auto;">
+          <strong>Gidilecek Adres:</strong> <span id="hedef-url-metni">Yükleniyor...</span>
+        </div>
         
         <div style="font-size: 20px; font-weight: 600; margin-bottom: 35px; color: #334155;">
           <span id="kalan-sure" style="font-size: 32px; font-weight: 700; color: #5b758a;">10</span> saniye içinde yönlendiriliyorsunuz...
@@ -30,7 +37,7 @@
             Beklemeden Git
           </a>
           <a href="anasayfa.html" style="display: inline-block; background-color: #ffffff; color: #2c3e50; padding: 12px 32px; text-decoration: none; font-weight: bold; border: 1px solid #cbd5e1;">
-            Vazgeç
+            Vazgeç (Ana Sayfaya Dön)
           </a>
         </div>
       </div>
@@ -47,6 +54,9 @@
     const hedefUrl = urlParametreleri.get('url');
 
     if (hedefUrl) {
+      // Yönlendirilecek URL'yi ekrana yazdırıyoruz
+      document.getElementById('hedef-url-metni').textContent = hedefUrl;
+
       // "Beklemeden Git" butonunun linkini hedef adrese kuruyoruz
       const buton = document.getElementById('yonlendir-buton');
       buton.href = hedefUrl;
