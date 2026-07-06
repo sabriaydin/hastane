@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Başka siteye yönlendiriliyorsunuz!</title>
+  <title>Harici Site Yönlendirmesi - Hastane Portal</title>
   
   <base href="https://sabriaydin.github.io/hastane/"> 
   
@@ -22,12 +22,17 @@
         <p style="margin-bottom: 25px; color: #64748b;">Talep ettiğiniz bağlantı sizi harici bir web sitesine yönlendirecektir.</p>
         
         <div style="font-size: 20px; font-weight: 600; margin-bottom: 35px; color: #334155;">
-          <span id="kalan-sure" style="font-size: 32px; font-weight: 700; color: #5b758a;">5</span> saniye içinde yönlendiriliyorsunuz...
+          <span id="kalan-sure" style="font-size: 32px; font-weight: 700; color: #5b758a;">10</span> saniye içinde yönlendiriliyorsunuz...
         </div>
         
-        <a id="yonlendir-buton" href="#" style="display: inline-block; background-color: #2c3e50; color: #ffffff; padding: 12px 32px; text-decoration: none; font-weight: bold; border: 1px solid #465c6f;">
-          Beklemeden Git
-        </a>
+        <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+          <a id="yonlendir-buton" href="#" style="display: inline-block; background-color: #2c3e50; color: #ffffff; padding: 12px 32px; text-decoration: none; font-weight: bold; border: 1px solid #465c6f;">
+            Beklemeden Git
+          </a>
+          <a href="anasayfa.html" style="display: inline-block; background-color: #ffffff; color: #2c3e50; padding: 12px 32px; text-decoration: none; font-weight: bold; border: 1px solid #cbd5e1;">
+            Vazgeç (Ana Sayfaya Dön)
+          </a>
+        </div>
       </div>
     </section>
   </main>
@@ -46,8 +51,8 @@
       const buton = document.getElementById('yonlendir-buton');
       buton.href = hedefUrl;
 
-      // 5 saniyelik geri sayım başlatıyoruz
-      let saniye = 5;
+      // 10 saniyelik geri sayım başlatıyoruz
+      let saniye = 10;
       const sureMetni = document.getElementById('kalan-sure');
 
       const sayac = setInterval(() => {
