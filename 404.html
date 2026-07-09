@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="10;url=index.html">
+    <title>Sayfa Bulunamadı!</title>
+    <style>
+        /* Sayfayı dikey ve yatay olarak tam ortalar */
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif; /* Klasik, düz yazı tipi */
+            background-color: #f0f0f0;      /* Hafif gri arka plan */
+            color: #333333;                 /* Koyu gri yazı rengi */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Ortadaki metin bloğu */
+        .kutu {
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Klasik yatay çizgi */
+        hr {
+            border: 0;
+            border-top: 1px solid #cccccc;
+            margin: 20px 0;
+        }
+
+        /* Link rengi */
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="kutu">
+        <h1>404 Bulunamadı</h1>
+        <p>Aradığınız adres bu sunucuda bulunamadı.</p>
+        <hr>
+        <p>10 saniye içinde ana sayfaya yönlendirileceksiniz.</p>
+        <p>Kalan süre: <b id="sure">10</b> saniye.</p>
+        <p><a href="index.html">Ana Sayfa</a></p>
+    </div>
+
+    <script>
+        var saniye = 10;
+        setInterval(function() {
+            saniye--;
+            if (saniye >= 0) {
+                document.getElementById('sure').textContent = saniye;
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
