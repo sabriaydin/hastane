@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hastane Portal</title>
+  
+  <base href="https://sabriaydin.github.io/hastane/"> 
+  
+  <link rel="stylesheet" href="style.css">
+  <script src="auth-check.js"></script>
+</head>
+<body class="dashboard-body">
+
+  <div id="header-placeholder"></div>
+
+  <main class="dashboard-container">
+    <section class="panel">
+      <div class="panel-header">Sürekli İşçi Maaş Bordosu Sorgulama</div>
+      <div class="panel-body">
+        <p>S&uuml;rekli iş&ccedil;ilerde e-devlet &uuml;zerinden maaş bordrosu g&ouml;r&uuml;nt&uuml;lenmemektedir. Bu sebeple s&uuml;rekli iş&ccedil;i personeller maaş bordrosunun &ouml;rneğini alabilmek i&ccedil;in aşağıdaki adımları izlemelidir;</p>
+<ol>
+<li>İlk &ouml;nce talep eden kişinin&nbsp;<strong><a href="https://ekipportal.saglik.gov.tr/" target="_blank">EKİP Portal</a></strong> hesabına giriş yapması gerekmektedir.</li>
+<li>Daha sonra ekranın &uuml;st&uuml;nde bulunan <strong>Uygulamalar</strong> men&uuml;s&uuml;nden <strong><a href="https://ekipportal.saglik.gov.tr/root/applications/payroll" target="_blank">Bordro</a></strong> sayfasına gidip yıl/ay bilgisini d&uuml;zenleyerek Bordro Oluştur butonu ile bordo oluşturulur.</li>
+<li>Son olarak a&ccedil;ılan sayfadan bordro &ouml;rneğini talebe g&ouml;re .pdf uzantılı olarak bilgisayara kaydedebilir veya fiziki yazıcı &ccedil;ıktısı alınabilir.</li>
+</ol>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
