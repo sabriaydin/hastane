@@ -9,9 +9,9 @@
         html, body {
             height: 100%;
             margin: 0;
-            font-family: Arial, sans-serif; /* Klasik, düz yazı tipi */
-            background-color: #f0f0f0;      /* Hafif gri arka plan */
-            color: #333333;                 /* Koyu gri yazı rengi */
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333333;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -53,10 +53,18 @@
 
     <script>
         var saniye = 10;
-        setInterval(function() {
+        // setInterval'i bir değişkene atayarak gerektiğinde durdurabilmeyi sağlıyoruz
+        var sayac = setInterval(function() {
             saniye--;
+            
             if (saniye >= 0) {
                 document.getElementById('sure').textContent = saniye;
+            }
+            
+            // Süre bittiğinde çalışacak kısım
+            if (saniye === 0) {
+                clearInterval(sayac); // Sayacı durdurur
+                window.location.href = "index.html"; // JS ile yönlendirme yapar
             }
         }, 1000);
     </script>
