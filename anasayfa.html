@@ -398,7 +398,7 @@
 
   <script src="script.js"></script>
 
-  <!-- YER İMİ SÜRÜKLE BIRAK EKLENTİSİ (DÜZELTİLMİŞ) -->
+  <!-- YER İMİ SÜRÜKLE BIRAK EKLENTİSİ (KESİN ÇÖZÜM) -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const kutular = document.querySelectorAll('.kutu');
@@ -406,18 +406,32 @@
       kutular.forEach(kutu => {
         kutu.setAttribute('draggable', 'true');
         
+        // Kutu içindeki açıklamayı değişkene alıyoruz
+        const aciklama = kutu.querySelector('.kutu-aciklama');
+        
         kutu.addEventListener('dragstart', (e) => {
           const baslik = kutu.querySelector('.kutu-baslik').innerText;
-          const orjinalIcerik = kutu.innerHTML;
+          const url = kutu.href;
           
-          // Tarayıcının yer imi adını doğru alabilmesi için sürükleme anında 
-          // kutunun içindeki tüm karmaşık HTML'i geçici olarak sadece başlık metni ile değiştiriyoruz.
-          kutu.innerHTML = baslik;
+          // Yer imi standartlarını zorlamak için:
+          e.dataTransfer.setData('text/html', `<a href="${url}">${baslik}</a>`);
+          e.dataTransfer.setData('text/x-moz-url', `${url}\n${baslik}`);
+          e.dataTransfer.setData('text/uri-list', url);
+          e.dataTransfer.setData('text/plain', url);
           
-          // Sürükleme işlemi başlar başlamaz görüntüyü orijinal haline geri getiriyoruz (gözle görülmez).
-          setTimeout(() => {
-            kutu.innerHTML = orjinalIcerik;
-          }, 0);
+          // ÇÖZÜM: Sürükleme başladığında açıklamayı DOM'da tamamen görünmez yapıyoruz.
+          // Tarayıcı bu sayede elementi okurken SADECE başlık metnini görür.
+          if (aciklama) {
+            aciklama.style.display = 'none';
+          }
+        });
+
+        // Sürükleme işlemi tamamen bittiğinde (bırakıldığında veya iptal edildiğinde)
+        kutu.addEventListener('dragend', () => {
+          // Açıklamayı tekrar görünür yapıyoruz.
+          if (aciklama) {
+            aciklama.style.display = '';
+          }
         });
       });
     });
