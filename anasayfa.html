@@ -398,7 +398,7 @@
 
   <script src="script.js"></script>
 
-  <!-- YER İMİ SÜRÜKLE BIRAK EKLENTİSİ -->
+  <!-- YER İMİ SÜRÜKLE BIRAK EKLENTİSİ (DÜZELTİLMİŞ) -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const kutular = document.querySelectorAll('.kutu');
@@ -408,22 +408,16 @@
         
         kutu.addEventListener('dragstart', (e) => {
           const baslik = kutu.querySelector('.kutu-baslik').innerText;
-          const url = kutu.href;
+          const orjinalIcerik = kutu.innerHTML;
           
-          // Firefox için URL ve Başlık formatı
-          e.dataTransfer.setData('text/x-moz-url', `${url}\n${baslik}`);
-          // Diğer tarayıcılar için standart URL formatı
-          e.dataTransfer.setData('text/uri-list', url);
-          e.dataTransfer.setData('text/plain', url);
+          // Tarayıcının yer imi adını doğru alabilmesi için sürükleme anında 
+          // kutunun içindeki tüm karmaşık HTML'i geçici olarak sadece başlık metni ile değiştiriyoruz.
+          kutu.innerHTML = baslik;
           
-          // Chrome'un bazen sürüklenen nesnenin tüm içeriğini başlık yapmasını 
-          // engellemek ve sadece 'kutu-baslik' içeriğini göstermek için:
-          kutu.setAttribute('title', baslik);
-        });
-
-        // Sürükleme bitince başlık özniteliğini (title) temizle ki tooltip olarak takılı kalmasın
-        kutu.addEventListener('dragend', () => {
-          kutu.removeAttribute('title');
+          // Sürükleme işlemi başlar başlamaz görüntüyü orijinal haline geri getiriyoruz (gözle görülmez).
+          setTimeout(() => {
+            kutu.innerHTML = orjinalIcerik;
+          }, 0);
         });
       });
     });
