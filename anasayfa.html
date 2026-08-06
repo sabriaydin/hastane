@@ -397,31 +397,5 @@
   <div id="footer-placeholder"></div>
 
   <script src="script.js"></script>
-
-  <!-- YER İMİ SÜRÜKLE BIRAK EKLENTİSİ (KESİN ÇÖZÜM) -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const kutular = document.querySelectorAll('.kutu');
-      
-      kutular.forEach(kutu => {
-        // Sayfa yüklendiğinde başlık metnini al
-        const baslik = kutu.querySelector('.kutu-baslik').innerText.trim();
-        
-        // Tarayıcının yer imi eklerken öncelikli olarak aradığı "title" (isim) 
-        // özelliğini, doğrudan linkin kendisine peşin olarak tanımlıyoruz.
-        kutu.setAttribute('title', baslik);
-        
-        // Sürükleme standardını güvenceye alıyoruz.
-        kutu.setAttribute('draggable', 'true');
-        
-        kutu.addEventListener('dragstart', (e) => {
-          const url = kutu.href;
-          e.dataTransfer.setData('text/plain', url);
-          e.dataTransfer.setData('text/uri-list', url);
-          e.dataTransfer.setData('text/x-moz-url', `${url}\n${baslik}`);
-        });
-      });
-    });
-  </script>
 </body>
 </html>
