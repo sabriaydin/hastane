@@ -404,34 +404,21 @@
       const kutular = document.querySelectorAll('.kutu');
       
       kutular.forEach(kutu => {
+        // Sayfa yüklendiğinde başlık metnini al
+        const baslik = kutu.querySelector('.kutu-baslik').innerText.trim();
+        
+        // Tarayıcının yer imi eklerken öncelikli olarak aradığı "title" (isim) 
+        // özelliğini, doğrudan linkin kendisine peşin olarak tanımlıyoruz.
+        kutu.setAttribute('title', baslik);
+        
+        // Sürükleme standardını güvenceye alıyoruz.
         kutu.setAttribute('draggable', 'true');
         
-        // Kutu içindeki açıklamayı değişkene alıyoruz
-        const aciklama = kutu.querySelector('.kutu-aciklama');
-        
         kutu.addEventListener('dragstart', (e) => {
-          const baslik = kutu.querySelector('.kutu-baslik').innerText;
           const url = kutu.href;
-          
-          // Yer imi standartlarını zorlamak için:
-          e.dataTransfer.setData('text/html', `<a href="${url}">${baslik}</a>`);
-          e.dataTransfer.setData('text/x-moz-url', `${url}\n${baslik}`);
-          e.dataTransfer.setData('text/uri-list', url);
           e.dataTransfer.setData('text/plain', url);
-          
-          // ÇÖZÜM: Sürükleme başladığında açıklamayı DOM'da tamamen görünmez yapıyoruz.
-          // Tarayıcı bu sayede elementi okurken SADECE başlık metnini görür.
-          if (aciklama) {
-            aciklama.style.display = 'none';
-          }
-        });
-
-        // Sürükleme işlemi tamamen bittiğinde (bırakıldığında veya iptal edildiğinde)
-        kutu.addEventListener('dragend', () => {
-          // Açıklamayı tekrar görünür yapıyoruz.
-          if (aciklama) {
-            aciklama.style.display = '';
-          }
+          e.dataTransfer.setData('text/uri-list', url);
+          e.dataTransfer.setData('text/x-moz-url', `${url}\n${baslik}`);
         });
       });
     });
