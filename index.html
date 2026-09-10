@@ -3,19 +3,58 @@ layout: default
 title: Anasayfa
 ---
 
-<!-- Karşılama Notu -->
-<section class="mb-10 pb-6 border-b border-gray-200">
-    <h1 class="text-2xl font-bold text-gray-900 mb-2">Hoş Geldiniz</h1>
-    <p class="text-gray-600 text-sm leading-relaxed">
-        {{ site.description }}
-    </p>
+<!-- Yatay Görselli Hızlı Erişim Menüsü -->
+<section class="mb-10 pb-8 border-b border-gray-200">
+    <h2 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Hızlı Erişim</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <!-- Kart 1: Projeler -->
+        <a href="#" class="group block p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+            <div class="aspect-video w-full rounded-lg bg-gray-100 overflow-hidden mb-2.5">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&q=80" alt="Projeler" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            </div>
+            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600">Projeler</h3>
+            <p class="text-[11px] text-gray-500">Açık kaynak işlerim</p>
+        </a>
+
+        <!-- Kart 2: Kitaplar -->
+        <a href="#" class="group block p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+            <div class="aspect-video w-full rounded-lg bg-gray-100 overflow-hidden mb-2.5">
+                <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=400&q=80" alt="Kitaplar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            </div>
+            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600">Kitaplar</h3>
+            <p class="text-[11px] text-gray-500">Okuma notlarım</p>
+        </a>
+
+        <!-- Kart 3: Notlar -->
+        <a href="#" class="group block p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+            <div class="aspect-video w-full rounded-lg bg-gray-100 overflow-hidden mb-2.5">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80" alt="Teknoloji" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            </div>
+            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600">Teknoloji</h3>
+            <p class="text-[11px] text-gray-500">Kod ve rehberler</p>
+        </a>
+
+        <!-- Kart 4: Kurulum -->
+        <a href="#" class="group block p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+            <div class="aspect-video w-full rounded-lg bg-gray-100 overflow-hidden mb-2.5">
+                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=400&q=80" alt="Kurulum" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            </div>
+            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600">Kurulumum</h3>
+            <p class="text-[11px] text-gray-500">Kullandığım araçlar</p>
+        </a>
+    </div>
 </section>
 
 <!-- Blog Yazı Listesi -->
 <section class="space-y-8">
+    {% assign months = "Ocak,Şubat,Mart,Nisan,Mayıs,Haziran,Temmuz,Ağustos,Eylül,Ekim,Kasım,Aralık" | split: "," %}
+    
     {% for post in site.posts %}
+    {% assign m_index = post.date | date: "%-m" | minus: 1 %}
     <article>
-        <span class="text-xs text-gray-400">{{ post.date | date: "%d %B %Y" }}</span>
+        <span class="text-xs text-gray-400">
+            {{ post.date | date: "%d" }} {{ months[m_index] }} {{ post.date | date: "%Y" }}
+        </span>
         <h2 class="text-xl font-semibold text-gray-900 hover:text-blue-600 transition-colors mt-1 mb-2">
             <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
         </h2>
