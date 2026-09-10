@@ -1,6 +1,6 @@
 title: Kişisel Portal
 description: Bu alanda düşüncelerimi, projelerimi ve günlük notlarımı paylaşıyorum.
-baseurl: "" # Eğer siten kullanıcıadı.github.io/repo-adi şeklinde açılıyorsa buraya "/repo-adi" yaz
+baseurl: "/hastane" # Eğer siten kullanıcıadı.github.io/repo-adi şeklinde açılıyorsa buraya "/repo-adi" yaz
 url: ""
 
 markdown: kramdown
