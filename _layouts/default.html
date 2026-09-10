@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col justify-between antialiased">
+
+    <!-- HEADER & MENÜ -->
+    <header class="bg-white border-b border-gray-200">
+        <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="{{ '/' | relative_url }}" class="text-lg font-semibold text-gray-900 tracking-tight">{{ site.title }}</a>
+            <nav class="flex items-center space-x-6 text-sm font-medium text-gray-600">
+                <a href="{{ '/' | relative_url }}" class="hover:text-gray-900 transition-colors">Anasayfa</a>
+                <a href="{{ '/' | relative_url }}" class="hover:text-gray-900 transition-colors">Yazılar</a>
+                <a href="#" class="hover:text-gray-900 transition-colors">Hakkımda</a>
+                <a href="#" class="hover:text-gray-900 transition-colors">İletişim</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- İÇERİK ALANI -->
+    <main class="max-w-3xl mx-auto px-6 py-12 flex-grow w-full">
+        {{ content }}
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-gray-200 py-6">
+        <div class="max-w-3xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+            <p>© {{ 'now' | date: "%Y" }} Tüm Hakları Saklıdır.</p>
+            <div class="flex space-x-4">
+                <a href="https://github.com" target="_blank" class="hover:text-gray-900 transition-colors">GitHub</a>
+                <a href="https://twitter.com" target="_blank" class="hover:text-gray-900 transition-colors">Twitter</a>
+                <a href="mailto:ornek@email.com" class="hover:text-gray-900 transition-colors">E-posta</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
