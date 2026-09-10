@@ -13,6 +13,12 @@ title: Anasayfa
 <section class="mb-10 pb-8 border-b border-gray-200">
     <h2 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Hızlı Erişim Platformları</h2>
     
+    <!-- Slider Kontrol Butonları -->
+    <div class="flex justify-end gap-2 mb-3 pr-2">
+        <button onclick="sliderKaydir(-1)" class="w-8 h-8 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-gray-100 shadow-sm transition-colors text-gray-600 font-bold" aria-label="Geri">❮</button>
+        <button onclick="sliderKaydir(1)" class="w-8 h-8 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-gray-100 shadow-sm transition-colors text-gray-600 font-bold" aria-label="İleri">❯</button>
+    </div>
+    
     <!-- Kaydırma Alanı -->
     <div class="flex overflow-x-auto gap-4 pb-2 snap-x snap-mandatory scroll-gizle">
         
@@ -276,3 +282,12 @@ title: Anasayfa
     <p class="text-gray-500 text-sm">Henüz eklenmiş bir yazı bulunmuyor.</p>
     {% endfor %}
 </section>
+
+<!-- Slider JS -->
+<script>
+    function sliderKaydir(yon) {
+        const slider = document.querySelector('.scroll-gizle');
+        const kaydirmaMiktari = slider.clientWidth * 0.75; 
+        slider.scrollBy({ left: yon * kaydirmaMiktari, behavior: 'smooth' });
+    }
+</script>
