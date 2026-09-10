@@ -1,5 +1,5 @@
-title: Kişisel Portal
-description: Bu alanda düşüncelerimi, projelerimi ve günlük notlarımı paylaşıyorum.
+title: Hastane Portal
+description: İş hayatında kullanmak üzere oluşturulmuş yardımcı internet sayfasıdır.
 baseurl: "/hastane" # Eğer siten kullanıcıadı.github.io/repo-adi şeklinde açılıyorsa buraya "/repo-adi" yaz
 url: ""
 
