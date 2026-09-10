@@ -13,247 +13,252 @@ title: Anasayfa
 <section class="mb-10 pb-8 border-b border-gray-200">
     <h2 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Hızlı Erişim Platformları</h2>
     
-    <!-- Slider Kontrol Butonları -->
-    <div class="flex justify-end gap-2 mb-3 pr-2">
-        <button onclick="sliderKaydir(-1)" class="w-8 h-8 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-gray-100 shadow-sm transition-colors text-gray-600 font-bold" aria-label="Geri">❮</button>
-        <button onclick="sliderKaydir(1)" class="w-8 h-8 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-gray-100 shadow-sm transition-colors text-gray-600 font-bold" aria-label="İleri">❯</button>
-    </div>
-    
-    <!-- Kaydırma Alanı -->
-    <div class="flex overflow-x-auto gap-4 pb-2 snap-x snap-mandatory scroll-gizle">
+    <!-- Slider Kapsayıcısı -->
+    <div class="relative">
         
-        <a href="https://dys.saglik.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/dys-logo.png" alt="DYS" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">DYS</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Doküman Yönetim Sistemi</p>
-        </a>
+        <!-- Sol Buton -->
+        <button onclick="sliderKaydir(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-10 w-10 h-10 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-gray-100 shadow-md transition-colors text-gray-800 font-bold" aria-label="Geri">❮</button>
+        
+        <!-- Kaydırma Alanı -->
+        <div class="flex overflow-x-auto gap-4 pb-2 snap-x snap-mandatory scroll-gizle">
+            
+            <a href="https://dys.saglik.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/dys-logo.png" alt="DYS" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">DYS</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Doküman Yönetim Sistemi</p>
+            </a>
 
-        <a href="https://ekip.saglik.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/ekip-logo.png" alt="EKİP" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">EKİP</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Entegre Kurumsal İşlem Platformu</p>
-        </a>
+            <a href="https://ekip.saglik.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/ekip-logo.png" alt="EKİP" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">EKİP</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Entegre Kurumsal İşlem Platformu</p>
+            </a>
 
-        <a href="https://eposta.saglik.gov.tr/owakontrol/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/saglikposta-logo.png" alt="Sağlık E-Posta" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">Sağlık E-Posta</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Sağlık E-Posta Sistemi</p>
-        </a>
+            <a href="https://eposta.saglik.gov.tr/owakontrol/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/saglikposta-logo.png" alt="Sağlık E-Posta" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">Sağlık E-Posta</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Sağlık E-Posta Sistemi</p>
+            </a>
 
-        <a href="https://akgunikbs.giresunsaglik.gov.tr/ikbs-web/gen/anasayfa.htm" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/akgun-logo.png" alt="AKGÜN İKBS" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">AKGÜN İKBS</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">İnsan Kaynakları Bilgi Sistemi</p>
-        </a>
+            <a href="https://akgunikbs.giresunsaglik.gov.tr/ikbs-web/gen/anasayfa.htm" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/akgun-logo.png" alt="AKGÜN İKBS" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">AKGÜN İKBS</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">İnsan Kaynakları Bilgi Sistemi</p>
+            </a>
 
-        <a href="https://akgunhbys.giresunsaglik.gov.tr/hbys-web/gen/anasayfa.htm" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/akgun-logo.png" alt="AKGÜN HBYS" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">AKGÜN HBYS</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Hastane Bilgi Yönetim Sistemi</p>
-        </a>
+            <a href="https://akgunhbys.giresunsaglik.gov.tr/hbys-web/gen/anasayfa.htm" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/akgun-logo.png" alt="AKGÜN HBYS" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">AKGÜN HBYS</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Hastane Bilgi Yönetim Sistemi</p>
+            </a>
 
-        <a href="https://kapi.cimer.gov.tr/Hesap/Giris" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/cimer-logo.png" alt="CİMER" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">CİMER</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Cumhurbaşkanlığı İletişim Merkezi</p>
-        </a>
+            <a href="https://kapi.cimer.gov.tr/Hesap/Giris" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/cimer-logo.png" alt="CİMER" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">CİMER</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Cumhurbaşkanlığı İletişim Merkezi</p>
+            </a>
 
-        <a href="https://crm.sabim.gov.tr/login" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/sabim-logo.png" alt="SABİM" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">SABİM</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Sağlık Bakanlığı İletişim Merkezi</p>
-        </a>
+            <a href="https://crm.sabim.gov.tr/login" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/sabim-logo.png" alt="SABİM" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">SABİM</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Sağlık Bakanlığı İletişim Merkezi</p>
+            </a>
 
-        <a href="https://acikkapi.gov.tr/Hesap/Giris" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/acikkapi-logo.png" alt="Açık Kapı" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">Açık Kapı</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Açık Kapı başvuru takip sistemi</p>
-        </a>
+            <a href="https://acikkapi.gov.tr/Hesap/Giris" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/acikkapi-logo.png" alt="Açık Kapı" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">Açık Kapı</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Açık Kapı başvuru takip sistemi</p>
+            </a>
 
-        <a href="https://www.mhrs.gov.tr/kurum/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/mhrs-logo.png" alt="MHRS Kurum" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">MHRS Kurum</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Randevu Yönetimi</p>
-        </a>
+            <a href="https://www.mhrs.gov.tr/kurum/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/mhrs-logo.png" alt="MHRS Kurum" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">MHRS Kurum</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Randevu Yönetimi</p>
+            </a>
 
-        <a href="https://kpsyonetimv2.saglik.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/kps-logo.png" alt="KPS Yönetim" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">KPS Yönetim</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Sağlık Bakanlığı Kimlik Paylaşım Sistemi</p>
-        </a>
+            <a href="https://kpsyonetimv2.saglik.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/kps-logo.png" alt="KPS Yönetim" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">KPS Yönetim</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Sağlık Bakanlığı Kimlik Paylaşım Sistemi</p>
+            </a>
 
-        <a href="https://obs.saglik.gov.tr/Account/Login" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/saglikbakanligi-logo.png" alt="ÖBS" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">ÖBS</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Ölüm Bildirim Sistemi</p>
-        </a>
+            <a href="https://obs.saglik.gov.tr/Account/Login" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/saglikbakanligi-logo.png" alt="ÖBS" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">ÖBS</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Ölüm Bildirim Sistemi</p>
+            </a>
 
-        <a href="https://obs.saglik.gov.tr/DogrulamaServisi" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/saglikbakanligi-logo.png" alt="Ölüm Belgesi Doğrulama" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">Ölüm Doğrulama</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Ölüm Belgesi Doğrulama</p>
-        </a>
+            <a href="https://obs.saglik.gov.tr/DogrulamaServisi" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/saglikbakanligi-logo.png" alt="Ölüm Belgesi Doğrulama" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">Ölüm Doğrulama</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Ölüm Belgesi Doğrulama</p>
+            </a>
 
-        <a href="https://isgkatip.csgb.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/isgkatip-logo.png" alt="İSG-KATİP" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">İSG-KATİP</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">İş Sağlığı ve Güvenliği Kayıt Sistemi</p>
-        </a>
+            <a href="https://isgkatip.csgb.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/isgkatip-logo.png" alt="İSG-KATİP" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">İSG-KATİP</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">İş Sağlığı ve Güvenliği Kayıt Sistemi</p>
+            </a>
 
-        <a href="https://hitap.sgk.gov.tr/HitapWeb/login" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/sgk-logo.png" alt="HİTAP" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">HİTAP</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Hizmet Takip Programı</p>
-        </a>
+            <a href="https://hitap.sgk.gov.tr/HitapWeb/login" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/sgk-logo.png" alt="HİTAP" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">HİTAP</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Hizmet Takip Programı</p>
+            </a>
 
-        <a href="https://uyg.sgk.gov.tr/SigortaliTescil/amp/loginldap" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/sgk-logo.png" alt="SGK Tescil" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">SGK Tescil</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">İşe Giriş ve Ayrılış Bildirgeleri</p>
-        </a>
+            <a href="https://uyg.sgk.gov.tr/SigortaliTescil/amp/loginldap" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/sgk-logo.png" alt="SGK Tescil" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">SGK Tescil</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">İşe Giriş ve Ayrılış Bildirgeleri</p>
+            </a>
 
-        <a href="https://portal.kamusm.gov.tr/bp/ws.go" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/kamusm-logo.png" alt="Kamu SM" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">Kamu SM</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Sağlık Bakanlığı E-imza Başvuru</p>
-        </a>
+            <a href="https://portal.kamusm.gov.tr/bp/ws.go" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/kamusm-logo.png" alt="Kamu SM" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">Kamu SM</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Sağlık Bakanlığı E-imza Başvuru</p>
+            </a>
 
-        <a href="https://uyg.sgk.gov.tr/vizite/welcome.do" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/isgkatip-logo.png" alt="Vizite Bildirim" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">Vizite Bildirim</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Çalışılmadığına Dair Bildirim</p>
-        </a>
+            <a href="https://uyg.sgk.gov.tr/vizite/welcome.do" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/isgkatip-logo.png" alt="Vizite Bildirim" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">Vizite Bildirim</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Çalışılmadığına Dair Bildirim</p>
+            </a>
 
-        <a href="https://yazilimdestek.saglik.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/yazilimdestek-logo.png" alt="Yazılım Destek" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">Yazılım Destek</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Sağlık Bakanlığı Yardım Masası</p>
-        </a>
+            <a href="https://yazilimdestek.saglik.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/yazilimdestek-logo.png" alt="Yazılım Destek" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">Yazılım Destek</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Sağlık Bakanlığı Yardım Masası</p>
+            </a>
 
-        <a href="https://yonetim.enabiz.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/Enabiz-logo.png" alt="e-Nabız Yönetim" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">e-Nabız Yönetim</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">e-Nabız Yönetim</p>
-        </a>
+            <a href="https://yonetim.enabiz.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/Enabiz-logo.png" alt="e-Nabız Yönetim" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">e-Nabız Yönetim</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">e-Nabız Yönetim</p>
+            </a>
 
-        <a href="https://turkiye.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/edevlet-logo.png" alt="E-Devlet" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">E-Devlet</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">e-Devlet Kapısı</p>
-        </a>
+            <a href="https://turkiye.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/edevlet-logo.png" alt="E-Devlet" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">E-Devlet</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">e-Devlet Kapısı</p>
+            </a>
 
-        <a href="https://uzem.giresunsaglik.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/sina-logo.png" alt="SİNA" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">SİNA</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">İstatistik ve Nedensel Analizler</p>
-        </a>
+            <a href="https://uzem.giresunsaglik.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/sina-logo.png" alt="SİNA" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">SİNA</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">İstatistik ve Nedensel Analizler</p>
+            </a>
 
-        <a href="https://ekipportal.saglik.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/ekip-logo.png" alt="EKİP Portal" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">EKİP Portal</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Entegre Kurumsal İşlem Platformu</p>
-        </a>
+            <a href="https://ekipportal.saglik.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/ekip-logo.png" alt="EKİP Portal" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">EKİP Portal</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Entegre Kurumsal İşlem Platformu</p>
+            </a>
 
-        <a href="https://uzem.giresunsaglik.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/pago-logo.png" alt="PAGO" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">PAGO</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Personel Bilgi Yönetim Sistemi</p>
-        </a>
+            <a href="https://uzem.giresunsaglik.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/pago-logo.png" alt="PAGO" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">PAGO</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Personel Bilgi Yönetim Sistemi</p>
+            </a>
 
-        <a href="http://10.28.0.6:8081/EhipSM/Default.aspx" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/ventura-logo.png" alt="EHİP" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">EHİP</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Tıbbi Cihaz Takibi</p>
-        </a>
+            <a href="http://10.28.0.6:8081/EhipSM/Default.aspx" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/ventura-logo.png" alt="EHİP" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">EHİP</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Tıbbi Cihaz Takibi</p>
+            </a>
 
-        <a href="http://10.28.3.33:8081/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/saglikbakanligi-logo.png" alt="Eğitim İstatistik Sistemi (Giresun)" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">Eğitim İstatistik</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Eğitim İstatistik Sistemi</p>
-        </a>
+            <a href="http://10.28.3.33:8081/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/saglikbakanligi-logo.png" alt="Eğitim İstatistik Sistemi (Giresun)" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">Eğitim İstatistik</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Eğitim İstatistik Sistemi</p>
+            </a>
 
-        <a href="https://webyonetimhastane.saglik.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/saglikbakanligi-logo.png" alt="Web Sitesi Yönetim" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">Web Yönetim</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Sağlık Bakanlığı Web İçerik Yönetimi</p>
-        </a>
+            <a href="https://webyonetimhastane.saglik.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/saglikbakanligi-logo.png" alt="Web Sitesi Yönetim" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">Web Yönetim</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Sağlık Bakanlığı Web İçerik Yönetimi</p>
+            </a>
 
-        <a href="https://dosya.tarimorman.gov.tr/app/tr-TR/Form/Paylas/TarimBulut/2f1e3e54-af06-4c4c-a92f-6a9510ce5a15" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/suverimliligi-logo.png" alt="Tarım Bulut" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">Tarım Bulut</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Su Verimliliği Raporu Gönder</p>
-        </a>
+            <a href="https://dosya.tarimorman.gov.tr/app/tr-TR/Form/Paylas/TarimBulut/2f1e3e54-af06-4c4c-a92f-6a9510ce5a15" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/suverimliligi-logo.png" alt="Tarım Bulut" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">Tarım Bulut</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Su Verimliliği Raporu Gönder</p>
+            </a>
 
-        <a href="https://pttbasvuru.hs01.kep.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/PTTKep-Logo.png" alt="PTT Kep Online" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">PTT Kep Online</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Kayıtlı Elektronik Posta (KEP)</p>
-        </a>
+            <a href="https://pttbasvuru.hs01.kep.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/PTTKep-Logo.png" alt="PTT Kep Online" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">PTT Kep Online</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Kayıtlı Elektronik Posta (KEP)</p>
+            </a>
 
-        <a href="https://konferans.saglik.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
-            <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
-                <img src="gorseller/logo/Konferans-Logo.png" alt="Konferans Uygulaması" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-            </div>
-            <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">Konferans</h3>
-            <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Sağlık Bakanlığı</p>
-        </a>
+            <a href="https://konferans.saglik.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
+                <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
+                    <img src="gorseller/logo/Konferans-Logo.png" alt="Konferans Uygulaması" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <h3 class="text-xs font-semibold text-gray-900 group-hover:text-blue-600 line-clamp-1">Konferans</h3>
+                <p class="text-[11px] text-gray-500 line-clamp-2 mt-0.5">Sağlık Bakanlığı</p>
+            </a>
 
+        </div>
+
+        <!-- Sağ Buton -->
+        <button onclick="sliderKaydir(1)" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10 w-10 h-10 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-gray-100 shadow-md transition-colors text-gray-800 font-bold" aria-label="İleri">❯</button>
+        
     </div>
 </section>
 
