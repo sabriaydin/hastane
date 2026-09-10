@@ -13,14 +13,14 @@ title: Anasayfa
 <section class="mb-10 pb-8 border-b border-gray-200">
     <h2 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Hızlı Erişim Platformları</h2>
     
-    <!-- Butonlar ve Slider Kapsayıcısı -->
-    <div class="flex items-center w-full">
+    <!-- Slider Kapsayıcısı -->
+    <div class="relative">
         
-        <!-- Sol Buton (Menü Dışı) -->
-        <button onclick="sliderKaydir(-1)" class="flex-none mr-3 w-10 h-10 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-gray-100 shadow-sm transition-colors text-gray-800 font-bold" aria-label="Geri">❮</button>
+        <!-- Sol Buton -->
+        <button onclick="sliderKaydir(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-gray-100 shadow-md transition-colors text-gray-800 font-bold" aria-label="Geri">❮</button>
         
-        <!-- Kaydırma Alanı -->
-        <div class="flex overflow-x-auto gap-4 pb-2 snap-x snap-mandatory scroll-gizle w-full">
+        <!-- Kaydırma Alanı (px-12 ile sağ ve soldan buton boşluğu bırakıldı) -->
+        <div class="flex overflow-x-auto gap-4 pb-2 px-12 snap-x snap-mandatory scroll-gizle">
             
             <a href="https://dys.saglik.gov.tr/" target="_blank" class="group block flex-none w-[calc(75%-1rem)] sm:w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)] snap-start p-3 bg-white border border-gray-200 rounded-xl hover:border-gray-400 transition-all shadow-sm">
                 <div class="aspect-video w-full rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center overflow-hidden mb-2.5 p-2">
@@ -256,8 +256,8 @@ title: Anasayfa
 
         </div>
 
-        <!-- Sağ Buton (Menü Dışı) -->
-        <button onclick="sliderKaydir(1)" class="flex-none ml-3 w-10 h-10 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-gray-100 shadow-sm transition-colors text-gray-800 font-bold" aria-label="İleri">❯</button>
+        <!-- Sağ Buton -->
+        <button onclick="sliderKaydir(1)" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-gray-100 shadow-md transition-colors text-gray-800 font-bold" aria-label="İleri">❯</button>
         
     </div>
 </section>
@@ -288,21 +288,25 @@ title: Anasayfa
     {% endfor %}
 </section>
 
-<!-- Slider Döngü Kontrollü JS -->
+<!-- Slider JS -->
 <script>
     function sliderKaydir(yon) {
         const slider = document.querySelector('.scroll-gizle');
         const kaydirmaMiktari = slider.clientWidth * 0.75; 
         
-        // Ulaşılabilecek maksimum kaydırma değeri (içeriğin toplam genişliği eksi görünen kısım)
-        const maxScroll = slider.scrollWidth - slider.clientWidth;
+        // Ulaşılabilecek maksimum kaydırma miktarını hesapla
+        const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
 
-        // Tolerans payı ile döngü kontrolü (Sona gelince başa, baştayken sona atar)
-        if (yon === 1 && slider.scrollLeft >= maxScroll - 5) {
+        // İleri tıklandığında ve en sona gelindiyse başa dön
+        if (yon === 1 && slider.scrollLeft >= maxScrollLeft - 10) {
             slider.scrollTo({ left: 0, behavior: 'smooth' });
-        } else if (yon === -1 && slider.scrollLeft <= 5) {
-            slider.scrollTo({ left: maxScroll, behavior: 'smooth' });
-        } else {
+        } 
+        // Geri tıklandığında ve en baştaysa sona dön
+        else if (yon === -1 && slider.scrollLeft <= 10) {
+            slider.scrollTo({ left: maxScrollLeft, behavior: 'smooth' });
+        } 
+        // Normal şartlarda kaydır
+        else {
             slider.scrollBy({ left: yon * kaydirmaMiktari, behavior: 'smooth' });
         }
     }
