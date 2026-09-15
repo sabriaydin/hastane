@@ -15,24 +15,39 @@
 
     <!-- HEADER & MENÜ -->
     <header class="bg-white border-b border-gray-200">
-        <div class="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
             <a href="{{ '/' | relative_url }}" class="text-lg font-semibold text-gray-900 tracking-tight">{{ site.title }}</a>
             <nav class="flex items-center space-x-6 text-sm font-medium text-gray-800">
                 <a href="{{ '/' | relative_url }}" class="hover:text-gray-900 transition-colors">Anasayfa</a>
                 <a href="{{ '/hakkimda.html' | relative_url }}" class="hover:text-gray-900 transition-colors">Hakkımda</a>
                 <a href="{{ '/iletisim.html' | relative_url }}" class="hover:text-gray-900 transition-colors">İletişim</a>
+
+                <!-- Örnek Açılır Menü (dropdown) -->
+                <div class="relative" id="acilirMenuKapsayici">
+                    <button type="button" onclick="acilirMenuAcKapa(event)" id="acilirMenuButon" aria-haspopup="true" aria-expanded="false" class="flex items-center gap-1 hover:text-gray-900 transition-colors">
+                        Daha Fazla
+                        <svg id="acilirMenuOk" xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div id="acilirMenuPanel" class="hidden absolute right-0 top-full mt-2 w-52 bg-white border border-gray-200 rounded-xl shadow-lg py-1.5 z-20">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-50 hover:text-gray-900 transition-colors">Örnek Bağlantı 1</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-50 hover:text-gray-900 transition-colors">Örnek Bağlantı 2</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-50 hover:text-gray-900 transition-colors">Örnek Bağlantı 3</a>
+                    </div>
+                </div>
             </nav>
         </div>
     </header>
 
     <!-- İÇERİK ALANI -->
-    <main class="max-w-3xl mx-auto px-6 py-12 flex-grow w-full">
+    <main class="max-w-4xl mx-auto px-6 py-12 flex-grow w-full">
         {{ content }}
     </main>
 
     <!-- FOOTER -->
     <footer class="bg-white border-t border-gray-200 py-6">
-        <div class="max-w-3xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-700 gap-4">
+        <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-700 gap-4">
             <p>© {{ 'now' | date: "%Y" }} Tüm Hakları Saklıdır.</p>
             <div class="flex space-x-4">
                 <a href="https://github.com" target="_blank" class="hover:text-gray-900 transition-colors">GitHub</a>
@@ -40,6 +55,29 @@
             </div>
         </div>
     </footer>
+
+    <!-- Örnek Açılır Menü JS -->
+    <script>
+        function acilirMenuAcKapa(e) {
+            e.stopPropagation();
+            var panel = document.getElementById('acilirMenuPanel');
+            var buton = document.getElementById('acilirMenuButon');
+            var ok = document.getElementById('acilirMenuOk');
+            var acikMi = !panel.classList.contains('hidden');
+            panel.classList.toggle('hidden');
+            buton.setAttribute('aria-expanded', String(!acikMi));
+            ok.classList.toggle('rotate-180');
+        }
+        document.addEventListener('click', function (e) {
+            var kapsayici = document.getElementById('acilirMenuKapsayici');
+            var panel = document.getElementById('acilirMenuPanel');
+            if (kapsayici && panel && !kapsayici.contains(e.target) && !panel.classList.contains('hidden')) {
+                panel.classList.add('hidden');
+                document.getElementById('acilirMenuButon').setAttribute('aria-expanded', 'false');
+                document.getElementById('acilirMenuOk').classList.remove('rotate-180');
+            }
+        });
+    </script>
 
 </body>
 </html>
