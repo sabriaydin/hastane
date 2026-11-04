@@ -12,6 +12,7 @@ js/main.js             Portal mantığı
 assets/images/logos/   Logo dosyaları
 araclar/               Araçlar penceresindeki uygulamalar (her araç kendi klasöründe)
   ekip-izin-raporu/    EKİP Personel İzin Bilgisi Raporlama (kurulum sayfası)
+  hizli-erisim-menusu/ Hızlı Erişim Menüsü (yer imi uygulaması, sağ panel)
 ```
 
 ## Logo Dosyaları
@@ -47,3 +48,7 @@ Dosya bulunamazsa kartta otomatik olarak simge gösterilir.
 ## Bağlantı / Araç Ekleme
 
 `js/data.js` içindeki `LINKS` (Hızlı Erişim) ve `TOOLS` (Araçlar) listelerine satır eklenir veya silinir.
+
+## Hızlı Erişim Menüsü
+
+Yer imi uygulamasındaki bağlantı listesi `js/data.js` içindeki `LINKS` listesinden üretilmiştir. `LINKS` değiştirilirse `araclar/hizli-erisim-menusu/` dosyaları yeniden oluşturulmalıdır.

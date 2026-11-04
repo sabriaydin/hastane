@@ -45,5 +45,6 @@ const LINKS = [
    { icon: "🧮", title: "Araç Adı", desc: "Kısa açıklama", url: "https://ornek.com" }
    logo (isteğe bağlı): assets/images/logos/ klasöründeki dosya adı */
 const TOOLS = [
-  { icon: "📋", title: "EKİP Personel İzin Bilgisi Raporlama", desc: "EKİP sisteminde toplu personel izin ve rapor bilgisi listeleme özelliği olmadığından harici olarak kullanılır.", url: "araclar/ekip-izin-raporu/index.html" }
+  { icon: "📋", title: "EKİP Personel İzin Bilgisi Raporlama", desc: "EKİP sisteminde toplu personel izin ve rapor bilgisi listeleme özelliği olmadığından harici olarak kullanılır.", url: "araclar/ekip-izin-raporu/index.html" },
+  { icon: "📌", title: "Hızlı Erişim Menüsü", desc: "Hızlı erişim bağlantılarını herhangi bir sayfanın sağında liste olarak açar.", url: "araclar/hizli-erisim-menusu/index.html" }
 ];

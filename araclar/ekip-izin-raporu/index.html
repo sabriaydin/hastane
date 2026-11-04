@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>EKİP Personel İzin Bilgisi Raporlama – Kurulum</title>
 <style>
-  :root{--teal:#1a73c7;--teal2:#1769aa;--mint:#dcebfa;--ink:#12263f;--gri:#5a7390;--cizgi:#cfe0f3;--kirmizi:#1769aa}
+  :root{--teal:#1a73c7;--teal2:#1769aa;--mint:#dcebfa;--ink:#12263f;--gri:#5a7390;--cizgi:#d5dde8;--kirmizi:#1769aa}
   *{box-sizing:border-box}
   body{margin:0;font:16px/1.6 "Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);
-       background:#f1f6fc}
+       background:#f3f6fa}
   header{background:#0b2f5c;color:#fff;position:relative;overflow:hidden}
   header::before,header::after{content:"+";position:absolute;font-size:120px;font-weight:700;color:rgba(255,255,255,.07);animation:float 9s ease-in-out infinite;pointer-events:none}
   header::before{top:-10px;left:6%} header::after{bottom:20px;right:8%;font-size:170px;animation-delay:-4s}
@@ -24,11 +24,10 @@
   h1{margin:0;font-size:28px;line-height:1.2;letter-spacing:.2px}
   .alt{margin:6px 0 0;opacity:.92;font-size:15px}
   .ekg{position:absolute;left:0;right:0;bottom:36px;height:56px;width:100%;z-index:0;pointer-events:none;
-        filter:drop-shadow(0 0 6px #8fd3ff)}
-  .ekg path{fill:none;stroke:#8fd3ff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;
-            stroke-dasharray:1;stroke-dashoffset:1;animation:ciz 5s ease-in-out infinite}
-  @keyframes ciz{0%{stroke-dashoffset:1;opacity:1}65%{stroke-dashoffset:0;opacity:1}88%{stroke-dashoffset:0;opacity:0}100%{stroke-dashoffset:0;opacity:0}}
-  @media (prefers-reduced-motion:reduce){.ekg path{animation:none;stroke-dashoffset:0}header::before,header::after,.logo{animation:none}}
+        filter:drop-shadow(0 0 6px #8fd3ff);animation:ciz 5s ease-in-out infinite}
+  .ekg path{fill:none;stroke:#8fd3ff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+  @keyframes ciz{0%{clip-path:inset(-20px 100% -20px 0);opacity:1}65%{clip-path:inset(-20px 0 -20px 0);opacity:1}88%{clip-path:inset(-20px 0 -20px 0);opacity:0}100%{clip-path:inset(-20px 0 -20px 0);opacity:0}}
+  @media (prefers-reduced-motion:reduce){.ekg{animation:none}header::before,header::after,.logo{animation:none}}
   main{max-width:900px;margin:-34px auto 0;padding:0 20px 56px;position:relative;z-index:2}
   .kart{background:#fff;border:1px solid var(--cizgi);border-radius:14px;padding:20px 24px;margin-bottom:18px;
         box-shadow:0 4px 18px rgba(26,115,199,.08)}
@@ -99,7 +98,7 @@
     </div>
   </div>
   <svg class="ekg" viewBox="0 0 900 56" preserveAspectRatio="none" aria-hidden="true">
-    <path pathLength="1" d="M0 30H110l12-6 10 6h26l12-26 14 50 12-24h22l10-8 12 8H410l12-6 10 6h26l12-26 14 50 12-24h22l10-8 12 8H710l12-6 10 6h26l12-26 14 50 12-24h22l10-8 12 8H900"/>
+    <path d="M0 30H110l12-6 10 6h26l12-26 14 50 12-24h22l10-8 12 8H410l12-6 10 6h26l12-26 14 50 12-24h22l10-8 12 8H710l12-6 10 6h26l12-26 14 50 12-24h22l10-8 12 8H900"/>
   </svg>
 </header>
 
@@ -186,7 +185,8 @@
       <p>T.C. Kimlik No'nun doğru ve personelin sorgulama yetkinizde olduğundan emin olun. Art arda 3 hata olursa işlem güvenlik için durur.</p></details>
   </section>
 </main>
-<footer>EKİP Personel İzin Bilgisi Raporlama &middot; Kurulum Sayfası</footer>
+<footer>Copyright &copy; <span id="yil">2026</span> Hastane Portal. Tüm hakları saklıdır.</footer>
+<script>document.getElementById("yil").textContent=new Date().getFullYear();</script>
 
 <textarea id="kaynak" style="display:none">/*
  * EKİP Personel İzin Bilgisi Raporlama (Chrome Console)
