@@ -1,0 +1,173 @@
+:root{
+  --teal:#1a73c7;
+  --teal-dark:#0b2f5c;
+  --blue:#1769aa;
+  --mint:#dcebfa;
+  --white:#ffffff;
+  --text:#12263f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:"Segoe UI",system-ui,Arial,sans-serif;color:var(--text);background:#f1f6fc}
+.hidden{display:none!important}
+
+/* ---------- INTRO ---------- */
+#intro{
+  position:fixed;inset:0;z-index:10;overflow-y:auto;
+  display:flex;justify-content:center;align-items:center;
+  color:var(--white);
+  transition:opacity .25s ease,transform .25s ease;
+}
+#intro.leave{opacity:0;transform:scale(1.05);pointer-events:none}
+.intro-bg{
+  position:fixed;inset:0;z-index:-1;
+  background:linear-gradient(135deg,var(--teal-dark),var(--blue),#2a8fd8);
+  background-size:300% 300%;
+  animation:bgMove 12s ease infinite;
+}
+.intro-bg::before,.intro-bg::after{
+  content:"+";position:absolute;font-size:120px;font-weight:700;color:rgba(255,255,255,.07);
+  animation:float 9s ease-in-out infinite;
+}
+.intro-bg::before{top:12%;left:8%}
+.intro-bg::after{bottom:10%;right:10%;font-size:180px;animation-delay:-4s}
+@keyframes bgMove{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-30px) rotate(20deg)}}
+
+.intro-inner{
+  width:min(1280px,94%);padding:40px 0;text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+}
+.logo-pulse{width:96px;height:96px;animation:beat 1.6s ease-in-out infinite}
+.logo-pulse svg{width:100%;height:100%}
+.logo-pulse .ring{fill:none;stroke:rgba(255,255,255,.6);stroke-width:3}
+.logo-pulse .cross{fill:#fff}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.12)}30%{transform:scale(1)}45%{transform:scale(1.08)}}
+
+.intro-title{font-size:clamp(26px,5vw,44px);opacity:0;animation:rise .8s .3s forwards}
+.intro-sub{opacity:0;font-size:clamp(14px,2.4vw,18px);animation:rise .8s .6s forwards}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+.ecg{width:min(600px,90%);height:60px}
+.ecg polyline{
+  fill:none;stroke:#8fd3ff;stroke-width:3;stroke-linejoin:round;stroke-linecap:round;
+  stroke-dasharray:1200;stroke-dashoffset:1200;
+  animation:draw 3s linear infinite;
+  filter:drop-shadow(0 0 6px #8fd3ff);
+}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* ---------- KARTLAR ---------- */
+.link-grid{
+  width:100%;margin-top:14px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(138px,1fr));gap:12px;
+}
+.card{
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  padding:16px 10px 14px;border-radius:14px;text-decoration:none;color:inherit;
+  background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.06));
+  border:1px solid rgba(255,255,255,.2);
+  backdrop-filter:blur(10px);
+  opacity:0;transform:translateY(30px) scale(.94);
+  animation:cardIn .6s cubic-bezier(.2,.9,.3,1.1) forwards;
+  transition:transform .3s ease,background .3s ease,box-shadow .3s ease,border-color .3s ease;
+}
+.card:hover{
+  transform:translateY(-4px);
+  background:linear-gradient(160deg,rgba(255,255,255,.26),rgba(255,255,255,.1));
+  border-color:rgba(255,255,255,.55);
+  box-shadow:0 10px 24px rgba(0,0,0,.22),0 0 0 1px rgba(143,211,255,.25);
+}
+.card .ico{font-size:28px;transition:transform .3s}
+.card:hover .ico{transform:scale(1.12)}
+.card strong{font-size:13.5px;font-weight:600;letter-spacing:.2px;line-height:1.25}
+.card small{
+  font-size:11px;line-height:1.35;opacity:.75;
+  display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;
+}
+@keyframes cardIn{to{opacity:1;transform:none}}
+
+.enter-btn{
+  margin-top:18px;padding:11px 34px;border-radius:40px;cursor:pointer;
+  font-size:14px;font-weight:500;letter-spacing:1px;color:#fff;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.55);
+  backdrop-filter:blur(8px);
+  opacity:0;animation:rise .8s 2.2s forwards,glow 2.4s 3s infinite;
+  transition:background .3s,color .3s,transform .3s;
+}
+.enter-btn:hover{background:#fff;color:var(--teal-dark);transform:translateY(-2px)}
+@keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.35)}50%{box-shadow:0 0 0 10px rgba(255,255,255,0)}}
+
+.link-grid.light .card{
+  background:#fff;border:1px solid #cfe0f3;color:var(--text);backdrop-filter:none;
+  box-shadow:0 4px 14px rgba(26,115,199,.1);
+}
+.link-grid.light .card:hover{background:var(--mint)}
+
+
+
+@media (max-width:520px){
+  .link-grid{grid-template-columns:repeat(3,1fr);gap:8px}
+  .card{padding:12px 6px 10px}
+  .card strong{font-size:12px}
+  .card small{display:none}
+}
+
+/* ---------- LOGOLU KARTLAR ---------- */
+.card .ico-img{width:44px;height:44px;object-fit:contain;border-radius:10px;background:#fff;padding:4px;box-shadow:0 2px 8px rgba(0,0,0,.15);transition:transform .3s}
+.card:hover .ico-img{transform:scale(1.1)}
+.card strong{text-align:center}
+.card small{text-align:center}
+
+/* ---------- PENCERE (HIZLI ERİŞİM / ARAÇLAR) ---------- */
+.no-scroll{overflow:hidden}
+.intro-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.intro-actions .enter-btn{margin-top:8px}
+.intro-actions .primary{background:#fff;color:var(--teal-dark);border-color:#fff}
+.intro-actions .primary:hover{background:rgba(255,255,255,.85)}
+
+
+.modal{
+  position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;
+  padding:20px;background:rgba(6,24,52,.6);backdrop-filter:blur(4px);
+  animation:fadeIn .25s ease;
+}
+.modal-box{
+  width:min(1100px,100%);max-height:90vh;display:flex;flex-direction:column;
+  background:#f5f9fe;border-radius:0;overflow:hidden;border:2px solid var(--teal-dark);
+  box-shadow:0 24px 60px rgba(0,0,0,.4);animation:popIn .3s cubic-bezier(.2,.9,.3,1.1);
+}
+.modal-head{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 22px;background:var(--teal-dark);color:#fff;border-bottom:4px solid var(--teal);
+}
+.modal-head h2{font-size:19px;font-weight:600;letter-spacing:.3px}
+.modal-close{
+  width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.5);
+  background:transparent;color:#fff;font-size:24px;line-height:1;cursor:pointer;transition:background .2s;
+}
+.modal-close:hover{background:rgba(255,255,255,.2)}
+.modal-grid{margin:0;padding:20px;overflow-y:auto;align-content:start}
+.modal-grid .card{transform:none}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes popIn{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:none}}
+
+@media (max-width:520px){
+  .modal{padding:10px}
+  .modal-grid{padding:12px}
+}
+
+
+/* Giriş animasyonu bitmeden düğmeler tıklanamaz */
+#intro:not(.ready) .intro-actions{pointer-events:none}
+
+.empty{grid-column:1/-1;text-align:center;color:#5a7390;padding:40px 10px;font-size:15px}
+
+/* Animasyonu geçme */
+.skip-hint{
+  position:absolute;bottom:22px;left:0;right:0;text-align:center;
+  font-size:12px;letter-spacing:.5px;color:rgba(255,255,255,.7);
+  transition:opacity .3s;
+}
+#intro.ready .skip-hint{opacity:0;pointer-events:none}
+#intro.skip .intro-title,#intro.skip .intro-sub{animation:none;opacity:1}
+#intro.skip .enter-btn{opacity:1;animation:glow 2.4s infinite}
