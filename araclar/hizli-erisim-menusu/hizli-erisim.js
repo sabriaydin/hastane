@@ -113,7 +113,7 @@
     },
     {
       "t": "E-Devlet",
-      "d": "e-Devlet Kapısı Devletin Kısayolu",
+      "d": "e-Devlet Kapısı",
       "u": "https://turkiye.gov.tr/"
     },
     {
@@ -171,7 +171,7 @@
   const CSS = `
     :host{all:initial}
     *{box-sizing:border-box;margin:0;padding:0}
-    .panel{position:fixed;top:0;left:0;width:340px;max-width:100vw;height:100vh;display:flex;flex-direction:column;
+    .panel{color-scheme:light;position:fixed;top:0;left:0;width:340px;max-width:100vw;height:100vh;display:flex;flex-direction:column;
       background:#f3f6fa;color:#12263f;font:14px/1.4 "Segoe UI",Roboto,Arial,sans-serif;
       box-shadow:8px 0 32px rgba(4,16,36,.35);animation:gir .25s ease}
     @keyframes gir{from{transform:translateX(-100%)}to{transform:none}}
@@ -181,9 +181,14 @@
       font-size:20px;line-height:1;cursor:pointer}
     .kapat:hover{background:rgba(255,255,255,.18)}
     .ara{padding:12px 14px;background:#fff;border-bottom:1px solid #d5dde8}
-    .ara input{-webkit-user-select:text;user-select:text;width:100%;padding:9px 12px;border:1px solid #d5dde8;border-radius:8px;font:inherit;color:#12263f;outline:none}
+    .ara input{-webkit-user-select:text;user-select:text;background:#fff;color-scheme:light;width:100%;padding:9px 12px;border:1px solid #d5dde8;border-radius:8px;font:inherit;color:#12263f;outline:none}
     .ara input:focus{border-color:#1a73c7}
     .liste{flex:1;overflow-y:auto;list-style:none;padding:10px}
+    .liste{scrollbar-color:#c3cfdf #fff}
+    .liste::-webkit-scrollbar{width:10px;background:#fff}
+    .liste::-webkit-scrollbar-track{background:#fff}
+    .liste::-webkit-scrollbar-thumb{background:#c3cfdf;border-radius:6px;border:2px solid #fff}
+    .liste::-webkit-scrollbar-thumb:hover{background:#9db3cd}
     .liste li{margin-bottom:8px}
     .liste a{display:flex;align-items:center;gap:12px;padding:10px 12px;background:#fff;border:1px solid #d5dde8;border-radius:10px;
       color:inherit;text-decoration:none;transition:border-color .2s,box-shadow .2s}
