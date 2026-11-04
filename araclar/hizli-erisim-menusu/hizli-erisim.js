@@ -152,9 +152,14 @@
       "u": "https://dosya.tarimorman.gov.tr/app/tr-TR/Form/Paylas/TarimBulut/2f1e3e54-af06-4c4c-a92f-6a9510ce5a15"
     },
     {
-      "t": "PTT Kep Online",
+      "t": "PTT Kep Online Başvuru",
       "d": "Kayıtlı Elektronik Posta (KEP) Sistemi",
       "u": "https://pttbasvuru.hs01.kep.tr/"
+    },
+    {
+      "t": "PTT Kep Webmail",
+      "d": "Kayıtlı Elektronik Posta (KEP) Sistemi",
+      "u": "https://ptt.hs01.kep.tr/"
     },
     {
       "t": "Konferans Uygulaması",

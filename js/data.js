@@ -36,7 +36,8 @@ const LINKS = [
   { icon: "📈", logo: "saglik-bakanligi.png", title: "Eğitim İstatistik Sistemi (Giresun)", desc: "Eğitim İstatistik Sistemi",          url: "http://10.28.3.33:8081/" },
   { icon: "🌐", logo: "saglik-bakanligi.png", title: "Web Sitesi Yönetim",  desc: "Sağlık Bakanlığı Web İçerik Yönetimi",                      url: "https://webyonetimhastane.saglik.gov.tr/" },
   { icon: "💧", logo: "tarim-bulut.png",  title: "Tarım Bulut",          desc: "Su Verimliliği Raporu Gönder",                              url: "https://dosya.tarimorman.gov.tr/app/tr-TR/Form/Paylas/TarimBulut/2f1e3e54-af06-4c4c-a92f-6a9510ce5a15" },
-  { icon: "📨", logo: "ptt-kep.png",         title: "PTT Kep Online",       desc: "Kayıtlı Elektronik Posta (KEP) Sistemi",                    url: "https://pttbasvuru.hs01.kep.tr/" },
+  { icon: "📨", logo: "ptt-kep.png",         title: "PTT Kep Online Başvuru",       desc: "Kayıtlı Elektronik Posta (KEP) Sistemi",                    url: "https://pttbasvuru.hs01.kep.tr/" },
+  { icon: "📨", logo: "ptt-kep.png",         title: "PTT Kep Webmail",       desc: "Kayıtlı Elektronik Posta (KEP) Sistemi",                    url: "https://ptt.hs01.kep.tr/" },
   { icon: "🎥", logo: "konferans.png",      title: "Konferans Uygulaması", desc: "Sağlık Bakanlığı",                                          url: "https://konferans.saglik.gov.tr/" }
 ];
 
