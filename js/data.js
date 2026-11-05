@@ -69,3 +69,7 @@ const DOCS = [
 
 /* Sık Sorulan Sorular penceresinde gösterilecek öğeler (içerik daha sonra eklenecek). */
 const FAQ = [];
+
+/* Programlar penceresinde gösterilecek öğeler (içerik daha sonra eklenecek).
+   Örnek satır: { icon: "💻", title: "Program Adı", desc: "Kısa açıklama", url: "programlar/ornek.zip", download: "Program Adı.zip" } */
+const PROGRAMS = [];

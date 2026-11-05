@@ -40,6 +40,7 @@ intro.addEventListener("pointerdown", skipIntro);
 const MODALS = {
   quick: { title: "Hızlı Erişim", items: LINKS, empty: "Henüz bağlantı eklenmedi." },
   tools: { title: "Araçlar",      items: TOOLS, empty: "Henüz araç eklenmedi." },
+  programs: { title: "Programlar", items: PROGRAMS, empty: "Henüz program eklenmedi." },
   docs:  { title: "Belgeler",     items: DOCS,  empty: "Henüz belge eklenmedi." },
   faq:   { title: "Sık Sorulan Sorular", items: FAQ, empty: "Henüz soru eklenmedi." }
 };
