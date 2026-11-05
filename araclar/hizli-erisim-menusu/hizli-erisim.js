@@ -12,7 +12,7 @@
   const eski = document.getElementById(ID);
   if (eski) { eski.remove(); return; }
 
-  const SON_GUNCELLEME = '04.11.2026';
+  const SON_GUNCELLEME = '05.11.2026';
 
   /* Bağlantı listesi: t = başlık, d = açıklama, u = adres */
   const BAGLANTILAR = [
@@ -165,6 +165,11 @@
       "t": "Konferans Uygulaması",
       "d": "Sağlık Bakanlığı",
       "u": "https://konferans.saglik.gov.tr/"
+    },
+    {
+      "t": "Uzaktan Eğitim Kapısı",
+      "d": "Uzaktan Eğitim Platformu",
+      "u": "https://uzaktanegitimkapisi.gov.tr/"
     }
   ];
 

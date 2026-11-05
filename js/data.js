@@ -38,7 +38,8 @@ const LINKS = [
   { icon: "💧", logo: "tarim-bulut.png",  title: "Tarım Bulut",          desc: "Su Verimliliği Raporu Gönder",                              url: "https://dosya.tarimorman.gov.tr/app/tr-TR/Form/Paylas/TarimBulut/2f1e3e54-af06-4c4c-a92f-6a9510ce5a15" },
   { icon: "📨", logo: "ptt-kep.png",         title: "PTT Kep Online Başvuru",       desc: "Kayıtlı Elektronik Posta (KEP) Sistemi",                    url: "https://pttbasvuru.hs01.kep.tr/" },
   { icon: "📨", logo: "ptt-kep.png",         title: "PTT Kep Webmail",       desc: "Kayıtlı Elektronik Posta (KEP) Sistemi",                    url: "https://ptt.hs01.kep.tr/" },
-  { icon: "🎥", logo: "konferans.png",      title: "Konferans Uygulaması", desc: "Sağlık Bakanlığı",                                          url: "https://konferans.saglik.gov.tr/" }
+  { icon: "🎥", logo: "konferans.png",      title: "Konferans Uygulaması", desc: "Sağlık Bakanlığı",                                          url: "https://konferans.saglik.gov.tr/" },
+  { icon: "🎓", logo: "uzaktan-egitim-kapisi.png", title: "Uzaktan Eğitim Kapısı", desc: "Uzaktan Eğitim Platformu", url: "https://uzaktanegitimkapisi.gov.tr/" }
 ];
 
 /* Araçlar penceresinde gösterilecek öğeler.
