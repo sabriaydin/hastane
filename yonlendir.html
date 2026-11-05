@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="theme-color" content="#0b2f5c">
+<title>Dış Bağlantı | Hastane360</title>
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32.png">
+<link rel="alternate icon" href="favicon.ico">
+<link rel="stylesheet" href="css/yonlendir.css">
+</head>
+<body>
+<main class="kutu" id="kutu" aria-live="polite">
+  <div class="logo" aria-hidden="true">
+    <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" class="halka"/><path d="M40 20h20v20h20v20H60v20H40V60H20V40h20z" class="haç"/></svg>
+  </div>
+  <h1 id="baslik">Dış bağlantı</h1>
+  <p class="alt" id="mesaj">Kontrol ediliyor...</p>
+
+  <div class="adres" id="adresKutu" hidden>
+    <span class="etiket">Gidilecek adres</span>
+    <b id="alanAdi"></b>
+    <code id="tamAdres"></code>
+  </div>
+
+  <div class="sayac" id="sayacKutu" hidden>
+    <div class="halkaSayac"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" class="iz"/><circle cx="18" cy="18" r="16" class="ilerle" id="ilerle"/></svg><span id="saniye">3</span></div>
+    <span class="not">Otomatik yönlendirme</span>
+  </div>
+
+  <div class="uyari" id="uyariKutu" hidden>
+    Bu adres Hastane360 listelerinde yer almıyor. Adrese ve alan adına dikkat edin; yalnızca güvendiğiniz bir siteyse devam edin.
+  </div>
+
+  <div class="dugmeler" id="dugmeler" hidden>
+    <a class="devam" id="devam" href="#" rel="noopener noreferrer">Devam et</a>
+    <button type="button" class="geri" id="geri">Geri dön</button>
+  </div>
+
+  <p class="dipnot">Dış sitelerin içeriğinden Hastane360 sorumlu değildir.</p>
+</main>
+<script src="js/data.js"></script>
+<script src="js/yonlendir.js"></script>
+</body>
+</html>

@@ -72,4 +72,13 @@ const FAQ = [];
 
 /* Programlar penceresinde gösterilecek öğeler (içerik daha sonra eklenecek).
    Örnek satır: { icon: "💻", title: "Program Adı", desc: "Kısa açıklama", url: "programlar/ornek.zip", download: "Program Adı.zip" } */
-const PROGRAMS = [];
+const PROGRAMS = [
+  { icon: "📊", title: "Temel Sağlık İstatistikleri Modülü [TSİM]", url: "https://tsim.saglik.gov.tr/forms/java/tsim.jnlp" },
+  { icon: "🗄️", title: "Çekirdek Kaynak Yönetim Sistemi [ÇKYS]", url: "https://ckys.saglik.gov.tr/forms/java/ckys.jnlp" },
+  { icon: "✍️", title: "ArkSigner", url: "https://www.arksigner.com/indir" },
+  { icon: "🧩", title: "ArkSigner Tarayıcı Eklentisi", url: "https://chromewebstore.google.com/detail/pllcidbcfbamjfbfpemnnjohnfcliakf?utm_source=item-share-cb" },
+  { icon: "🔑", logo: "usb-eimza.png", title: "Akis Kart İzleme Aracı", url: "https://kamusm.bilgem.tubitak.gov.tr/islemler/surucu_yukleme_servisi/" },
+  { icon: "🖥️", title: "AnyDesk Uzaktan Erişim", url: "https://anydesk.com/tr/downloads/windows" },
+  { icon: "🗜️", title: "WinRAR", url: "https://www.win-rar.com/" },
+  { icon: "🌐", title: "Google Chrome", url: "https://www.google.com/chrome/" }
+];

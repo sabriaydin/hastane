@@ -10,13 +10,18 @@ function logoFail(img) {
   img.replaceWith(s);
 }
 
+/* Site dışı (http/https) bağlantılar güvenli yönlendirme sayfası üzerinden açılır */
+function guvenliAdres(url) {
+  return /^https?:/i.test(url) ? "yonlendir.html?git=" + encodeURIComponent(url) : url;
+}
+
 function cardHTML(l, i) {
   const ext = l.url.startsWith("http") ? ' target="_blank" rel="noopener"' : "";
   const dl = l.download ? ` download="${l.download.replace(/"/g, "&quot;")}"` : "";
   const pic = l.logo
     ? `<img class="ico-img" src="${LOGO_DIR}${l.logo}" alt="" data-icon="${l.icon || "🔗"}" onerror="logoFail(this)">`
     : `<span class="ico">${l.icon || "🔗"}</span>`;
-  return `<a class="card" href="${l.url}" title="${(l.desc || "").replace(/"/g, "&quot;")}"${ext}${dl} style="animation-delay:${(i * 0.025).toFixed(3)}s">
+  return `<a class="card" href="${guvenliAdres(l.url)}" title="${(l.desc || "").replace(/"/g, "&quot;")}"${ext}${dl} style="animation-delay:${(i * 0.025).toFixed(3)}s">
             ${pic}
             <strong>${l.title}</strong>
             <small>${l.desc || ""}</small>

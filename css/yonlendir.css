@@ -1,0 +1,35 @@
+*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100vh;display:grid;place-items:center;padding:20px;color:#12263f;
+  font:16px/1.5 "Segoe UI",Roboto,Arial,sans-serif;
+  background:radial-gradient(circle at 50% 30%,#1b5aa3,#0b2f5c 70%)}
+.kutu{width:min(520px,100%);background:#fff;border-radius:16px;padding:32px 28px 22px;text-align:center;
+  box-shadow:0 24px 60px rgba(4,16,36,.45)}
+.logo{width:64px;height:64px;margin:0 auto 14px;background:#0b2f5c;border-radius:50%;padding:6px}
+.logo svg{width:100%;height:100%}
+.halka{fill:none;stroke:rgba(143,211,255,.8);stroke-width:4}
+.haç{fill:#fff}
+h1{font-size:22px;color:#0b2f5c;margin-bottom:4px}
+.alt{color:#5a7390;font-size:15px;margin-bottom:18px}
+.adres{background:#f3f6fa;border:1px solid #d5dde8;border-radius:12px;padding:12px 14px;margin-bottom:16px;text-align:left}
+.adres .etiket{display:block;font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:#6a809b;margin-bottom:2px}
+.adres b{display:block;font-size:18px;color:#0b2f5c;word-break:break-all}
+.adres code{display:block;margin-top:4px;font:12.5px/1.4 Consolas,monospace;color:#5a7390;word-break:break-all;max-height:4.2em;overflow:auto}
+.sayac{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:16px;color:#5a7390;font-size:14px}
+.halkaSayac{position:relative;width:44px;height:44px}
+.halkaSayac svg{width:100%;height:100%;transform:rotate(-90deg)}
+.halkaSayac circle{fill:none;stroke-width:3}
+.iz{stroke:#dcebfa}
+.ilerle{stroke:#1a73c7;stroke-linecap:round;stroke-dasharray:100.5;stroke-dashoffset:0;transition:stroke-dashoffset 1s linear}
+.halkaSayac span{position:absolute;inset:0;display:grid;place-items:center;font-weight:700;color:#0b2f5c}
+.uyari{background:#fff6e5;border:1px solid #f3d9a4;border-left:5px solid #f2a93b;color:#7a4a00;border-radius:10px;
+  padding:10px 14px;margin-bottom:16px;text-align:left;font-size:14.5px}
+.dugmeler{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:6px}
+.devam,.geri{display:inline-block;padding:10px 26px;border-radius:999px;font-weight:600;font-size:15px;line-height:1.2;font-family:inherit;cursor:pointer;text-decoration:none;transition:background .2s,color .2s}
+.devam{background:#1a73c7;color:#fff;border:1.5px solid #1a73c7}
+.devam:hover{background:#0b2f5c;border-color:#0b2f5c}
+.geri{background:#fff;color:#1a73c7;border:1.5px solid #1a73c7}
+.geri:hover{background:#dcebfa}
+.devam:focus-visible,.geri:focus-visible{outline:3px solid rgba(26,115,199,.4);outline-offset:2px}
+.dipnot{margin-top:14px;font-size:12.5px;color:#8a9db4}
+.hata h1{color:#b3261e}
+@media (prefers-reduced-motion:reduce){.ilerle{transition:none}}
