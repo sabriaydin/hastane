@@ -1,4 +1,4 @@
-# Hastane Portal
+# Hastane360
 
 Statik web sitesi. GitHub Pages ile yayınlanır (Settings → Pages → Branch: main / root).
 
