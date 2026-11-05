@@ -38,7 +38,9 @@ intro.addEventListener("pointerdown", skipIntro);
 /* ---------- AÇILIR PENCERE ---------- */
 const MODALS = {
   quick: { title: "Hızlı Erişim", items: LINKS, empty: "Henüz bağlantı eklenmedi." },
-  tools: { title: "Araçlar",      items: TOOLS, empty: "Henüz araç eklenmedi." }
+  tools: { title: "Araçlar",      items: TOOLS, empty: "Henüz araç eklenmedi." },
+  docs:  { title: "Belgeler",     items: DOCS,  empty: "Henüz belge eklenmedi." },
+  faq:   { title: "Sık Sorulan Sorular", items: FAQ, empty: "Henüz soru eklenmedi." }
 };
 let lastFocus = null;
 
@@ -68,3 +70,16 @@ $("modal").addEventListener("click", (e) => { if (e.target === $("modal")) close
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && !$("modal").classList.contains("hidden")) closeModal();
 });
+
+
+/* Ana sayfa arama kutusu: boş aramayı engeller, metni Google'da yeni sekmede aratır */
+(function () {
+  const form = $("aramaForm"), kutu = $("aramaKutu");
+  if (!form || !kutu) return;
+  form.addEventListener("submit", (e) => {
+    if (!kutu.value.trim()) { e.preventDefault(); kutu.focus(); return; }
+    kutu.value = kutu.value.trim();
+  });
+})();
+
+(function () { const y = $("yilIntro"); if (y) y.textContent = new Date().getFullYear(); })();

@@ -47,5 +47,14 @@ const LINKS = [
    logo (isteğe bağlı): assets/images/logos/ klasöründeki dosya adı */
 const TOOLS = [
   { icon: "📋", title: "EKİP Personel İzin Bilgisi Raporlama", desc: "EKİP sisteminde toplu personel izin ve rapor bilgisi listeleme özelliği olmadığından harici olarak kullanılır.", url: "araclar/ekip-izin-raporu/index.html" },
-  { icon: "📌", title: "Hızlı Erişim Menüsü", desc: "Hızlı erişim bağlantılarını herhangi bir sayfanın sağında liste olarak açar.", url: "araclar/hizli-erisim-menusu/index.html" }
+  { icon: "📌", title: "Hızlı Erişim Menüsü", desc: "İhtiyacınız olabilecek tüm bağlantılara istediğinizde anında erişin!", url: "araclar/hizli-erisim-menusu/index.html" },
+  { icon: "📑", title: "PDF Düzenleyici", desc: "PDF dosyalarınızı güvenle birleştirin, ayırın, döndürün, sıkıştırın ve koruyun.", url: "araclar/pdf-duzenleyici/index.html" },
+  { icon: "🔤", title: "Harf Çevirme", desc: "Metni büyük harf, küçük harf, ters ve baş harfi büyük gibi biçimlere çevirir.", url: "araclar/harf-cevirme/index.html" }
 ];
+
+/* Belgeler penceresinde gösterilecek öğeler (içerik daha sonra eklenecek).
+   Örnek satır: { icon: "📄", title: "Belge Adı", desc: "Kısa açıklama", url: "belgeler/ornek.pdf" } */
+const DOCS = [];
+
+/* Sık Sorulan Sorular penceresinde gösterilecek öğeler (içerik daha sonra eklenecek). */
+const FAQ = [];

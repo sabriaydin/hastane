@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PDF Düzenleyici</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header>
+  <div class="geriSatir"><a class="geri" href="../../index.html">&larr; Ana sayfaya dön</a></div>
+  <div class="ust">
+    <div class="logo"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="3"/><path d="M40 20h20v20h20v20H60v20H40V60H20V40h20z" fill="#fff"/></svg></div>
+    <div>
+      <h1>PDF Düzenleyici</h1>
+      <p class="alt">PDF dosyalarınızı güvenle birleştirin, ayırın, döndürün, sıkıştırın ve koruyun.</p>
+    </div>
+  </div>
+  <svg class="ekg" viewBox="0 0 900 56" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 30H110l12-6 10 6h26l12-26 14 50 12-24h22l10-8 12 8H410l12-6 10 6h26l12-26 14 50 12-24h22l10-8 12 8H710l12-6 10 6h26l12-26 14 50 12-24h22l10-8 12 8H900"/>
+  </svg>
+</header>
+
+<main>
+  <section class="kart arac">
+<div id="ana" class="ana">
+      <h2 class="anaBaslik">Hangi işlemi yapmak istiyorsunuz?</h2>
+      <div class="araAraSatir"><input id="araAra" type="search" placeholder="Araç ara… (örn. sıkıştır, parola, imza)" aria-label="Araç ara" autocomplete="off"><small>İpucu: PDF dosyanızı bu sayfaya sürükleyip bırakarak da başlayabilirsiniz.</small></div>
+      <p id="araYok" class="araYok gizli">Aramanıza uygun araç bulunamadı.</p>
+      <h3 class="kat">Düzenle</h3>
+      <div class="araclar">
+        <button type="button" class="araKart" data-sekme="birlestir"><span class="araIkon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h5l4 7 4-7h5M12 12v9M9 18l3 3 3-3"/></svg></span><b>PDF Birleştir</b><small>Birden fazla PDF'yi tek dosya hâline getirin.</small></button>
+        <button type="button" class="araKart" data-sekme="ayir"><span class="araIkon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v8M12 11l-6 8M12 11l6 8M4 16l2 3 3-1M20 16l-2 3-3-1"/></svg></span><b>PDF Ayır</b><small>İstediğiniz sayfaları çıkarın veya belgeyi parçalara bölün.</small></button>
+        <button type="button" class="araKart" data-sekme="duzenle"><span class="araIkon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg></span><b>Sayfaları Düzenle</b><small>Sayfaları sürükleyerek sıralayın, silin, döndürün.</small></button>
+        <button type="button" class="araKart" data-sekme="dondur"><span class="araIkon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-3-6.2M20 4v4h-4"/></svg></span><b>Sayfa Döndür</b><small>Sayfaların yönünü değiştirin.</small></button>
+        <button type="button" class="araKart" data-sekme="kirp"><span class="araIkon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2v16h16M2 6h16v16"/></svg></span><b>Sayfa Kırp</b><small>Sayfa kenarlarındaki boşlukları kesin.</small></button>
+      </div>
+      <h3 class="kat">Dönüştür</h3>
+      <div class="araclar">
+        <button type="button" class="araKart" data-sekme="pdfjpg"><span class="araIkon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 18l6-5 4 3 3-3 5 5"/></svg></span><b>PDF → JPG</b><small>PDF sayfalarını resim (JPG) olarak kaydedin.</small></button>
+        <button type="button" class="araKart" data-sekme="jpgpdf"><span class="araIkon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 18l6-5 4 3 3-3 5 5"/></svg></span><b>JPG → PDF</b><small>Resimlerinizi tek bir PDF'te toplayın.</small></button>
+        <button type="button" class="araKart" data-sekme="pdfmetin"><span class="araIkon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 11h16M4 16h10"/></svg></span><b>PDF → Metin</b><small>PDF içindeki yazıyı metin dosyası olarak alın.</small></button>
+      </div>
+      <h3 class="kat">Küçült ve koru</h3>
+      <div class="araclar">
+        <button type="button" class="araKart" data-sekme="sikistir"><span class="araIkon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l6 6M10 6v4H6M20 4l-6 6M14 6v4h4M4 20l6-6M10 18v-4H6M20 20l-6-6M14 18v-4h4"/></svg></span><b>PDF Sıkıştır</b><small>Dosya boyutunu küçültün.</small></button>
+        <button type="button" class="araKart" data-sekme="parola"><span class="araIkon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><b>PDF Parolası</b><small>PDF'e parola koyun veya parolayı kaldırın.</small></button>
+      </div>
+      <h3 class="kat">Ekle ve belge bilgileri</h3>
+      <div class="araclar">
+        <button type="button" class="araKart" data-sekme="filigran"><span class="araIkon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z"/></svg></span><b>Filigran Ekle</b><small>Sayfalara GİZLİ, TASLAK gibi yazı basın.</small></button>
+        <button type="button" class="araKart" data-sekme="numara"><span class="araIkon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4L7 20M17 4l-2 16M4 9h16M3 15h16"/></svg></span><b>Sayfa Numarası</b><small>Sayfalara numara ekleyin.</small></button>
+        <button type="button" class="araKart" data-sekme="imza"><span class="araIkon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17c3-8 5-10 6-8s-3 8-1 8 4-6 6-6-1 5 1 5 3-2 5-4M3 21h18"/></svg></span><b>İmza Ekle</b><small>Çizdiğiniz imzayı sayfaya yerleştirin.</small></button>
+        <button type="button" class="araKart" data-sekme="bilgi"><span class="araIkon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg></span><b>Belge Bilgileri</b><small>Başlık, yazar gibi belge bilgilerini düzenleyin.</small></button>
+      </div>
+    </div>
+    <div id="aracBar" class="aracBar gizli"><button type="button" class="geriArac" id="geriArac">&larr; Tüm araçlar</button><strong id="aracBaslik"></strong></div>
+
+    <!-- 1) BİRLEŞTİR -->
+    <section class="panel" data-panel="birlestir">
+      <h2>PDF Birleştir</h2>
+      <p class="ince">Birden fazla PDF'yi tek dosyada birleştirir. Dosyaları seçtikten sonra &uarr; &darr; düğmeleriyle birleştirme sırasını değiştirebilirsiniz.</p>
+      <label class="alan"><input class="gizliGirdi" type="file" accept="application/pdf,.pdf" multiple>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+      <b>PDF dosyalarını seçin</b><small>veya dosyayı bu alana sürükleyin</small></label>
+    <ul class="liste gizli"></ul>
+      <div class="islem"><button class="calistir" type="button">Birleştir</button></div>
+      <p class="durum" role="status" aria-live="polite"></p><div class="ilerleme"><i></i></div><div class="sonuc"></div>
+    </section>
+
+    <!-- 2) AYIR -->
+    <section class="panel gizli" data-panel="ayir">
+      <h2>PDF Ayır</h2>
+      <p class="ince">PDF'ten istediğiniz sayfaları ayrı bir dosya olarak alın veya belgeyi birden fazla parçaya bölün.</p>
+      <label class="alan"><input class="gizliGirdi" type="file" accept="application/pdf,.pdf">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+      <b>PDF dosyasını seçin</b><small>veya dosyayı bu alana sürükleyin</small></label>
+    <ul class="liste gizli"></ul>
+      <p class="sayfaBilgi"></p>
+      <div class="krAlan gizli" data-hedef="#ayirAralik" data-radyo="input[name=ayirMod][value=aralik]"><p class="krBilgi">İsteğe bağlı: sayfaları seçmek için küçük resimlere tıklayın.</p><div class="krGrid"></div></div>
+      <div class="secenekler">
+        <label class="radyo"><input type="radio" name="ayirMod" value="aralik" checked><span><b>Belirli sayfaları tek PDF olarak al</b><small>Örneğin 1-3 ve 5. sayfaları yeni bir PDF'te toplar.</small></span></label>
+        <div class="altAlan" data-mod="aralik"><input id="ayirAralik" type="text" placeholder="Örn: 1-3, 5, 8-"><small>Sayfa numaralarını veya aralıkları virgülle ayırın. "8-" yazarsanız 8. sayfadan sona kadar alınır.</small></div>
+        <label class="radyo"><input type="radio" name="ayirMod" value="tek"><span><b>Her sayfayı ayrı PDF olarak kaydet</b><small>Her sayfa ayrı bir PDF olur. Dosyalar tek bir ZIP klasörü içinde iner.</small></span></label>
+        <label class="radyo"><input type="radio" name="ayirMod" value="bol"><span><b>Eşit sayfa sayısına göre parçala</b><small>Belge, her biri belirlediğiniz sayfa sayısında olan PDF'lere ayrılır (ZIP klasörü olarak iner).</small></span></label>
+        <div class="altAlan" data-mod="bol"><input id="ayirN" type="number" min="1" value="1"><small>Her PDF kaç sayfa içersin? Örneğin 10 yazarsanız 33 sayfalık belge 4 parçaya ayrılır.</small></div>
+        <label class="radyo"><input type="radio" name="ayirMod" value="gruplar"><span><b>Sayfa aralıklarına göre parçala</b><small>Yazdığınız her aralık ayrı bir PDF olur (ZIP klasörü olarak iner).</small></span></label>
+        <div class="altAlan" data-mod="gruplar"><input id="ayirGruplar" type="text" placeholder="Örn: 1-3, 4-6, 7-"><small>Örneğin "1-3, 4-6, 7-" yazarsanız üç ayrı PDF oluşur.</small></div>
+      </div>
+      <p class="onizleme" aria-live="polite"></p>
+      <div class="islem"><button class="calistir" type="button">Ayır</button></div>
+      <p class="durum" role="status" aria-live="polite"></p><div class="ilerleme"><i></i></div><div class="sonuc"></div>
+    </section>
+
+    <!-- 3) PDF -> JPG -->
+    <section class="panel gizli" data-panel="pdfjpg">
+      <h2>PDF &rarr; JPG</h2>
+      <p class="ince">PDF sayfalarını JPG resmine çevirir. Birden fazla sayfa seçilirse resimler ZIP klasörü olarak iner.</p>
+      <label class="alan"><input class="gizliGirdi" type="file" accept="application/pdf,.pdf">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+      <b>PDF dosyasını seçin</b><small>veya dosyayı bu alana sürükleyin</small></label>
+    <ul class="liste gizli"></ul>
+      <p class="sayfaBilgi"></p>
+      <div class="krAlan gizli" data-hedef="#jpgAralik"><p class="krBilgi">İsteğe bağlı: sayfaları seçmek için küçük resimlere tıklayın.</p><div class="krGrid"></div></div>
+      <div class="secenekler">
+        <div class="iki">
+          <label class="alanEtiket"><span>Resim netliği</span>
+            <select id="jpgDpi"><option value="100">Düşük (100 DPI, küçük dosya)</option><option value="150" selected>Normal (150 DPI)</option><option value="200">Yüksek (200 DPI)</option><option value="300">Çok yüksek (300 DPI, baskı için)</option></select>
+          </label>
+          <label class="alanEtiket"><span>Resim kalitesi: <span id="jpgKaliteYazi">%90</span></span>
+            <input id="jpgKalite" type="range" min="50" max="100" value="90">
+          </label>
+        </div>
+        <label class="alanEtiket"><span>Sayfalar (isteğe bağlı)</span>
+          <input id="jpgAralik" type="text" placeholder="Boş bırakırsanız tüm sayfalar çevrilir. Örn: 1-3, 5">
+        </label>
+      </div>
+      <div class="islem"><button class="calistir" type="button">JPG'ye çevir</button></div>
+      <p class="durum" role="status" aria-live="polite"></p><div class="ilerleme"><i></i></div><div class="sonuc"></div>
+    </section>
+
+    <!-- 4) JPG -> PDF -->
+    <section class="panel gizli" data-panel="jpgpdf">
+      <h2>JPG &rarr; PDF</h2>
+      <p class="ince">Bir veya birden fazla resmi (JPG, PNG, WebP) tek PDF'te toplar. Resimlerin sırasını &uarr; &darr; düğmeleriyle değiştirebilirsiniz.</p>
+      <label class="alan"><input class="gizliGirdi" type="file" accept="image/*,.jpg,.jpeg,.png,.webp" multiple>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+      <b>Resimleri seçin</b><small>veya dosyayı bu alana sürükleyin</small></label>
+    <ul class="liste gizli"></ul>
+      <div class="secenekler">
+        <div class="iki">
+          <label class="alanEtiket"><span>Sayfa boyutu</span>
+            <select id="pdfBoyut"><option value="a4otomatik" selected>A4 (resme göre dikey/yatay otomatik)</option><option value="a4dikey">A4 dikey</option><option value="a4yatay">A4 yatay</option><option value="gorsel">Resim boyutunda</option></select>
+          </label>
+          <label class="alanEtiket"><span>Kenar boşluğu</span>
+            <select id="pdfKenar"><option value="0">Yok</option><option value="10" selected>Dar (10 mm)</option><option value="20">Orta (20 mm)</option></select>
+          </label>
+        </div>
+        <label class="alanEtiket"><span>Resim kalitesi: <span id="pdfKaliteYazi">%92</span></span>
+          <input id="pdfKalite" type="range" min="60" max="100" value="92">
+        </label>
+      </div>
+      <div class="islem"><button class="calistir" type="button">PDF oluştur</button></div>
+      <p class="durum" role="status" aria-live="polite"></p><div class="ilerleme"><i></i></div><div class="sonuc"></div>
+    </section>
+
+    <section class="panel gizli" data-panel="dondur">
+      <h2>Sayfa Döndür</h2>
+      <p class="ince">Her sayfanın altındaki düğmelerle sayfayı istediğiniz yöne çevirin. Sonucu küçük resimlerde anında görürsünüz.</p>
+      <label class="alan"><input class="gizliGirdi" type="file" accept="application/pdf,.pdf">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+      <b>PDF dosyasını seçin</b><small>veya dosyayı bu alana sürükleyin</small></label>
+    <ul class="liste gizli"></ul>
+      <p class="sayfaBilgi"></p>
+      <div class="donGrid"></div>
+      <div class="secenekler">
+        <button type="button" class="ikincil" data-don="sola">↶ Tümünü sola döndür</button>
+        <button type="button" class="ikincil" data-don="sag">↷ Tümünü sağa döndür</button>
+        <button type="button" class="ikincil" data-don="sifirla">Değişiklikleri geri al</button>
+      </div>
+      <div class="islem"><button class="calistir" type="button">Döndür ve kaydet</button></div>
+      <p class="durum" role="status" aria-live="polite"></p><div class="ilerleme"><i></i></div><div class="sonuc"></div>
+    </section>
+
+
+    <section class="panel gizli" data-panel="numara">
+      <h2>Sayfa Numarası Ekle</h2>
+      <p class="ince">Her sayfaya sayfa numarası yazar. Konumu, biçimi ve başlangıç numarasını seçin; sonucu önizlemede görün.</p>
+      <label class="alan"><input class="gizliGirdi" type="file" accept="application/pdf,.pdf">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+      <b>PDF dosyasını seçin</b><small>veya dosyayı bu alana sürükleyin</small></label>
+    <ul class="liste gizli"></ul>
+      <p class="sayfaBilgi"></p>
+      <div class="secenekler"><div class="iki">
+        <label class="alanEtiket"><span>Konum</span><select id="numKonum"><option value="alt-orta" selected>Alt orta</option><option value="alt-sag">Alt sağ</option><option value="alt-sol">Alt sol</option><option value="ust-orta">Üst orta</option><option value="ust-sag">Üst sağ</option><option value="ust-sol">Üst sol</option></select></label>
+        <label class="alanEtiket"><span>Biçim</span><select id="numBicim"><option value="[n]" selected>1, 2, 3…</option><option value="Sayfa [n]">Sayfa 1, Sayfa 2…</option><option value="[n] / [t]">1 / 10, 2 / 10…</option><option value="Sayfa [n] / [t]">Sayfa 1 / 10, Sayfa 2 / 10…</option></select></label>
+        <label class="alanEtiket"><span>İlk sayfanın numarası</span><input id="numBas" type="number" min="0" value="1"></label>
+        <label class="alanEtiket"><span>Yazı boyutu</span><select id="numBoyut"><option value="10">Küçük</option><option value="12" selected>Normal</option><option value="16">Büyük</option></select></label>
+      </div>
+      <label class="radyo"><input id="numIlk" type="checkbox"> Kapak (ilk) sayfaya numara yazma</label></div>
+      <div class="islem"><button class="calistir" type="button">Numara ekle</button></div>
+      <p class="durum" role="status" aria-live="polite"></p><div class="ilerleme"><i></i></div><div class="sonuc"></div>
+    </section>
+
+    <section class="panel gizli" data-panel="filigran">
+      <h2>Filigran Ekle</h2>
+      <p class="ince">Sayfaların üzerine silik bir yazı basar (GİZLİ, TASLAK, KOPYA gibi). Ayarları değiştirdikçe sonucu önizlemede görürsünüz.</p>
+      <label class="alan"><input class="gizliGirdi" type="file" accept="application/pdf,.pdf">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+      <b>PDF dosyasını seçin</b><small>veya dosyayı bu alana sürükleyin</small></label>
+    <ul class="liste gizli"></ul>
+      <p class="sayfaBilgi"></p>
+      <div class="secenekler">
+        <label class="alanEtiket"><span>Filigran metni</span><input id="filMetin" type="text" value="GİZLİ" maxlength="60"></label>
+        <div class="iki">
+          <label class="alanEtiket"><span>Yön</span><select id="filYon"><option value="capraz" selected>Çapraz</option><option value="yatay">Yatay</option></select></label>
+          <label class="alanEtiket"><span>Renk</span><input id="filRenk" type="color" value="#808080"></label>
+          <label class="alanEtiket"><span>Yazı boyutu</span><input id="filBoyut" type="range" min="20" max="160" value="80"></label>
+          <label class="alanEtiket"><span>Belirginlik (sağa doğru artar)</span><input id="filOpaklik" type="range" min="5" max="100" value="30"></label>
+        </div>
+        <label class="alanEtiket"><span>Sayfalar (isteğe bağlı)</span><input id="filSayfa" type="text" placeholder="Boş bırakırsanız tüm sayfalara eklenir. Örn: 1-3"></label>
+      </div>
+      <div class="islem"><button class="calistir" type="button">Filigran ekle</button></div>
+      <p class="durum" role="status" aria-live="polite"></p><div class="ilerleme"><i></i></div><div class="sonuc"></div>
+    </section>
+
+    <section class="panel gizli" data-panel="sikistir">
+      <h2>PDF Sıkıştır</h2>
+      <p class="ince">PDF'in dosya boyutunu küçültür. Sayfalar resme dönüştürüldüğü için içindeki yazılar seçilemez ve aranamaz hâle gelir. En iyi sonucu taranmış veya resim ağırlıklı belgelerde verir.</p>
+      <label class="alan"><input class="gizliGirdi" type="file" accept="application/pdf,.pdf">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+      <b>PDF dosyasını seçin</b><small>veya dosyayı bu alana sürükleyin</small></label>
+    <ul class="liste gizli"></ul>
+      <p class="sayfaBilgi"></p>
+      <div class="secenekler"><label class="alanEtiket"><span>Sıkıştırma düzeyi</span><select id="sikSeviye"><option value="hafif">Hafif (kalite öncelikli)</option><option value="orta" selected>Orta (önerilen)</option><option value="guclu">Güçlü (boyut öncelikli)</option></select></label></div>
+      <div class="islem"><button class="calistir" type="button">Sıkıştır</button></div>
+      <p class="durum" role="status" aria-live="polite"></p><div class="ilerleme"><i></i></div><div class="sonuc"></div>
+    </section>
+
+    <section class="panel gizli" data-panel="parola">
+      <h2>PDF Parolası</h2>
+      <p class="ince">PDF'i parola ile korur veya dosyadaki mevcut parolayı kaldırır.</p>
+      <label class="alan"><input class="gizliGirdi" type="file" accept="application/pdf,.pdf">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+      <b>PDF dosyasını seçin</b><small>veya dosyayı bu alana sürükleyin</small></label>
+    <ul class="liste gizli"></ul>
+      <p class="sayfaBilgi"></p>
+      <div class="secenekler">
+        <label class="radyo"><input type="radio" name="parMod" value="ekle" checked><span><b>Parola belirle</b><small>Dosyayı açmak için bu parola sorulur.</small></span></label>
+        <div class="altAlan" data-mod="ekle"><input id="parYeni" type="password" placeholder="Parola (en az 4 karakter)" autocomplete="new-password"><label class="radyo"><input id="parKisit" type="checkbox"><span><b>Kopyalamayı ve düzenlemeyi de engelle</b></span></label><small>Parolayı unutursanız dosya açılamaz. Parola yalnızca bu cihazda kullanılır, hiçbir yere gönderilmez.</small></div>
+        <label class="radyo"><input type="radio" name="parMod" value="kaldir"><span><b>Parolayı kaldır</b><small>Dosya parolasız kaydedilir.</small></span></label>
+        <div class="altAlan" data-mod="kaldir"><small>Dosya parola soruyorsa mevcut parolayı girmeniz gerekir.</small></div>
+      </div>
+      <div class="islem"><button class="calistir" type="button">Uygula</button></div>
+      <p class="durum" role="status" aria-live="polite"></p><div class="ilerleme"><i></i></div><div class="sonuc"></div>
+    </section>
+
+    <section class="panel gizli" data-panel="duzenle">
+      <h2>Sayfaları Düzenle</h2>
+      <p class="ince">Sayfaların sırasını küçük resimleri sürükleyerek değiştirin. Her sayfanın altındaki düğmelerle sayfayı öne veya arkaya alabilir, döndürebilir, çoğaltabilir ya da silebilirsiniz.</p>
+      <label class="alan"><input class="gizliGirdi" type="file" accept="application/pdf,.pdf">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+      <b>PDF dosyasını seçin</b><small>veya dosyayı bu alana sürükleyin</small></label>
+    <ul class="liste gizli"></ul>
+      <p class="sayfaBilgi"></p>
+      <div class="orgArac gizli">
+        <button type="button" class="ikincil" data-org="tersle">Sırayı ters çevir</button>
+        <button type="button" class="ikincil" data-org="sag">Tümünü sağa döndür</button>
+        <button type="button" class="ikincil" data-org="sifirla">Değişiklikleri geri al</button>
+      </div>
+      <div class="orgGrid"></div>
+      <div class="islem"><button class="calistir" type="button">PDF'i kaydet</button></div>
+      <p class="durum" role="status" aria-live="polite"></p><div class="ilerleme"><i></i></div><div class="sonuc"></div>
+    </section>
+
+    <section class="panel gizli" data-panel="kirp">
+      <h2>Sayfa Kırp</h2>
+      <p class="ince">Önizlemedeki çerçevenin kenarlarını sürükleyerek veya milimetre (mm) değerlerini yazarak kırpılacak alanı belirleyin. Çerçevenin dışı kesilir.</p>
+      <label class="alan"><input class="gizliGirdi" type="file" accept="application/pdf,.pdf">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+      <b>PDF dosyasını seçin</b><small>veya dosyayı bu alana sürükleyin</small></label>
+    <ul class="liste gizli"></ul>
+      <p class="sayfaBilgi"></p>
+      <div class="secenekler"><div class="iki">
+        <label class="alanEtiket"><span>Üstten kes (mm)</span><input id="kirpUst" type="number" min="0" step="1" value="0"></label>
+        <label class="alanEtiket"><span>Alttan kes (mm)</span><input id="kirpAlt" type="number" min="0" step="1" value="0"></label>
+        <label class="alanEtiket"><span>Soldan kes (mm)</span><input id="kirpSol" type="number" min="0" step="1" value="0"></label>
+        <label class="alanEtiket"><span>Sağdan kes (mm)</span><input id="kirpSag" type="number" min="0" step="1" value="0"></label>
+      </div>
+      <label class="alanEtiket"><span>Sayfalar (isteğe bağlı)</span><input id="kirpSayfa" type="text" placeholder="Boş bırakırsanız tüm sayfalar kırpılır. Örn: 1-3"></label></div>
+      <div class="islem"><button class="calistir" type="button">Kırp</button></div>
+      <p class="durum" role="status" aria-live="polite"></p><div class="ilerleme"><i></i></div><div class="sonuc"></div>
+    </section>
+
+    <section class="panel gizli" data-panel="pdfmetin">
+      <h2>PDF → Metin</h2>
+      <p class="ince">PDF içindeki yazıyı metin (TXT) dosyası olarak alır. Taranmış (resimden oluşan) PDF'lerde yazı bulunamaz.</p>
+      <label class="alan"><input class="gizliGirdi" type="file" accept="application/pdf,.pdf">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+      <b>PDF dosyasını seçin</b><small>veya dosyayı bu alana sürükleyin</small></label>
+    <ul class="liste gizli"></ul>
+      <p class="sayfaBilgi"></p>
+      <div class="secenekler"><label class="radyo"><input id="metinBaslik" type="checkbox" checked> Her sayfanın başına sayfa numarası ekle (— Sayfa 1 —)</label></div>
+      <div class="islem"><button class="calistir" type="button">Metni çıkar</button></div>
+      <p class="durum" role="status" aria-live="polite"></p><div class="ilerleme"><i></i></div><div class="sonuc"></div>
+    </section>
+
+    <section class="panel gizli" data-panel="imza">
+      <h2>İmza Ekle</h2>
+      <p class="ince">Seçenekler bölümündeki alana imzanızı çizin; imza sayfa önizlemesinde belirir. Sürükleyerek yerleştirin, sağ alt köşesinden büyütün. Bu işlem görsel bir imzadır; resmî e-imza yerine geçmez.</p>
+      <label class="alan"><input class="gizliGirdi" type="file" accept="application/pdf,.pdf">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+      <b>PDF dosyasını seçin</b><small>veya dosyayı bu alana sürükleyin</small></label>
+    <ul class="liste gizli"></ul>
+      <p class="sayfaBilgi"></p>
+      <div class="secenekler">
+        <div class="imzaKutu"><canvas id="imzaTuval" width="640" height="200" aria-label="İmza çizim alanı"></canvas><div class="imzaAlt"><select id="imzaRenk" aria-label="Kalem rengi"><option value="#111111">Siyah</option><option value="#0b3d91">Mavi</option></select><button type="button" class="ikincil" id="imzaTemizle">Temizle</button></div></div>
+        <div class="iki">
+          <label class="alanEtiket"><span>Hazır konum</span><select id="imzaKonum"><option value="alt-sag" selected>Alt sağ</option><option value="alt-orta">Alt orta</option><option value="alt-sol">Alt sol</option><option value="orta">Orta</option><option value="ust-sag">Üst sağ</option><option value="ust-sol">Üst sol</option></select></label>
+          <label class="alanEtiket"><span>İmza boyutu</span><input id="imzaBoyut" type="range" min="10" max="60" value="25"></label>
+          <label class="alanEtiket"><span>İmza hangi sayfalara eklensin?</span><select id="imzaHedef"><option value="son" selected>Son sayfa</option><option value="ilk">İlk sayfa</option><option value="tum">Tüm sayfalar</option><option value="ozel">Belirli sayfalar</option></select></label>
+          <label class="alanEtiket"><span>Sayfa numaraları ("Belirli sayfalar" seçiliyse)</span><input id="imzaSayfa" type="text" placeholder="Örn: 2, 5-6"></label>
+        </div></div>
+      <div class="islem"><button class="calistir" type="button">İmzayı ekle</button></div>
+      <p class="durum" role="status" aria-live="polite"></p><div class="ilerleme"><i></i></div><div class="sonuc"></div>
+    </section>
+
+    <section class="panel gizli" data-panel="bilgi">
+      <h2>Belge Bilgileri</h2>
+      <p class="ince">PDF'in içinde kayıtlı başlık, yazar, konu ve anahtar kelime bilgilerini görüntüleyin ve değiştirin.</p>
+      <label class="alan"><input class="gizliGirdi" type="file" accept="application/pdf,.pdf">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+      <b>PDF dosyasını seçin</b><small>veya dosyayı bu alana sürükleyin</small></label>
+    <ul class="liste gizli"></ul>
+      <p class="sayfaBilgi"></p>
+      <div class="secenekler">
+        <label class="alanEtiket"><span>Başlık</span><input id="bilBaslik" type="text"></label>
+        <label class="alanEtiket"><span>Yazar</span><input id="bilYazar" type="text"></label>
+        <label class="alanEtiket"><span>Konu</span><input id="bilKonu" type="text"></label>
+        <label class="alanEtiket"><span>Anahtar kelimeler (virgülle ayırın)</span><input id="bilAnahtar" type="text"></label>
+      </div>
+      <div class="islem"><button class="calistir" type="button">Bilgileri kaydet</button></div>
+      <p class="durum" role="status" aria-live="polite"></p><div class="ilerleme"><i></i></div><div class="sonuc"></div>
+    </section>
+
+  </section>
+</main>
+<div id="dropSec" class="dropSec gizli" role="dialog" aria-modal="true" aria-label="Araç seçimi"><div class="dropKutu"><h3 id="dropBaslik">Bu dosyayla ne yapmak istersiniz?</h3><div class="dropListe"></div><button type="button" class="ikincil" id="dropIptal">Vazgeç</button></div></div>
+<footer>Copyright &copy; <span id="yil">2026</span> Hastane Portal. Tüm hakları saklıdır.</footer>
+<script>document.getElementById("yil").textContent=new Date().getFullYear();</script>
+<script src="lib/pdf-lib.min.js"></script>
+<script src="lib/pdf.min.js"></script>
+<script src="lib/jszip.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

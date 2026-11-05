@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Harf Çevirme | Hastane Portal</title>
+<meta name="description" content="Metni büyük harf, küçük harf, ters, rastgele ve baş harfi büyük biçimlere çevirir.">
+<style>
+  :root{--teal:#1a73c7;--teal2:#1769aa;--mint:#dcebfa;--ink:#12263f;--gri:#5a7390;--cizgi:#d5dde8;--ok:#2e9e6a}
+  *{box-sizing:border-box}
+  body{margin:0;font:16px/1.6 "Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:#f3f6fa}
+  header{background:#0b2f5c;color:#fff;position:relative;overflow:hidden}
+  header::before,header::after{content:"+";position:absolute;font-size:120px;font-weight:700;color:rgba(255,255,255,.07);animation:float 9s ease-in-out infinite;pointer-events:none}
+  header::before{top:-10px;left:6%} header::after{bottom:20px;right:8%;font-size:170px;animation-delay:-4s}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-24px) rotate(20deg)}}
+  @keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.12)}30%{transform:scale(1)}45%{transform:scale(1.08)}}
+  .geriSatir{margin:0;padding:14px 20px 0;text-align:left;position:relative;z-index:2}
+  .geri{display:inline-block;color:#fff;text-decoration:none;font-size:14px;padding:6px 14px;border:1px solid rgba(255,255,255,.55);border-radius:20px;transition:background .2s}
+  .geri:hover{background:rgba(255,255,255,.18)}
+  .ust{max-width:1000px;margin:0 auto;padding:16px 20px 100px;display:flex;gap:18px;align-items:center;position:relative;z-index:1}
+  .logo{flex:0 0 76px;height:76px;animation:beat 1.6s ease-in-out infinite}
+  .logo svg{width:100%;height:100%}
+  h1{margin:0;font-size:28px;line-height:1.2;letter-spacing:.2px}
+  .alt{margin:6px 0 0;opacity:.92;font-size:15px}
+  .ekg{position:absolute;left:0;right:0;bottom:36px;height:56px;width:100%;z-index:0;pointer-events:none;
+        filter:drop-shadow(0 0 6px #8fd3ff);animation:ciz 5s ease-in-out infinite}
+  .ekg path{fill:none;stroke:#8fd3ff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+  @keyframes ciz{0%{clip-path:inset(-20px 100% -20px 0);opacity:1}65%{clip-path:inset(-20px 0 -20px 0);opacity:1}88%{clip-path:inset(-20px 0 -20px 0);opacity:0}100%{clip-path:inset(-20px 0 -20px 0);opacity:0}}
+  @media (prefers-reduced-motion:reduce){.ekg{animation:none}header::before,header::after,.logo{animation:none}}
+  main{max-width:1000px;margin:-34px auto 0;padding:0 20px 40px;position:relative;z-index:2}
+  .kart{background:#fff;border:1px solid var(--cizgi);border-radius:14px;box-shadow:0 4px 18px rgba(26,115,199,.08)}
+  .giris{padding:20px 24px;margin-bottom:18px}
+  .baslik{display:flex;align-items:center;gap:12px;margin:0 0 12px}
+  .ikonDaire{flex:0 0 34px;height:34px;border-radius:50%;background:var(--mint);color:var(--teal);display:grid;place-items:center}
+  .ikonDaire svg{width:20px;height:20px}
+  h2{margin:0;font-size:19px;color:#0b2f5c}
+  .giris textarea{display:block;width:100%;min-height:130px;resize:vertical;font:inherit;color:var(--ink);background:#f7fafd;
+        border:1.5px solid var(--cizgi);border-radius:10px;padding:12px 14px;outline:none;transition:border-color .15s,box-shadow .15s}
+  .giris textarea::placeholder{color:#8a9db4}
+  .giris textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(26,115,199,.18);background:#fff}
+  .sayac{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+  .sayac span{background:var(--mint);color:#0b2f5c;border-radius:999px;padding:2px 14px;font-size:14px;font-weight:600}
+  .sayac b{color:var(--teal2)}
+  .temizle{margin-left:auto;padding:4px 16px;border:1.5px solid var(--teal);background:#fff;color:var(--teal);border-radius:999px;cursor:pointer;font-size:14px;font-weight:600;font-family:inherit}
+  .temizle:hover{background:var(--mint)}
+  .izgara{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  .sonuc{display:flex;flex-direction:column;overflow:hidden}
+  .sonuc>.bas{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 16px;border-bottom:1px solid var(--cizgi);background:#f4f8fd}
+  .sonuc h2{font-size:17px}
+  .cikti{min-height:130px;padding:14px 16px;white-space:pre-wrap;overflow-wrap:anywhere;flex:1;font-size:16px;user-select:text}
+  .cikti:empty::before{content:"Sonuç burada görünecek.";color:#8a9db4}
+  .araclar{display:flex;gap:6px}
+  .ikon{border:1.5px solid var(--teal);background:#fff;color:var(--teal);cursor:pointer;padding:0;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;position:relative}
+  .ikon:hover{background:var(--mint)}
+  .ikon:focus-visible{outline:3px solid rgba(26,115,199,.35);outline-offset:1px}
+  .ikon:disabled{opacity:.4;cursor:default;background:#fff}
+  .ikon svg{width:18px;height:18px;display:block}
+  .ikon.tamam{border-color:var(--ok);background:var(--ok);color:#fff}
+  .bildir{position:absolute;top:calc(100% + 6px);right:0;background:#0b2f5c;color:#fff;font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap;z-index:3}
+  footer{text-align:center;color:var(--gri);font-size:13px;padding:0 20px 28px}
+  @media (max-width:720px){.izgara{grid-template-columns:1fr}.giris{padding:16px}}
+  @media (max-width:560px){h1{font-size:22px}.logo{flex-basis:54px;height:54px}.logo svg{width:30px;height:30px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="geriSatir"><a class="geri" href="../../index.html">&larr; Ana sayfaya dön</a></div>
+  <div class="ust">
+    <div class="logo"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="3"/><path d="M40 20h20v20h20v20H60v20H40V60H20V40h20z" fill="#fff"/></svg></div>
+    <div>
+      <h1>Harf Çevirme</h1>
+      <p class="alt">Metni büyük harf, küçük harf, ters ve baş harfi büyük gibi biçimlere çevirir.</p>
+    </div>
+  </div>
+  <svg class="ekg" viewBox="0 0 900 56" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 30H110l12-6 10 6h26l12-26 14 50 12-24h22l10-8 12 8H410l12-6 10 6h26l12-26 14 50 12-24h22l10-8 12 8H710l12-6 10 6h26l12-26 14 50 12-24h22l10-8 12 8H900"/>
+  </svg>
+</header>
+
+<main>
+  <section class="kart giris" aria-labelledby="bMetin">
+    <div class="baslik"><span class="ikonDaire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7V5h16v2M12 5v14M9 19h6"/></svg></span><h2 id="bMetin">Metin</h2></div>
+    <textarea id="metin" placeholder="Metninizi buraya yazın veya kopyalayıp yapıştırın." spellcheck="false" autofocus></textarea>
+    <div class="sayac"><span><b id="kelime">0</b> Kelime</span><span><b id="karakter">0</b> Karakter</span><button type="button" class="temizle" id="temizle">Temizle</button></div>
+  </section>
+
+  <div class="izgara" id="izgara"></div>
+</main>
+
+<footer>Copyright &copy; <span id="yil">2026</span> Hastane Portal. Tüm hakları saklıdır.</footer>
+<script>document.getElementById("yil").textContent=new Date().getFullYear();</script>
+<script>
+(function () {
+  'use strict';
+  var TR = 'tr-TR';
+  var kopyaSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="4" width="10" height="3" rx="1"/><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/></svg>';
+  var tikSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+  var karisSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v4h-4"/></svg>';
+
+  function parcala(s) {
+    if (window.Intl && Intl.Segmenter) {
+      return Array.from(new Intl.Segmenter(TR, { granularity: 'grapheme' }).segment(s), function (x) { return x.segment; });
+    }
+    return Array.from(s);
+  }
+  function buyuk(c) { return c.toLocaleUpperCase(TR); }
+  function kucuk(c) { return c.toLocaleLowerCase(TR); }
+
+  var DONUSUMLER = [
+    { id: 'buyuk', baslik: 'BÜYÜK HARF', yap: function (s) { return buyuk(s); } },
+    { id: 'kucuk', baslik: 'küçük harf', yap: function (s) { return kucuk(s); } },
+    { id: 'ters', baslik: 'ızay sreT', yap: function (s) { return parcala(s).reverse().join(''); } },
+    { id: 'rastgele', baslik: 'rASTGELE bÜYÜK/küçük', karistir: true, yap: function (s) {
+        return Array.from(s).map(function (c) {
+          var u = buyuk(c), l = kucuk(c);
+          if (u === l || u.length !== c.length || l.length !== c.length) return c;
+          return Math.random() < 0.5 ? u : l;
+        }).join('');
+      } },
+    { id: 'baslik', baslik: 'Kelimelerin Baş Harfi Büyük', yap: function (s) {
+        return s.replace(/\p{L}[\p{L}\p{M}]*(?:['’]\p{L}[\p{L}\p{M}]*)*/gu, function (k) {
+          var p = Array.from(k);
+          return buyuk(p[0]) + kucuk(p.slice(1).join(''));
+        });
+      } },
+    { id: 'tersle', baslik: 'BÜYÜK/küçük değiştir', yap: function (s) {
+        return Array.from(s).map(function (c) {
+          var u = buyuk(c), l = kucuk(c);
+          if (u === l || u.length !== c.length || l.length !== c.length) return c;
+          return c === u ? l : u;
+        }).join('');
+      } }
+  ];
+
+  var metin = document.getElementById('metin');
+  var izgara = document.getElementById('izgara');
+  var kelimeEl = document.getElementById('kelime');
+  var karakterEl = document.getElementById('karakter');
+  var kartlar = {};
+
+  function dugme(html, etiket) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'ikon'; b.innerHTML = html;
+    b.setAttribute('aria-label', etiket); b.title = etiket;
+    return b;
+  }
+
+  function kopyala(metni) {
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(metni);
+    return new Promise(function (coz, red) {
+      var t = document.createElement('textarea');
+      t.value = metni; t.setAttribute('readonly', ''); t.style.cssText = 'position:fixed;left:-9999px;top:0';
+      document.body.appendChild(t); t.select();
+      try { document.execCommand('copy') ? coz() : red(new Error('kopyalanamadı')); } catch (e) { red(e); }
+      document.body.removeChild(t);
+    });
+  }
+
+  DONUSUMLER.forEach(function (d) {
+    var kart = document.createElement('section');
+    kart.className = 'kart sonuc';
+    kart.setAttribute('aria-labelledby', 'b-' + d.id);
+    var bas = document.createElement('div'); bas.className = 'bas';
+    var h = document.createElement('h2'); h.id = 'b-' + d.id; h.textContent = d.baslik;
+    var arac = document.createElement('div'); arac.className = 'araclar';
+    var cikti = document.createElement('div'); cikti.className = 'cikti'; cikti.setAttribute('aria-live', 'off');
+
+    var kopya = dugme(kopyaSvg, d.baslik + ' sonucunu kopyala');
+    var zaman;
+    kopya.addEventListener('click', function () {
+      var m = cikti.textContent;
+      if (!m) return;
+      kopyala(m).then(function () {
+        kopya.innerHTML = tikSvg + '<span class="bildir">Kopyalandı</span>'; kopya.classList.add('tamam');
+      }).catch(function () {
+        kopya.innerHTML = kopyaSvg + '<span class="bildir">Kopyalanamadı</span>';
+      });
+      clearTimeout(zaman);
+      zaman = setTimeout(function () { kopya.innerHTML = kopyaSvg; kopya.classList.remove('tamam'); }, 1500);
+    });
+
+    if (d.karistir) {
+      var yeni = dugme(karisSvg, 'Yeniden karıştır');
+      yeni.addEventListener('click', function () { guncelle(d); });
+      arac.appendChild(yeni);
+      kartlar[d.id + '_yeni'] = yeni;
+    }
+    arac.appendChild(kopya);
+    bas.appendChild(h); bas.appendChild(arac);
+    kart.appendChild(bas); kart.appendChild(cikti);
+    izgara.appendChild(kart);
+    kartlar[d.id] = { cikti: cikti, kopya: kopya };
+  });
+
+  function guncelle(d) {
+    var k = kartlar[d.id], s = metin.value;
+    k.cikti.textContent = s ? d.yap(s) : '';
+    k.kopya.disabled = !s;
+    if (kartlar[d.id + '_yeni']) kartlar[d.id + '_yeni'].disabled = !s;
+  }
+
+  function hepsi() {
+    var s = metin.value, t = s.trim();
+    kelimeEl.textContent = t ? t.split(/\s+/).length : 0;
+    karakterEl.textContent = Array.from(s).length;
+    DONUSUMLER.forEach(guncelle);
+  }
+
+  document.getElementById('temizle').addEventListener('click', function () { metin.value = ''; hepsi(); metin.focus(); });
+  metin.addEventListener('input', hepsi);
+  hepsi();
+})();
+</script>
+</body>
+</html>

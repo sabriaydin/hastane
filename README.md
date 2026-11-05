@@ -12,7 +12,9 @@ js/main.js             Portal mantığı
 assets/images/logos/   Logo dosyaları
 araclar/               Araçlar penceresindeki uygulamalar (her araç kendi klasöründe)
   ekip-izin-raporu/    EKİP Personel İzin Bilgisi Raporlama (kurulum sayfası)
-  hizli-erisim-menusu/ Hızlı Erişim Menüsü (yer imi uygulaması, sağ panel)
+  hizli-erisim-menusu/ Hızlı Erişim Menüsü (yer imi uygulaması, sol panel)
+  pdf-duzenleyici/     PDF Düzenleyici (birleştir, ayır, PDF↔JPG; lib/ klasöründe yerel kütüphaneler)
+  harf-cevirme/        Harf Çevirme (büyük/küçük harf, ters, rastgele, baş harfi büyük)
 ```
 
 ## Logo Dosyaları

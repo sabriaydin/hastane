@@ -87,14 +87,18 @@ html,body{font-family:"Segoe UI",system-ui,Arial,sans-serif;color:var(--text);ba
 @keyframes cardIn{to{opacity:1;transform:none}}
 
 .enter-btn{
-  margin-top:18px;padding:11px 34px;border-radius:40px;cursor:pointer;
-  font-size:14px;font-weight:500;letter-spacing:1px;color:#fff;
-  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.55);
-  backdrop-filter:blur(8px);
+  margin-top:18px;padding:13px 30px;min-width:200px;border-radius:999px;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:inherit;font-size:15px;font-weight:600;letter-spacing:.6px;color:#fff;
+  background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.7);
+  backdrop-filter:blur(8px);box-shadow:0 6px 18px rgba(4,16,36,.25);
   opacity:0;animation:rise .8s 2.2s forwards,glow 2.4s 3s infinite;
-  transition:background .3s,color .3s,transform .3s;
+  transition:background .3s,color .3s,transform .3s,border-color .3s;
 }
-.enter-btn:hover{background:#fff;color:var(--teal-dark);transform:translateY(-2px)}
+.enter-btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.enter-btn:hover{background:#fff;color:var(--teal-dark);border-color:#fff;transform:translateY(-2px)}
+.enter-btn:active{transform:translateY(0) scale(.98)}
+.enter-btn:focus-visible{outline:3px solid rgba(143,211,255,.9);outline-offset:3px}
 @keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.35)}50%{box-shadow:0 0 0 10px rgba(255,255,255,0)}}
 
 .link-grid.light .card{
@@ -122,9 +126,7 @@ html,body{font-family:"Segoe UI",system-ui,Arial,sans-serif;color:var(--text);ba
 .no-scroll{overflow:hidden}
 .intro-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:10px}
 .intro-actions .enter-btn{margin-top:8px}
-.intro-actions .primary{background:#fff;color:var(--teal-dark);border-color:#fff}
-.intro-actions .primary:hover{background:rgba(255,255,255,.85)}
-.intro-actions .enter-btn:not(.primary){background:transparent;border:1px solid rgba(255,255,255,.75)}
+@media (max-width:520px){.intro-actions{flex-direction:column;align-items:center;gap:6px}.intro-actions .enter-btn{width:100%;max-width:300px}}
 
 
 .modal{
@@ -172,3 +174,69 @@ html,body{font-family:"Segoe UI",system-ui,Arial,sans-serif;color:var(--text);ba
 #intro.ready .skip-hint{opacity:0;pointer-events:none}
 #intro.skip .intro-title,#intro.skip .intro-sub{animation:none;opacity:1}
 #intro.skip .enter-btn{opacity:1;animation:glow 2.4s infinite}
+#intro.skip .arama{opacity:1;animation:none}
+
+/* ---------- ANA SAYFA ARAMA KUTUSU ---------- */
+.arama{
+  display:flex;align-items:center;gap:6px;width:min(700px,92vw);margin:22px auto 0;padding:6px 6px 6px 22px;
+  border-radius:999px;background:#fff;border:1.5px solid #fff;
+  box-shadow:0 6px 18px rgba(4,16,36,.25);
+  opacity:0;animation:rise .8s 2.2s forwards;
+  transition:background .3s,border-color .3s,box-shadow .3s;
+}
+.arama:focus-within{background:#fff;border-color:#8fd3ff;box-shadow:0 0 0 4px rgba(143,211,255,.45),0 6px 18px rgba(4,16,36,.25)}
+.arama-kutu{
+  flex:1;min-width:0;background:transparent;border:0;outline:0;color:var(--text);
+  font-family:inherit;font-size:15px;letter-spacing:.3px;padding:9px 0;
+}
+.arama-kutu::placeholder{color:#7b8da3}
+.arama-kutu::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
+.arama-btn{
+  flex:none;width:42px;height:42px;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center;
+  background:var(--teal);color:#fff;transition:transform .25s,background .25s;
+}
+.arama-btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.arama-btn:hover{transform:scale(1.08);background:var(--teal-dark)}
+.arama-btn:active{transform:scale(.95)}
+.arama-btn:focus-visible{outline:3px solid rgba(26,115,199,.5);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.arama{animation:none;opacity:1}}
+
+/* ---------- ANA SAYFA GÖRSEL İYİLEŞTİRMELER ---------- */
+#intro::after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 36%,rgba(143,211,255,.22),transparent 42%),
+    radial-gradient(circle at 12% 88%,rgba(26,115,199,.35),transparent 38%),
+    radial-gradient(circle at 92% 12%,rgba(26,115,199,.30),transparent 36%),
+    radial-gradient(rgba(255,255,255,.07) 1px,transparent 1.5px) 0 0/26px 26px;
+}
+.logo-pulse{position:relative;width:104px;height:104px;filter:drop-shadow(0 6px 18px rgba(143,211,255,.35))}
+.logo-pulse::before{
+  content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(143,211,255,.55);
+  animation:halo 2.4s ease-out infinite;pointer-events:none;
+}
+@keyframes halo{0%{transform:scale(.92);opacity:.9}100%{transform:scale(1.55);opacity:0}}
+.intro-inner{gap:16px}
+.intro-title{
+  font-weight:800;letter-spacing:.5px;
+  background:linear-gradient(180deg,#fff 30%,#bfe0ff);-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  filter:drop-shadow(0 4px 14px rgba(4,16,36,.35));
+}
+.intro-sub{color:rgba(255,255,255,.88);letter-spacing:.3px}
+.ecg{margin:2px 0 6px}
+.intro-actions{margin-top:14px;gap:16px}
+.arama{margin-top:26px}
+.intro-foot{
+  position:absolute;bottom:18px;left:0;right:0;text-align:center;margin:0;
+  font-size:12px;letter-spacing:.4px;color:rgba(255,255,255,.6);
+  opacity:0;transition:opacity .6s .2s;pointer-events:none;
+}
+#intro.ready .intro-foot{opacity:1}
+@media (max-height:640px){.intro-foot{display:none}}
+@media (prefers-reduced-motion:reduce){.logo-pulse::before{animation:none;opacity:0}}
+
+/* Arama kutusu üstte, butonlar altta */
+.arama{margin-top:12px}
+.arama-kutu{font-size:16px}
+.intro-actions{margin-top:20px}

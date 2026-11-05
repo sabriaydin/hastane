@@ -1,0 +1,5 @@
+Bu klasördeki kütüphaneler, PDF Düzenleyici aracının tarayıcıda çalışması için olduğu gibi (değiştirilmeden) kullanılmıştır.
+
+- @cantoo/pdf-lib 2.11.1 (pdf-lib çatalı; şifreli PDF desteği) — MIT Lisansı — https://github.com/cantoo-scribe/pdf-lib
+- pdf.js (pdfjs-dist) 3.11.174 — Apache-2.0 — https://github.com/mozilla/pdf.js
+- JSZip 3.10.1        — MIT veya GPLv3     — https://github.com/Stuk/jszip
