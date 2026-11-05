@@ -292,3 +292,25 @@ html,body{font-family:"Segoe UI",system-ui,Arial,sans-serif;color:var(--text);ba
   .belge-indir{padding:7px 10px;font-size:0}
   .belge-indir svg{width:18px;height:18px}
 }
+
+/* ---------- ANA SAYFA BUTONLARI: İNCE / ZARİF GÖRÜNÜM ---------- */
+.enter-btn{
+  min-width:0;padding:10px 22px;gap:9px;margin-top:0;
+  font-size:14px;font-weight:500;letter-spacing:.4px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.32);
+  box-shadow:none;backdrop-filter:blur(6px);
+  animation:rise .8s 2.2s forwards;
+  transition:background .25s,border-color .25s,transform .25s,box-shadow .25s;
+}
+.enter-btn svg{width:17px;height:17px;stroke-width:1.7;opacity:.85}
+.enter-btn:hover{
+  background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.7);
+  transform:translateY(-1px);box-shadow:0 6px 18px rgba(4,16,36,.25);
+}
+.enter-btn:active{transform:none;background:rgba(255,255,255,.12)}
+.enter-btn:hover svg{opacity:1}
+#intro.skip .enter-btn{opacity:1;animation:none}
+.intro-actions{gap:12px;margin-top:22px}
+.intro-actions .enter-btn{margin-top:0}
+@media (max-width:520px){.intro-actions{gap:10px}.intro-actions .enter-btn{max-width:260px}}
