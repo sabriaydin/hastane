@@ -72,9 +72,11 @@ const FAQ = [];
 
 /* Programlar penceresinde gösterilecek öğeler (içerik daha sonra eklenecek).
    Örnek satır: { icon: "💻", title: "Program Adı", desc: "Kısa açıklama", url: "programlar/ornek.zip", download: "Program Adı.zip" } */
+/* url boş bırakılırsa satır "Eklenecek" olarak pasif görünür; dosya/adres hazır olunca url yazılır. */
 const PROGRAMS = [
   { icon: "📊", title: "Temel Sağlık İstatistikleri Modülü [TSİM]", url: "https://tsim.saglik.gov.tr/forms/java/tsim.jnlp" },
   { icon: "🗄️", title: "Çekirdek Kaynak Yönetim Sistemi [ÇKYS]", url: "https://ckys.saglik.gov.tr/forms/java/ckys.jnlp" },
+  { icon: "☕", title: "Java (32bit) 8 Update 341", url: "" },
   { icon: "✍️", title: "ArkSigner", url: "https://www.arksigner.com/indir" },
   { icon: "🧩", title: "ArkSigner Tarayıcı Eklentisi", url: "https://chromewebstore.google.com/detail/pllcidbcfbamjfbfpemnnjohnfcliakf?utm_source=item-share-cb" },
   { icon: "🔑", logo: "usb-eimza.png", title: "Akis Kart İzleme Aracı", url: "https://kamusm.bilgem.tubitak.gov.tr/islemler/surucu_yukleme_servisi/" },

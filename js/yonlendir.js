@@ -1,9 +1,9 @@
 /* Güvenli yönlendirme: yalnızca http/https adreslerine, kullanıcıya gösterilerek yönlendirir.
-   Listelerde (LINKS, TOOLS, PROGRAMS) birebir bulunan adresler 3 saniye sonra otomatik açılır;
+   Listelerde (LINKS, TOOLS, PROGRAMS) birebir bulunan adresler 10 saniye sonra otomatik açılır;
    listede olmayan adresler uyarı ile gösterilir ve yalnızca kullanıcı onaylarsa açılır. */
 (function () {
   "use strict";
-  var SURE = 3;
+  var SURE = 10;
   var $ = function (id) { return document.getElementById(id); };
 
   function hata(baslik, mesaj) {
@@ -50,14 +50,15 @@
 
   if (!bilinen) {
     $("baslik").textContent = "Dikkat: listede olmayan adres";
-    $("mesaj").textContent = "Bu bağlantı Hastane360 dışındaki bir siteye gidiyor.";
+    $("mesaj").textContent = "Bu bağlantı Hastane360 listelerinde yer almayan, dışarıdaki bir siteye gidiyor. Otomatik yönlendirme yapılmayacaktır.";
     $("uyariKutu").hidden = false;
     return;
   }
 
   $("baslik").textContent = "Dış bağlantıya yönlendiriliyorsunuz";
-  $("mesaj").textContent = "Hastane360 dışındaki bir siteye geçiyorsunuz.";
+  $("mesaj").textContent = "Hastane360 dışındaki bir siteye geçmek üzeresiniz. Aşağıdaki bilgileri okuyun; " + SURE + " saniye sonra bağlantı otomatik olarak açılacaktır.";
   $("sayacKutu").hidden = false;
+  $("geri").addEventListener("click", function () { $("sayacNot").textContent = "Yönlendirme durduruldu"; });
   var kalan = SURE, halka = $("ilerle"), TOPLAM = 100.5;
   $("saniye").textContent = kalan;
   var zaman = setInterval(function () {

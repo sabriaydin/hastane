@@ -98,6 +98,30 @@ function belgelerHTML(items, bos) {
   return html;
 }
 
+/* ---------- PROGRAMLAR (tek satırlık liste) ---------- */
+function programlarHTML(items, bos) {
+  if (!items.length) return `<p class="empty">${bos}</p>`;
+  return `<div class="program-liste">` + items.map(l => {
+    const simge = l.logo
+      ? `<img src="${LOGO_DIR}${l.logo}" alt="" data-icon="${l.icon || "💻"}" onerror="logoFail(this)">`
+      : `<span>${l.icon || "💻"}</span>`;
+    const ok = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>`;
+    if (!l.url) {
+      return `<div class="belge program pasif" aria-disabled="true">
+                <span class="program-ikon">${simge}</span>
+                <span class="belge-ad"><b>${l.title}</b></span>
+                <span class="belge-indir pasif-etiket">Eklenecek</span>
+              </div>`;
+    }
+    const ext = /^https?:/i.test(l.url) ? ' target="_blank" rel="noopener"' : "";
+    return `<a class="belge program" href="${guvenliAdres(l.url)}"${ext}>
+              <span class="program-ikon">${simge}</span>
+              <span class="belge-ad"><b>${l.title}</b></span>
+              <span class="belge-indir">${ok}Aç</span>
+            </a>`;
+  }).join("") + `</div>`;
+}
+
 let acikModal = null;
 
 function openModal(key) {
@@ -106,12 +130,16 @@ function openModal(key) {
   lastFocus = document.activeElement;
   $("modalTitle").textContent = m.title;
   const belge = key === "docs";
-  document.querySelector(".modal-box").classList.toggle("dar", belge);
-  $("modalGrid").classList.toggle("link-grid", !belge);
-  $("modalGrid").classList.toggle("belge-liste", belge);
+  const program = key === "programs";
+  const liste = belge || program;
+  document.querySelector(".modal-box").classList.toggle("dar", liste);
+  $("modalGrid").classList.toggle("link-grid", !liste);
+  $("modalGrid").classList.toggle("belge-liste", liste);
   if (belge) belgeFiltre = "all";
   $("modalGrid").innerHTML = belge
     ? belgelerHTML(m.items, m.empty)
+    : program
+    ? programlarHTML(m.items, m.empty)
     : m.items.length
       ? m.items.map(cardHTML).join("")
       : `<p class="empty">${m.empty}</p>`;

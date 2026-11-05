@@ -314,3 +314,13 @@ html,body{font-family:"Segoe UI",system-ui,Arial,sans-serif;color:var(--text);ba
 .intro-actions{gap:12px;margin-top:22px}
 .intro-actions .enter-btn{margin-top:0}
 @media (max-width:520px){.intro-actions{gap:10px}.intro-actions .enter-btn{max-width:260px}}
+
+/* ---------- PROGRAMLAR: TEK SATIRLIK LİSTE ---------- */
+.program-liste{display:flex;flex-direction:column}
+.program-ikon{flex:0 0 46px;height:46px;border-radius:10px;display:grid;place-items:center;background:#eef3fa;font-size:24px;overflow:hidden}
+.program-ikon img{width:100%;height:100%;object-fit:contain;background:#fff;padding:5px}
+.belge.program .belge-ad b{font-size:15.5px}
+.belge.pasif{opacity:.6;cursor:default;box-shadow:none;background:#f7f9fc}
+.belge.pasif:hover{border-color:#d5dde8;box-shadow:none;transform:none}
+.belge.pasif .belge-indir.pasif-etiket{border-color:#b6c3d4;color:#6a809b;background:transparent}
+.belge.pasif:hover .belge-indir{background:transparent;color:#6a809b}
