@@ -240,3 +240,55 @@ html,body{font-family:"Segoe UI",system-ui,Arial,sans-serif;color:var(--text);ba
 .arama{margin-top:12px}
 .arama-kutu{font-size:16px}
 .intro-actions{margin-top:20px}
+
+/* ---------- BELGELER: SÜTUN LİSTE ---------- */
+.modal-box.dar{width:min(780px,100%)}
+.belge-liste{display:block;padding:18px 22px 24px}
+.belge-sekmeler{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.belge-sekme{
+  display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:999px;cursor:pointer;
+  background:#fff;border:1.5px solid #cfd9e6;color:#35506f;font-weight:600;font-size:14px;line-height:1.2;font-family:inherit;transition:all .2s;
+}
+.belge-sekme i{font-style:normal;font-size:12px;min-width:20px;padding:2px 6px;border-radius:999px;background:#e6eef8;color:#35506f;text-align:center}
+.belge-sekme:hover:not(:disabled){border-color:var(--teal);color:var(--teal)}
+.belge-sekme.aktif{background:var(--teal);border-color:var(--teal);color:#fff}
+.belge-sekme.aktif i{background:rgba(255,255,255,.25);color:#fff}
+.belge-sekme:disabled{opacity:.45;cursor:default}
+.belge-sekme:focus-visible,.belge:focus-visible{outline:3px solid rgba(26,115,199,.4);outline-offset:2px}
+.belge-grup{margin-top:18px}
+.belge-grup h3{
+  display:flex;align-items:center;gap:10px;margin:0 0 10px;padding:0 2px;
+  font-size:13px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#5a7390;
+}
+.belge-grup h3::after{content:"";flex:1;height:1px;background:#d5dde8}
+.belge-grup h3 i{font-style:normal;order:2;font-size:12px;background:#e6eef8;color:#35506f;border-radius:999px;padding:1px 9px}
+.belge{
+  display:flex;align-items:center;gap:14px;padding:12px 16px;margin-bottom:8px;
+  background:#fff;border:1px solid #d5dde8;border-radius:12px;color:var(--text);text-decoration:none;
+  box-shadow:0 1px 3px rgba(11,47,92,.06);transition:border-color .2s,box-shadow .2s,transform .2s;
+}
+.belge:hover{border-color:var(--teal);box-shadow:0 6px 16px rgba(26,115,199,.16);transform:translateY(-1px)}
+.belge-tur{
+  flex:0 0 46px;height:46px;border-radius:10px;display:grid;place-items:center;
+  font-size:12px;font-weight:800;letter-spacing:.5px;
+}
+.belge-tur.pdf{background:#fdecec;color:#c62828}
+.belge-tur.word{background:#e3effc;color:#1565c0}
+.belge-tur.excel{background:#e3f5ec;color:#1b7f4f}
+.belge-tur.diger{background:#eef2f7;color:#5a7390}
+.belge-ad{flex:1;min-width:0}
+.belge-ad b{display:block;font-size:15px;font-weight:600;line-height:1.35;color:#0b2f5c}
+.belge-ad small{display:block;margin-top:2px;font-size:12.5px;color:#6a809b}
+.belge-indir{
+  flex:none;display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:999px;
+  border:1.5px solid var(--teal);color:var(--teal);font-size:13.5px;font-weight:600;background:#fff;transition:background .2s,color .2s;
+}
+.belge-indir svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.belge:hover .belge-indir{background:var(--teal);color:#fff}
+@media (max-width:520px){
+  .belge-liste{padding:12px}
+  .belge{gap:10px;padding:10px 12px}
+  .belge-tur{flex-basis:40px;height:40px}
+  .belge-indir{padding:7px 10px;font-size:0}
+  .belge-indir svg{width:18px;height:18px}
+}

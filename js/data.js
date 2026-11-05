@@ -54,8 +54,18 @@ const TOOLS = [
 ];
 
 /* Belgeler penceresinde gösterilecek öğeler (içerik daha sonra eklenecek).
-   Örnek satır: { icon: "📄", title: "Belge Adı", desc: "Kısa açıklama", url: "belgeler/ornek.pdf" } */
-const DOCS = [];
+   Örnek satır: { icon: "📄", title: "Belge Adı", desc: "Kısa açıklama", url: "belgeler/ornek.pdf", download: "Belge Adı.pdf" }
+   (download: indirilirken kullanılacak dosya adı; belgeler/ klasörüne dosyayı kopyalayın) */
+const DOCS = [
+  { icon: "📄", title: "Acil Servis Ünitesi İntihar Girişimleri Kayıt Formu", desc: "PDF · 70 KB", url: "belgeler/acil-servis-unitesi-intihar-girisimleri-kayit-formu.pdf", download: "Acil Servis Ünitesi İntihar Girişimleri Kayıt Formu.pdf" },
+  { icon: "📄", title: "Evde Sağlık Hizmetine Kabul Edilen Hasta Değerlendirme Formu", desc: "PDF · 418 KB", url: "belgeler/evde-saglik-hizmetine-kabul-edilen-hasta-degerlendirme-formu.pdf", download: "Evde Sağlık Hizmetine Kabul Edilen Hasta Değerlendirme Formu.pdf" },
+  { icon: "📝", title: "İzin İptal Dilekçesi", desc: "Word · 12 KB", url: "belgeler/izin-iptal-dilekcesi.docx", download: "İzin İptal Dilekçesi.docx" },
+  { icon: "📄", title: "İzin İsteği ve Onay Formu", desc: "PDF · 176 KB", url: "belgeler/izin-istegi-ve-onay-formu.pdf", download: "İzin İsteği ve Onay Formu.pdf" },
+  { icon: "📄", title: "Kimlik Araştırma Belgesi", desc: "PDF · 501 KB", url: "belgeler/kimlik-arastirma-belgesi.pdf", download: "Kimlik Araştırma Belgesi.pdf" },
+  { icon: "📝", title: "Mal Bildirim Formu", desc: "Word · 99 KB", url: "belgeler/mal-bildirim-formu.doc", download: "Mal Bildirim Formu.doc" },
+  { icon: "📄", title: "Türk Silahlı Kuvvetleri Personeli Yaralanma Tespit Formu", desc: "PDF · 395 KB", url: "belgeler/turk-silahli-kuvvetleri-personeli-yaralanma-tespit-formu.pdf", download: "Türk Silahlı Kuvvetleri Personeli Yaralanma Tespit Formu.pdf" },
+  { icon: "📄", title: "Uygunsuz Sevk Formu", desc: "PDF · 163 KB", url: "belgeler/uygunsuz-sevk-formu.pdf", download: "Uygunsuz Sevk Formu.pdf" }
+];
 
 /* Sık Sorulan Sorular penceresinde gösterilecek öğeler (içerik daha sonra eklenecek). */
 const FAQ = [];
