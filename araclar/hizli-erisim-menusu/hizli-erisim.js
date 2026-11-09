@@ -12,7 +12,7 @@
   const eski = document.getElementById(ID);
   if (eski) { eski.remove(); return; }
 
-  const SON_GUNCELLEME = '05.11.2026';
+  const SON_GUNCELLEME = '09.11.2026';
 
   /* Bağlantı listesi: t = başlık, d = açıklama, u = adres, l = logo anahtarı, i = yedek simge */
   const BAGLANTILAR = [
@@ -159,7 +159,7 @@
     {
       "t": "SİNA",
       "d": "Sağlıkta İstatistik ve Nedensel Analizler",
-      "u": "https://uzem.giresunsaglik.gov.tr/",
+      "u": "https://sina.saglik.gov.tr/",
       "l": "sina.png",
       "i": "📊"
     },

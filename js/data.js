@@ -29,7 +29,7 @@ const LINKS = [
   { icon: "🛠️", logo: "yazilim-destek.png",  title: "Yazılım Destek",       desc: "Sağlık Bakanlığı Yardım Masası",                            url: "https://yazilimdestek.saglik.gov.tr/" },
   { icon: "🩺", logo: "e-nabiz.png",         title: "e-Nabız Yönetim",      desc: "e-Nabız Yönetim",                                           url: "https://yonetim.enabiz.gov.tr/" },
   { icon: "🏛️", logo: "e-devlet.png",        title: "E-Devlet",             desc: "e-Devlet Kapısı",                         url: "https://turkiye.gov.tr/" },
-  { icon: "📊", logo: "sina.png",           title: "SİNA",                 desc: "Sağlıkta İstatistik ve Nedensel Analizler",                 url: "https://uzem.giresunsaglik.gov.tr/" },
+  { icon: "📊", logo: "sina.png",           title: "SİNA",                 desc: "Sağlıkta İstatistik ve Nedensel Analizler",                 url: "https://sina.saglik.gov.tr/" },
   { icon: "🧩", logo: "ekip.png",           title: "EKİP Portal",          desc: "Entegre Kurumsal İşlem Platformu Portal",                   url: "https://ekipportal.saglik.gov.tr/" },
   { icon: "👤", logo: "pago.png",           title: "PAGO",                 desc: "Personel Bilgi Yönetim Sistemi",                            url: "https://uzem.giresunsaglik.gov.tr/" },
   { icon: "⚙️", logo: "ehip.png",        title: "EHİP",                 desc: "Tıbbi Cihaz Takibi",                                        url: "http://10.28.0.6:8081/EhipSM/Default.aspx" },
